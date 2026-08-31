@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Kota Kinabalu Tour Packages | KKfootprint Travel Sabah</title>
+  <meta name="description" content="Explore Kota Kinabalu and Sabah with local Sabahan driver-guides. Island hopping, Kundasang, Mengalum Island, Mari Mari, firefly tours, city tours and private custom trips.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/zh.js"></script>
+
+  <style>
+    :root {
+      --jungle: #14352f;
+      --jungle-deep: #0b2420;
+      --ocean: #0f6b7a;
+      --ocean-light: #c7e7ed;
+      --sand: #f2ede2;
+      --sand-dark: #e2d5c0;
+      --sunset: #f4a261;
+      --sunset-light: #f9d9b6;
+      --charcoal: #1e2b2a;
+      --white: #ffffff;
+      --glass: rgba(255, 255, 255, 0.2);
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 18px 35px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 25px 50px rgba(0, 0, 0, 0.18);
+      --radius: 1.5rem;
+      --radius-lg: 2rem;
+      --radius-sm: 0.8rem;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --transition: 0.22s cubic-bezier(0.2, 0, 0, 1);
+      --border: #e7ece9;
+      --muted: #66736f;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font); background: var(--white); color: var(--charcoal);
+      line-height: 1.5; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button, input, select, textarea { font: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(15,107,122,.28); outline-offset: 3px;
+    }
+
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8, 33, 29, 0.72); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      transition: padding var(--transition), background var(--transition), box-shadow var(--transition);
+      border-bottom: 1px solid rgba(255,255,255,0.15); padding: 1rem 0;
+    }
+    .header.scrolled { padding: 0.5rem 0; background: rgba(11, 36, 32, 0.95); box-shadow: 0 10px 30px rgba(7,25,22,.16); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; color: var(--white); white-space: nowrap; }
+    .logo span { color: var(--sand); }
+    
+    .nav-links { display: flex; gap: 0.35rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a, .nav-links button {
+      background: none; border: none; cursor: pointer;
+      font-weight: 500; color: rgba(255,255,255,0.85); font-size: 0.86rem;
+      padding: 0.45rem 0.8rem; border-radius: 999px; transition: var(--transition);
+      display: flex; align-items: center; gap: 0.25rem;
+    }
+    .nav-links a:hover, .nav-links button:hover, .nav-links a.active { background: rgba(255,255,255,0.12); color: #fff; }
+    
+    .lang-switch { display: flex; gap: 0.2rem; background: rgba(255,255,255,0.1); padding: 0.2rem; border-radius: 999px; }
+    .lang-btn { background: transparent; color: rgba(255,255,255,0.8); border: none; padding: 0.35rem 0.7rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: var(--transition); }
+    .lang-btn.active { background: var(--white); color: var(--jungle); }
+    
+    .btn-primary {
+      background: var(--sunset); color: #1e2b2a; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 999px;
+      border: none; cursor: pointer; transition: var(--transition); font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.4rem;
+      box-shadow: 0 8px 16px rgba(244,162,97,0.25); min-height: 46px; justify-content: center; text-align: center;
+    }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; }
+    .btn-primary:hover:not(:disabled) { background: #f0a05a; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(244,162,97,0.35); }
+    
+    .btn-secondary {
+      min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 0.6rem 1.4rem;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.45); color: white; font-weight: 700;
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); transition: var(--transition);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+    
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; }
+    .hamburger span { width: 28px; height: 3px; background: white; border-radius: 4px; transition: var(--transition); }
+    
+    @media (max-width: 900px) {
+      .nav-links { position: fixed; top: 65px; right: 0; background: var(--jungle-deep); width: min(320px, 80vw); height: auto; flex-direction: column; align-items: flex-start; padding: 2rem; transform: translateX(110%); transition: transform 0.3s ease; border-radius: 0 0 0 2rem; box-shadow: var(--shadow-lg); }
+      .nav-links.open { transform: translateX(0); }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { top: 0; width: min(360px, 88vw); height: 100dvh; border-radius: 0; padding-top: 5rem; }
+      .nav-links.open + .mobile-overlay { display: block; }
+      .mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.38); z-index: -1; display: none; }
+    }
+
+    .hero {
+      --hero-image: url('images/hero-sabah.jpg');
+      min-height: 94vh; display: flex; align-items: center; position: relative;
+      background-color: var(--jungle-deep);
+      background-image:
+        linear-gradient(110deg, rgba(7,30,26,0.94) 0%, rgba(7,30,26,0.70) 42%, rgba(7,30,26,0.28) 72%, rgba(7,30,26,0.50) 100%),
+        var(--hero-image),
+        linear-gradient(135deg, #0b2420 0%, #0f6b7a 100%);
+      background-position: center, center, center;
+      background-size: cover, cover, cover;
+      background-repeat: no-repeat;
+      overflow: hidden; padding: 5rem 0 2rem;
+      isolation: isolate;
+    }
+    .hero::after { content: ""; position: absolute; inset: auto -8vw -22vw auto; width: 46vw; aspect-ratio: 1; border-radius: 50%; background: rgba(255,255,255,0.08); filter: blur(2px); }
+    .hero-content { max-width: 790px; position: relative; z-index: 2; color: white; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.45rem 0.75rem; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); letter-spacing: 1.7px; font-size: 0.78rem; text-transform: uppercase; font-weight: 600; margin-bottom: 0.8rem; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 4.8rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.03em; max-width: 880px; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.1rem; margin: 1.5rem 0 2rem; color: rgba(255,255,255,0.9); }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.2rem; }
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 1rem 2rem; font-weight: 500; opacity: 0.9; }
+    .hero-trust span { display: inline-flex; align-items: center; gap: 0.35rem; }
+    
+    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+    .stat { padding: 1rem 1.2rem; border-radius: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); color: white; }
+    .stat strong { font-size: 1.1rem; display: block; margin-bottom: 0.2rem; }
+    .stat span { font-size: 0.85rem; opacity: 0.9; }
+    
+    .search-panel {
+      margin-top: 3rem; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      border-radius: var(--radius); padding: 1.2rem; display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr auto; align-items: end; gap: 1rem;
+      border: 1px solid rgba(255,255,255,0.5); box-shadow: var(--shadow-lg); color: var(--charcoal);
+    }
+    .search-field label { font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 0.3rem; color: #53635f; }
+    .search-field select, .search-field input, #bookingForm input, #bookingForm select, #bookingForm textarea {
+      width: 100%; min-height: 48px; padding: 0.8rem; border-radius: 0.8rem; border: 1px solid var(--border); background: #fff; font-weight: 500; transition: var(--transition); color: var(--charcoal);
+    }
+    .search-field select:focus, .search-field input:focus, #bookingForm input:focus, #bookingForm select:focus, #bookingForm textarea:focus { border-color: var(--ocean); box-shadow: 0 0 0 4px rgba(15,107,122,0.08); outline: none; }
+    
+    @media (max-width: 950px) {
+      .search-panel { grid-template-columns: 1fr 1fr; }
+      .search-panel .btn-primary { grid-column: 1 / -1; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 700px) {
+      .hero { min-height: auto; padding-top: 7rem; }
+      .search-panel { grid-template-columns: 1fr; }
+      .search-panel .btn-primary { grid-column: auto; }
+      .hero-cta a { width: 100%; }
+      .stats-strip { grid-template-columns: 1fr; }
+    }
+
+    section { padding: 5.5rem 0; }
+    .section-kicker { color: var(--ocean); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; font-size: 0.78rem; margin-bottom: 0.7rem; }
+    .section-title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
+    
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media (max-width: 800px) { .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+    .trust-item { border: 1px solid var(--border); background: white; text-align: left; padding: 1.8rem; border-radius: var(--radius-sm); }
+    .trust-item .icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; background: var(--sand); font-size: 1.45rem; margin-bottom: 1rem; }
+
+    .category-card { border: 1px solid var(--border); min-height: 160px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer; }
+    .category-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .category-card .card-body { min-height: 160px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.6rem; background: linear-gradient(180deg,#fff,#f8faf9); padding: 1.2rem; }
+    .category-card .card-body > :first-child { font-size: 2rem; }
+
+    .tour-card { border: 1px solid var(--border); box-shadow: 0 12px 28px rgba(21,52,47,0.06); background: white; border-radius: var(--radius); overflow: hidden; transition: var(--transition); display: flex; flex-direction: column; position: relative; min-width: 0; }
+    .tour-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .tour-media {
+      --card-image: none;
+      height: 220px; width: 100%; position: relative; overflow: hidden;
+      background-color: #d8e6e1;
+      background-image: linear-gradient(180deg, rgba(8,33,29,.04), rgba(8,33,29,.28)), var(--card-image), linear-gradient(135deg, #d7e8e2, #9fc8cf);
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+    }
+    .tour-media::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 -50px 60px rgba(0,0,0,.08); pointer-events: none; }
+    .badge-popular { position: absolute; top: 15px; left: 15px; background: var(--sunset); color: #1e2b2a; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; font-size: 0.75rem; z-index: 10; }
+    .tour-card .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .tour-card .meta { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.65rem 0; }
+    .pill { background: #f2f6f4; border: 1px solid var(--border); padding: 0.35rem 0.6rem; border-radius: 999px; font-size: 0.78rem; color: #4d5c58; }
+    .price { font-weight: 700; color: var(--jungle); margin: 0.5rem 0; font-size: 1.1rem; }
+    .tour-card .card-actions { margin-top: auto; padding-top: 1rem; display: flex; gap: 0.6rem; }
+    
+    .btn-ghost { min-height: 44px; border: 1px solid var(--border); background: white; border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+    .btn-ghost:hover { background: #f0f0ed; }
+
+    .filter-bar { position: sticky; top: 82px; z-index: 50; padding: 0.6rem; margin-bottom: 2rem; background: rgba(251,252,251,0.88); backdrop-filter: blur(14px); border-radius: 999px; overflow-x: auto; display: flex; gap: 0.6rem; }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-btn { white-space: nowrap; border: 1px solid var(--border); background: white; padding: 0.5rem 1.2rem; border-radius: 999px; cursor: pointer; font-weight: 600; transition: var(--transition); }
+    .filter-btn.active { background: var(--jungle); color: white; box-shadow: 0 8px 18px rgba(20,53,47,0.15); border-color: var(--jungle); }
+
+    .feature-split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+    @media (max-width: 950px) { .feature-split { grid-template-columns: 1fr; gap: 2rem; } }
+    
+    .visual-card { --visual-image:none; min-height: 400px; border-radius: var(--radius-lg); padding: 2rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; color: white; box-shadow: var(--shadow-lg); background-color: var(--jungle); background-image: var(--visual-image), linear-gradient(135deg, var(--jungle), var(--ocean)); background-size: cover; background-position: center; background-repeat:no-repeat; }
+    .visual-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,0.76)); z-index: 1; }
+    .visual-card > * { position: relative; z-index: 2; }
+    .visual-card h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .visual-ocean { --visual-image: url('images/features/mengalum.jpg'); }
+    .visual-culture { --visual-image: url('images/features/mari-mari.jpg'); }
+    .visual-night { --visual-image: url('images/features/firefly.jpg'); }
+
+    .itinerary { border: 1px solid #e4ddd0; background: var(--sand); padding: 2rem; border-radius: var(--radius); margin: 2rem 0; }
+    .timeline-item { position: relative; padding: 0.8rem 0 0.8rem 2.3rem; border-bottom: 1px dashed rgba(0,0,0,0.1); }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-item::before { content: ""; position: absolute; left: 0.25rem; top: 1.2rem; width: 10px; height: 10px; border-radius: 50%; background: var(--sunset); box-shadow: 0 0 0 5px rgba(244,162,97,0.16); }
+    
+    .vehicle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .vehicle-card { padding: 1.4rem; background: white; border: 1px solid var(--border); border-radius: var(--radius); }
+    @media (max-width: 700px) { .vehicle-grid { grid-template-columns: 1fr; } }
+    
+    .testimonial-card { padding: 1.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: white; box-shadow: var(--shadow-sm); }
+    .stars { letter-spacing: 2px; color: #b06c2f; }
+    
+    .faq-item { border: 1px solid var(--border); border-radius: 1rem; margin-bottom: 0.75rem; background: white; padding: 0 1rem; overflow: hidden; }
+    .faq-question { background: none; border: none; padding: 1.2rem 0; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; width: 100%; text-align: left; font-size: 1.05rem; }
+    .faq-answer { max-height: 0; transition: max-height 0.3s ease; }
+    .faq-answer p { color: var(--muted); padding-bottom: 1rem; }
+
+    #booking { background: linear-gradient(180deg, #f7faf8, #fff); }
+    #bookingForm { margin-top: 1.5rem; padding: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: white; box-shadow: var(--shadow-md); }
+    #bookingForm textarea { min-height: 120px; resize: vertical; grid-column: 1 / -1; }
+    .form-note { color: var(--muted); font-size: 0.88rem; margin-top: 1rem; }
+    .booking-success { margin-top: 1rem; padding: 1rem 1.2rem; background: #ecf8f1; border: 1px solid #bfe5cc; border-radius: 1rem; color: #24513a; display: none; }
+    
+    footer { background: var(--jungle-deep); color: white; padding: 3rem 0; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    footer a { display: inline-block; margin: 0.2rem 0.6rem 0.2rem 0; color: rgba(255,255,255,0.8); transition: var(--transition); }
+    footer a:hover { color: white; }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .chatbot-toggle { position: fixed; bottom: 25px; right: 25px; background: var(--jungle); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: var(--shadow-lg); font-size: 1.8rem; z-index: 200; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; }
+    .chatbot-toggle:hover { transform: scale(1.05); }
+    .chatbot-window { position: fixed; bottom: 95px; right: 25px; width: min(380px, 92vw); background: white; border-radius: 1.5rem; box-shadow: var(--shadow-lg); z-index: 210; display: flex; flex-direction: column; max-height: 75vh; height: 500px; border: 1px solid #ddd; overflow: hidden; transform-origin: bottom right; }
+    .chatbot-window[hidden] { display: none; }
+    .chatbot-window { animation: pop 0.2s ease-out; }
+    @keyframes pop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    
+    .chatbot-header { background: var(--jungle); color: white; padding: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .close-chat { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; padding: 0.2rem; }
+    
+    /* Pre-chat Form */
+    .pre-chat-form { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; flex: 1; overflow-y: auto; background: #f8faf9; }
+    .pre-chat-form p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .pre-chat-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .pre-chat-field label { font-size: 0.8rem; font-weight: 600; color: var(--charcoal); }
+    .pre-chat-field input, .pre-chat-field select { padding: 0.7rem; border-radius: 0.5rem; border: 1px solid var(--border); font-size: 0.9rem; }
+    
+    /* Active Chat Interface */
+    .chat-interface { display: none; flex-direction: column; height: 100%; }
+    .chat-interface.active { display: flex; }
+    .chat-messages { padding: 1rem; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; background: #f8faf9; }
+    .chat-bubble { padding: 0.7rem 1rem; border-radius: 1rem; width: fit-content; max-width: 85%; font-size: 0.9rem; word-wrap: break-word; }
+    .chat-bubble.bot { background: white; border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 0.2rem; }
+    .chat-bubble.user { background: var(--ocean); color: white; align-self: flex-end; border-bottom-right-radius: 0.2rem; }
+    .chat-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.8rem; background: white; border-top: 1px solid var(--border); }
+    .chat-btn { background: var(--sand); border: none; padding: 0.5rem 0.8rem; border-radius: 999px; cursor: pointer; font-size: 0.8rem; transition: var(--transition); }
+    .chat-btn:hover { background: var(--sand-dark); }
+    .chat-input-area { display: flex; gap: 0.5rem; padding: 0.8rem; background: white; border-top: 1px solid var(--border); }
+    .chat-input-area input { flex: 1; padding: 0.6rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; }
+    .chat-input-area button { background: var(--jungle); color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+    .sticky-mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 0.8rem; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 150; gap: 0.8rem; }
+    @media (max-width: 700px) {
+      .sticky-mobile-cta { display: flex; padding-bottom: calc(0.8rem + env(safe-area-inset-bottom)); }
+      .chatbot-toggle { bottom: 80px; width: 54px; height: 54px; }
+      .chatbot-window { bottom: 140px; }
+    }
+
+    /* Robustness: predictable media slots, reduced motion, and small-screen safeguards */
+    @media (max-width: 430px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .hero h1 { font-size: clamp(2.35rem, 13vw, 3.5rem); }
+      .hero p { font-size: 1rem; }
+      .search-panel, #bookingForm { padding: 1rem; }
+      .tour-card .card-actions { flex-direction: column; }
+      .tour-card .card-actions > * { width: 100%; }
+      .tour-media { height: 205px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+<header class="header" id="header">
+  <div class="container nav">
+    <div class="logo"><span data-translate="logo_kk">KKfootprint</span> <span data-translate="logo_travel">Travel</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" data-translate="nav_home">Home</a>
+      <a href="#tours" data-translate="nav_tours">Tours</a>
+      <a href="#island" data-translate="nav_island">Island Hopping</a>
+      <a href="#kundasang" data-translate="nav_kundasang">Kundasang</a>
+      <a href="#culture" data-translate="nav_culture">Culture</a>
+      <a href="#firefly" data-translate="nav_firefly">Firefly</a>
+      <a href="#city" data-translate="nav_city">City Tour</a>
+      <a href="#private" data-translate="nav_private">Private Tour</a>
+      <a href="#faq" data-translate="nav_faq">FAQ</a>
+      <a href="#contact" data-translate="nav_contact">Contact</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+      </div>
+      <a href="#booking" class="btn-primary" data-translate="nav_book">BOOK NOW</a>
+    </nav>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <button class="hamburger" id="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="eyebrow" data-translate="hero_eyebrow">WELCOME TO SABAH, BORNEO</div>
+      <h1 data-translate="hero_title">DISCOVER SABAH<br>YOUR WAY.</h1>
+      <p data-translate="hero_sub">Explore islands, mountains, culture and unforgettable local experiences with a local Sabahan driver and flexible private tours.</p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary" data-translate="hero_book">BOOK YOUR TOUR</a>
+        <a href="#tours" class="btn-secondary" data-translate="hero_explore">EXPLORE TOURS</a>
+      </div>
+      <div class="hero-trust">
+        <span>✓ <span data-translate="hero_trust1">Local Sabahan Driver/Guide</span></span>
+        <span>✓ <span data-translate="hero_trust2">Hotel Pickup</span></span>
+        <span>✓ <span data-translate="hero_trust3">Private & Group Tours</span></span>
+        <span>✓ <span data-translate="hero_trust4">Flexible Itinerary</span></span>
+      </div>
+      <div class="stats-strip">
+        <div class="stat"><strong data-translate="stat_local_h">Local</strong><span data-translate="stat_local_p">Sabahan-led trips</span></div>
+        <div class="stat"><strong data-translate="stat_flex_h">Flexible</strong><span data-translate="stat_flex_p">Private or shared</span></div>
+        <div class="stat"><strong data-translate="stat_door_h">Door-to-door</strong><span data-translate="stat_door_p">Hotel pickup options</span></div>
+        <div class="stat"><strong data-translate="stat_lang_h">Bilingual</strong><span data-translate="stat_lang_p">English / 中文</span></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Search Panel -->
+  <div class="container" style="margin-top:2rem;">
+    <div class="search-panel reveal" id="searchPanel">
+      <div class="search-field">
+        <label data-translate="search_where">Where do you want to go?</label>
+        <select id="searchDestination">
+          <option data-translate="opt_island">Island Hopping</option>
+          <option data-translate="opt_mengalum">Mengalum Island</option>
+          <option data-translate="opt_kundasang">Kundasang</option>
+          <option data-translate="opt_culture">Mari Mari Cultural Village</option>
+          <option data-translate="opt_firefly">Firefly</option>
+          <option data-translate="opt_city">City Tour</option>
+          <option data-translate="opt_custom">Private/Custom</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label data-translate="search_date">Travel Date</label>
+        <input type="text" id="searchDate" class="flatpickr-input" placeholder="Select Date" data-translate-ph="ph_select_date">
+      </div>
+      <div class="search-field">
+        <label data-translate="search_travelers">Adults / Children</label>
+        <select id="searchPax">
+          <option data-translate="opt_2adult">2 Adults</option>
+          <option data-translate="opt_1adult">1 Adult</option>
+          <option data-translate="opt_family">Family</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label data-translate="search_type">Private / Shared</label>
+        <select id="searchType">
+          <option data-translate="opt_private">Private</option>
+          <option data-translate="opt_shared">Shared</option>
+        </select>
+      </div>
+      <button class="btn-primary" id="checkTourBtn" data-translate="search_cta">CHECK TOUR</button>
+    </div>
+  </div>
+</section>
+
+<section style="padding:3rem 0; background: #f8faf9;">
+  <div class="container grid-4 reveal">
+    <div class="trust-item"><div class="icon">🌏</div><strong style="display:block;margin-bottom:.5rem" data-translate="trust_local">LOCAL SABAHAN GUIDE</strong><p style="font-size:.9rem;color:var(--muted)" data-translate="trust_localdesc">Travel with people who know Sabah.</p></div>
+    <div class="trust-item"><div class="icon">🏨</div><strong style="display:block;margin-bottom:.5rem" data-translate="trust_pickup">HOTEL PICKUP</strong><p style="font-size:.9rem;color:var(--muted)" data-translate="trust_pickupdesc">Convenient pickup from your Kota Kinabalu hotel.</p></div>
+    <div class="trust-item"><div class="icon">🚐</div><strong style="display:block;margin-bottom:.5rem" data-translate="trust_vehicle">PRIVATE VEHICLES</strong><p style="font-size:.9rem;color:var(--muted)" data-translate="trust_vehicledesc">Sedan, MPV and van options.</p></div>
+    <div class="trust-item"><div class="icon">🗺️</div><strong style="display:block;margin-bottom:.5rem" data-translate="trust_flex">FLEXIBLE ITINERARY</strong><p style="font-size:.9rem;color:var(--muted)" data-translate="trust_flexdesc">Customize your experience around your group.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-kicker" data-translate="kicker_vibe">Choose your vibe</div>
+    <h2 class="section-title reveal" data-translate="discover_title">WHAT KIND OF SABAH ADVENTURE?</h2>
+    <div class="grid-3 reveal" id="categoryGrid" style="margin-top:2rem;"></div>
+  </div>
+</section>
+
+<section id="tours" style="background: #f8faf9;">
+  <div class="container">
+    <div class="section-kicker" data-translate="kicker_popular">Popular experiences</div>
+    <h2 class="section-title reveal" data-translate="tours_title">EXPLORE OUR MOST POPULAR SABAH TOURS</h2>
+    <p class="section-sub reveal" data-translate="tours_sub">Choose an experience or let us build a trip around you.</p>
+    <div class="filter-bar reveal" id="filterBar"></div>
+    <div class="grid-3 reveal" id="tourGrid"></div>
+  </div>
+</section>
+
+<section id="island" style="background: var(--sand);">
+  <div class="container">
+    <h2 class="section-title reveal" data-translate="island_title">YOUR ISLAND. YOUR ADVENTURE.</h2>
+    <p class="section-sub reveal" data-translate="island_sub" style="margin-bottom:1rem;">Choose your preferred island — Sapi, Manukan, or Mamutik. Water sports available as add-ons.</p>
+    <div class="grid-3 reveal" style="margin:2rem 0;">
+      <div class="tour-card">
+        <div class="tour-media" style="--card-image:url('images/packages/sapi-island.jpg')" role="img" aria-label="Sapi Island"></div>
+        <div class="card-body">
+          <h3 data-translate="tour_sapi_name">Sapi Island</h3>
+          <p data-translate="tour_sapi_desc" style="margin-top:0.5rem;font-size:0.9rem;">Clear water, great for snorkeling.</p>
+        </div>
+      </div>
+      <div class="tour-card">
+        <div class="tour-media" style="--card-image:url('images/packages/manukan-island.jpg')" role="img" aria-label="Manukan Island"></div>
+        <div class="card-body">
+          <h3 data-translate="tour_manukan_name">Manukan Island</h3>
+          <p data-translate="tour_manukan_desc" style="margin-top:0.5rem;font-size:0.9rem;">Family friendly with good facilities.</p>
+        </div>
+      </div>
+      <div class="tour-card">
+        <div class="tour-media" style="--card-image:url('images/packages/mamutik-island.jpg')" role="img" aria-label="Mamutik Island"></div>
+        <div class="card-body">
+          <h3 data-translate="tour_mamutik_name">Mamutik Island</h3>
+          <p data-translate="tour_mamutik_desc" style="margin-top:0.5rem;font-size:0.9rem;">Quiet escape, slightly less crowded.</p>
+        </div>
+      </div>
+    </div>
+    <a href="#booking" class="btn-primary reveal" data-translate="island_cta">CHOOSE MY ISLAND</a>
+  </div>
+</section>
+
+<section id="mengalum">
+  <div class="container feature-split reveal">
+    <div>
+      <div class="section-kicker" data-translate="kicker_offshore">Offshore escape</div>
+      <h2 class="section-title" data-translate="mengalum_title">ESCAPE TO MENGALUM ISLAND</h2>
+      <p class="section-sub" data-translate="mengalum_desc" style="margin-bottom:1.5rem">Trade the city for turquoise waters, tropical scenery and a peaceful island escape.</p>
+      <div class="meta" style="display:flex;gap:0.5rem;margin-bottom:2rem;">
+        <span class="pill" data-translate="pill_fullday">Full day</span>
+        <span class="pill" data-translate="pill_pickup">Hotel pickup</span>
+        <span class="pill" data-translate="pill_boat">Boat transfer</span>
+      </div>
+      <button class="btn-primary book-tour" data-tour="Mengalum Island" data-translate="mengalum_cta">BOOK MENGALUM</button>
+    </div>
+    <div class="visual-card visual-ocean">
+      <h3 data-translate="mengalum_vis_h">Turquoise water. Less rush.</h3>
+      <p data-translate="mengalum_vis_p">Ideal for couples, families and small private groups.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kundasang" style="background: #f8faf9;">
+  <div class="container reveal">
+    <h2 class="section-title" data-translate="kundasang_title">FROM CITY TO MOUNTAIN IN ONE DAY.</h2>
+    <p class="section-sub" data-translate="kundasang_sub">Escape Kota Kinabalu and discover the cool mountain landscapes of Kundasang.</p>
+    
+    <div class="itinerary">
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">08:00</span> <span data-translate="itin_1">Hotel Pickup</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">09:30</span> <span data-translate="itin_2">Nabalu Scenic Stop</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">11:00</span> <span data-translate="itin_3">Kundasang / ATV Experience</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">13:00</span> <span data-translate="itin_4">Lunch</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">15:00</span> <span data-translate="itin_5">Desa Dairy Farm</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">18:00</span> <span data-translate="itin_6">Return to KK</span></div>
+    </div>
+    <button class="btn-primary book-tour" data-tour="Kundasang Day Trip" data-translate="kundasang_cta">BOOK KUNDASANG</button>
+  </div>
+</section>
+
+<section id="culture">
+  <div class="container feature-split reveal">
+    <div class="visual-card visual-culture">
+      <h3 data-translate="culture_vis_h">Mari Mari Cultural Village</h3>
+      <p data-translate="culture_vis_p">A structured introduction to Sabah's indigenous traditions and heritage.</p>
+    </div>
+    <div>
+      <div class="section-kicker" data-translate="kicker_culture">Culture</div>
+      <h2 class="section-title" data-translate="culture_title">STEP INTO SABAH'S CULTURAL HERITAGE.</h2>
+      <p class="section-sub" data-translate="culture_desc">Indigenous cultures, traditional houses, local traditions and heritage.</p>
+      <button class="btn-primary book-tour" data-tour="Mari Mari Cultural Village" data-translate="culture_cta">EXPERIENCE MARI MARI</button>
+    </div>
+  </div>
+</section>
+
+<section id="firefly" style="background:#0b211d;color:white;">
+  <div class="container feature-split reveal">
+    <div>
+      <div class="section-kicker" style="color:#d7cf78" data-translate="kicker_afterdark">After dark</div>
+      <h2 class="section-title" data-translate="firefly_title">WATCH BORNEO COME ALIVE AFTER DARK.</h2>
+      <p style="color:rgba(255,255,255,.78);max-width:620px;margin-bottom:2rem;" data-translate="firefly_desc">Experience quiet Kota Belud mangroves illuminated by fireflies.</p>
+      <button class="btn-primary book-tour" data-tour="Kota Belud Firefly" data-translate="firefly_cta">BOOK FIREFLY TOUR</button>
+    </div>
+    <div class="visual-card visual-night">
+      <h3 data-translate="firefly_vis_h">Sunset → River → Fireflies</h3>
+      <p data-translate="firefly_vis_p">Evening departure with return to Kota Kinabalu.</p>
+    </div>
+  </div>
+</section>
+
+<section id="city">
+  <div class="container reveal" style="text-align:center;">
+    <h2 class="section-title" data-translate="city_title">DISCOVER THE HEART OF KOTA KINABALU.</h2>
+    <p class="section-sub" style="margin: 0 auto 2rem;" data-translate="city_desc">Landmarks, markets, waterfront, food & more.</p>
+    <button class="btn-primary book-tour" data-tour="City Tour" data-translate="city_cta">EXPLORE KOTA KINABALU</button>
+  </div>
+</section>
+
+<section id="private" style="background: var(--sand);">
+  <div class="container reveal" style="text-align:center;">
+    <h2 class="section-title" data-translate="private_title">YOUR TRIP. YOUR RULES.</h2>
+    <p class="section-sub" style="margin: 0 auto 2rem;" data-translate="private_desc">Tell us where you want to go — we'll build your Sabah trip.</p>
+    <button class="btn-primary book-tour" data-tour="Custom Tour" data-translate="private_cta">BUILD MY CUSTOM TOUR</button>
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+    <div class="section-kicker" data-translate="kicker_transport">Transport</div>
+    <h2 class="section-title" data-translate="veh_title">RIGHT-SIZED VEHICLES FOR YOUR GROUP.</h2>
+    <p class="section-sub" data-translate="veh_sub">Choose the vehicle class that fits your group and luggage.</p>
+    <div class="vehicle-grid">
+      <div class="vehicle-card">
+        <h3 style="font-size:1.2rem;margin-bottom:.5rem;">🚗 <span data-translate="veh_sedan_h">Sedan</span></h3>
+        <p style="color:var(--muted);font-size:.9rem;" data-translate="veh_sedan_p">Best for 1–3 guests with light luggage.</p>
+      </div>
+      <div class="vehicle-card">
+        <h3 style="font-size:1.2rem;margin-bottom:.5rem;">🚙 <span data-translate="veh_mpv_h">MPV</span></h3>
+        <p style="color:var(--muted);font-size:.9rem;" data-translate="veh_mpv_p">Comfortable for families and small groups.</p>
+      </div>
+      <div class="vehicle-card">
+        <h3 style="font-size:1.2rem;margin-bottom:.5rem;">🚐 <span data-translate="veh_van_h">Van</span></h3>
+        <p style="color:var(--muted);font-size:.9rem;" data-translate="veh_van_p">More seats and luggage space for larger groups.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: #f8faf9;">
+  <div class="container reveal">
+    <h2 class="section-title" data-translate="testi_title">TRAVELERS WHO LEFT WITH A FOOTPRINT.</h2>
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p style="margin:.8rem 0 1rem;font-style:italic" data-translate="testi_1">"Easy planning, punctual pickup and a very relaxed private day."</p>
+        <strong data-translate="testi_auth1">Couple traveller</strong>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p style="margin:.8rem 0 1rem;font-style:italic" data-translate="testi_2">"Good option for our family because the itinerary could be adjusted."</p>
+        <strong data-translate="testi_auth2">Family traveller</strong>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p style="margin:.8rem 0 1rem;font-style:italic" data-translate="testi_3">"Clear communication and a comfortable day trip from Kota Kinabalu."</p>
+        <strong data-translate="testi_auth3">Small group</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container reveal">
+    <h2 class="section-title" data-translate="faq_title">FAQ</h2>
+    <div id="faqList" style="margin-top:2rem;max-width:800px;"></div>
+  </div>
+</section>
+
+<section style="padding:2rem 0; border-top:1px solid var(--border);">
+  <div class="container">
+    <p style="color:var(--muted);font-size:.9rem;text-align:center;" data-translate="weather_note">Travel with flexibility. Outdoor activities depend on weather and safety conditions.</p>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="container reveal">
+    <h2 class="section-title" data-translate="booking_title">BOOK YOUR TOUR</h2>
+    <p class="section-sub" data-translate="booking_sub" style="margin-bottom:1rem;">Tell us what you need. We'll verify availability and send you a confirmation.</p>
+    
+    <form id="bookingForm">
+      <div class="grid-2">
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_name">Name *</label>
+          <input type="text" id="bf_name" required data-translate-ph="ph_name" placeholder="Your name">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_contact">Phone / WhatsApp / Telegram *</label>
+          <input type="text" id="bf_contact" required data-translate-ph="ph_contact" placeholder="Contact number">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_email">Email</label>
+          <input type="email" id="bf_email" data-translate-ph="ph_email" placeholder="Email address">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_tour">Tour Package</label>
+          <select id="bf_tour">
+            <option value="" disabled selected data-translate="opt_select_tour">Select a tour</option>
+            <option data-translate="opt_island">Island Hopping</option>
+            <option data-translate="opt_mengalum">Mengalum Island</option>
+            <option data-translate="opt_kundasang">Kundasang</option>
+            <option data-translate="opt_culture">Mari Mari Cultural Village</option>
+            <option data-translate="opt_firefly">Firefly</option>
+            <option data-translate="opt_city">City Tour</option>
+            <option data-translate="opt_custom">Private/Custom</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_date">Travel Date</label>
+          <input type="text" id="bf_date" class="flatpickr-input" data-translate-ph="ph_select_date" placeholder="Select Date">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_hotel">Hotel / Pickup Location</label>
+          <input type="text" id="bf_hotel" data-translate-ph="ph_hotel" placeholder="Hotel name">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_adults">Adults</label>
+          <input type="number" id="bf_adults" min="1" value="2">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_children">Children</label>
+          <input type="number" id="bf_children" min="0" value="0">
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_type">Tour Type</label>
+          <select id="bf_type">
+            <option data-translate="opt_private">Private</option>
+            <option data-translate="opt_shared">Shared</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_veh">Preferred Vehicle (For Private)</label>
+          <select id="bf_vehicle">
+            <option value="Any" data-translate="opt_any">Any / Recommend</option>
+            <option data-translate="veh_sedan_h">Sedan</option>
+            <option data-translate="veh_mpv_h">MPV</option>
+            <option data-translate="veh_van_h">Van</option>
+          </select>
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_req">Special Requests / Questions</label>
+          <textarea id="bf_requests" data-translate-ph="ph_req" placeholder="Any dietary requirements, specific locations, etc."></textarea>
+        </div>
+      </div>
+      <button class="btn-primary" type="submit" id="submitBtn" style="margin-top:1.5rem;" data-translate="btn_request">REQUEST BOOKING</button>
+      <p class="form-note" data-translate="form_note">This sends a booking request only. Final availability and price are confirmed by KKfootprint Travel.</p>
+      <div class="booking-success" id="bookingSuccess" role="status" data-translate="form_success">Thanks — your request is ready. We’ll use the details above to continue the booking conversation.</div>
+    </form>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div>
+      <strong style="font-size:1.2rem;margin-bottom:1rem;display:block;" data-translate="footer_title">KKfootprint Travel</strong>
+      <p style="color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.6;" data-translate="footer_tag">Your Local Footprint in Sabah.</p>
+      <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin-top:.5rem;" data-translate="footer_loc">Kota Kinabalu, Sabah, Malaysia</p>
+    </div>
+    <div>
+      <strong style="margin-bottom:1rem;display:block;" data-translate="footer_links">Quick Links</strong>
+      <div style="display:flex;flex-direction:column;gap:.5rem;">
+        <a href="#tours" data-translate="nav_tours">Tours</a>
+        <a href="#island" data-translate="nav_island">Island Hopping</a>
+        <a href="#kundasang" data-translate="nav_kundasang">Kundasang</a>
+      </div>
+    </div>
+    <div>
+      <strong style="margin-bottom:1rem;display:block;" data-translate="footer_contact">Contact Us</strong>
+      <div style="display:flex;flex-direction:column;gap:.5rem;color:rgba(255,255,255,.8);font-size:.9rem;">
+        <span>Telegram: @KKfootprint</span>
+        <span>WhatsApp: +60 12-345 6789</span>
+        <span data-translate="footer_email">Email: hello [at] kkfootprint.com</span>
+      </div>
+    </div>
+    <div>
+      <strong style="margin-bottom:1rem;display:block;" data-translate="footer_legal">Legal</strong>
+      <div style="display:flex;flex-direction:column;gap:.5rem;color:rgba(255,255,255,.7);font-size:.9rem;">
+        <span data-translate="footer_copy">© 2026 KKfootprint Travel</span>
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat">💬</button>
+<div class="chatbot-window" id="chatbotWindow" hidden>
+  <div class="chatbot-header">
+    <span data-translate="chat_title">KKfootprint Assistant</span>
+    <button class="close-chat" id="closeChat">×</button>
+  </div>
+  
+  <!-- Pre-chat Form -->
+  <div class="pre-chat-form" id="preChatForm">
+    <p data-translate="chat_pre_msg">Please provide your details so we can assist you better.</p>
+    <div class="pre-chat-field">
+      <label data-translate="lbl_name">Name *</label>
+      <input type="text" id="chatName" required data-translate-ph="ph_name" placeholder="Your name">
+    </div>
+    <div class="pre-chat-field">
+      <label data-translate="lbl_contact">Phone / WhatsApp / Telegram *</label>
+      <input type="text" id="chatContact" required data-translate-ph="ph_contact" placeholder="Contact number">
+    </div>
+    <div class="pre-chat-field">
+      <label data-translate="lbl_tour">Tour Interest *</label>
+      <select id="chatTour" required>
+        <option value="" disabled selected data-translate="opt_select_tour">Select a tour</option>
+        <option data-translate="opt_island">Island Hopping</option>
+        <option data-translate="opt_mengalum">Mengalum Island</option>
+        <option data-translate="opt_kundasang">Kundasang</option>
+        <option data-translate="opt_culture">Mari Mari Cultural Village</option>
+        <option data-translate="opt_firefly">Firefly</option>
+        <option data-translate="opt_city">City Tour</option>
+        <option data-translate="opt_custom">Private/Custom</option>
+        <option data-translate="opt_general">General Enquiry</option>
+      </select>
+    </div>
+    <button class="btn-primary" id="startChatBtn" disabled data-translate="btn_start_chat" style="margin-top:0.5rem;">START CHAT</button>
+  </div>
+
+  <!-- Active Chat Interface -->
+  <div class="chat-interface" id="chatInterface">
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-actions" id="chatQuickButtons"></div>
+    <div class="chat-input-area">
+      <input type="text" id="chatInput" data-translate-ph="ph_chat_input" placeholder="Type a message...">
+      <button id="chatSend" aria-label="Send">➤</button>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-mobile-cta">
+  <button class="btn-primary" style="flex:1;" onclick="document.getElementById('booking').scrollIntoView()" data-translate="nav_book">BOOK NOW</button>
+  <button class="btn-secondary" style="flex:1;background:var(--jungle);border:none;" onclick="document.getElementById('chatbotToggle').click()">💬 <span data-translate="nav_contact">Contact</span></button>
+</div>
+
+<!-- IMAGE SLOTS
+  Drop your own images into these paths; no layout edits are required.
+  Recommended: hero 1920x1200+, package cards 1200x800+, JPG/WebP.
+  images/hero-sabah.jpg
+  images/packages/island-hopping.jpg
+  images/packages/mengalum-island.jpg
+  images/packages/kundasang.jpg
+  images/packages/mari-mari.jpg
+  images/packages/firefly.jpg
+  images/packages/city-tour.jpg
+  images/packages/private-tour.jpg
+  images/packages/sapi-island.jpg
+  images/packages/manukan-island.jpg
+  images/packages/mamutik-island.jpg
+  images/features/mengalum.jpg
+  images/features/mari-mari.jpg
+  images/features/firefly.jpg
+-->
+<script>
+  window.KK_IMAGE_SLOTS = Object.freeze({
+    island: 'images/packages/island-hopping.jpg',
+    mengalum: 'images/packages/mengalum-island.jpg',
+    kundasang: 'images/packages/kundasang.jpg',
+    culture: 'images/packages/mari-mari.jpg',
+    firefly: 'images/packages/firefly.jpg',
+    city: 'images/packages/city-tour.jpg',
+    private: 'images/packages/private-tour.jpg'
+  });
+</script>
+
+<script type="module">
+  // FIREBASE SETUP (Mock implementation based on provided instructions)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+  // Replace with actual config in production
+  const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+      // Mock config for visual environment
+      apiKey: "mock-key", projectId: "mock-project"
+  };
+  
+  const appId = typeof __app_id !== 'undefined' ? __app_id : 'kkfootprint-mock-id';
+  let db, auth;
+  let isFirebaseReady = false;
+
+  try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+      auth = getAuth(app);
+      
+      signInAnonymously(auth).then(() => {
+          isFirebaseReady = true;
+          console.log("Firebase Auth ready for leads.");
+      }).catch(e => console.warn("Firebase Auth bypassed for visual preview."));
+  } catch(e) {
+      console.warn("Firebase Init bypassed for visual preview.");
+  }
+
+  const translations = {
+    en: {
+      logo_kk: "KKfootprint", logo_travel: "Travel",
+      nav_home: "Home", nav_tours: "Tours", nav_island: "Island Hopping", nav_kundasang: "Kundasang",
+      nav_culture: "Culture", nav_firefly: "Firefly", nav_city: "City Tour", nav_private: "Private Tour",
+      nav_faq: "FAQ", nav_contact: "Contact", nav_book: "BOOK NOW",
+      
+      hero_eyebrow: "WELCOME TO SABAH, BORNEO", hero_title: "DISCOVER SABAH<br>YOUR WAY.",
+      hero_sub: "Explore islands, mountains, culture and unforgettable local experiences with a local Sabahan driver and flexible private tours.",
+      hero_book: "BOOK YOUR TOUR", hero_explore: "EXPLORE TOURS",
+      hero_trust1: "Local Sabahan Driver/Guide", hero_trust2: "Hotel Pickup", hero_trust3: "Private & Group Tours", hero_trust4: "Flexible Itinerary",
+      
+      stat_local_h: "Local", stat_local_p: "Sabahan-led trips",
+      stat_flex_h: "Flexible", stat_flex_p: "Private or shared",
+      stat_door_h: "Door-to-door", stat_door_p: "Hotel pickup options",
+      stat_lang_h: "Bilingual", stat_lang_p: "English / 中文",
+      
+      search_where: "Where do you want to go?", search_date: "Travel Date", search_travelers: "Adults / Children",
+      search_type: "Private / Shared", search_cta: "CHECK TOUR", ph_select_date: "Select Date",
+      
+      opt_island: "Island Hopping", opt_mengalum: "Mengalum Island", opt_kundasang: "Kundasang",
+      opt_culture: "Mari Mari Cultural Village", opt_firefly: "Firefly", opt_city: "City Tour", opt_custom: "Private/Custom",
+      opt_2adult: "2 Adults", opt_1adult: "1 Adult", opt_family: "Family", opt_private: "Private", opt_shared: "Shared", opt_any: "Any / Recommend", opt_general: "General Enquiry", opt_select_tour: "Select a tour",
+      
+      trust_local: "LOCAL SABAHAN GUIDE", trust_localdesc: "Travel with people who know Sabah.",
+      trust_pickup: "HOTEL PICKUP", trust_pickupdesc: "Convenient pickup from your Kota Kinabalu hotel.",
+      trust_vehicle: "PRIVATE VEHICLES", trust_vehicledesc: "Sedan, MPV and van options.",
+      trust_flex: "FLEXIBLE ITINERARY", trust_flexdesc: "Customize your experience around your group.",
+      
+      kicker_vibe: "Choose your vibe", kicker_popular: "热门体验", kicker_offshore: "Offshore escape", kicker_culture: "Culture", kicker_afterdark: "After dark", kicker_transport: "Transport",
+      
+      discover_title: "WHAT KIND OF SABAH ADVENTURE?", 
+      cat_island: "ISLAND ESCAPE", cat_mountain: "MOUNTAIN ADVENTURE", cat_culture: "CULTURAL EXPERIENCE",
+      cat_nature: "NATURE & WILDLIFE", cat_city: "CITY DISCOVERY", cat_custom: "PRIVATE CUSTOM TOUR",
+      
+      tours_title: "EXPLORE OUR MOST POPULAR SABAH TOURS", tours_sub: "Choose an experience or let us build a trip around you.",
+      filter_all: "ALL", filter_island: "ISLAND", filter_mountain: "MOUNTAIN", filter_culture: "CULTURE", filter_nature: "NATURE", filter_city: "CITY", filter_private: "PRIVATE",
+      
+      tour_sapi_name: "Sapi Island", tour_sapi_desc: "Clear water, great for snorkeling.",
+      tour_manukan_name: "Manukan Island", tour_manukan_desc: "Family friendly with good facilities.",
+      tour_mamutik_name: "Mamutik Island", tour_mamutik_desc: "Quiet escape, slightly less crowded.",
+      
+      island_title: "YOUR ISLAND. YOUR ADVENTURE.", island_sub: "Choose your preferred island — Sapi, Manukan, or Mamutik. Water sports available as add-ons.", island_cta: "CHOOSE MY ISLAND",
+      
+      mengalum_title: "ESCAPE TO MENGALUM ISLAND", mengalum_desc: "Trade the city for turquoise waters, tropical scenery and a peaceful island escape.",
+      pill_fullday: "Full day", pill_pickup: "Hotel pickup", pill_boat: "Boat transfer", mengalum_cta: "BOOK MENGALUM",
+      mengalum_vis_h: "Turquoise water. Less rush.", mengalum_vis_p: "Ideal for couples, families and small private groups.",
+      
+      kundasang_title: "FROM CITY TO MOUNTAIN IN ONE DAY.", kundasang_sub: "Escape Kota Kinabalu and discover the cool mountain landscapes of Kundasang.",
+      itin_1: "Hotel Pickup", itin_2: "Nabalu Scenic Stop", itin_3: "Kundasang / ATV Experience", itin_4: "Lunch", itin_5: "Desa Dairy Farm", itin_6: "Return to KK", kundasang_cta: "BOOK KUNDASANG",
+      
+      culture_title: "STEP INTO SABAH'S CULTURAL HERITAGE.", culture_desc: "Indigenous cultures, traditional houses, local traditions and heritage.", culture_cta: "EXPERIENCE MARI MARI",
+      culture_vis_h: "Mari Mari Cultural Village", culture_vis_p: "A structured introduction to Sabah's indigenous traditions and heritage.",
+      
+      firefly_title: "WATCH BORNEO COME ALIVE AFTER DARK.", firefly_desc: "Experience quiet Kota Belud mangroves illuminated by fireflies.", firefly_cta: "BOOK FIREFLY TOUR",
+      firefly_vis_h: "Sunset → River → Fireflies", firefly_vis_p: "Evening departure with return to Kota Kinabalu.",
+      
+      city_title: "DISCOVER THE HEART OF KOTA KINABALU.", city_desc: "Landmarks, markets, waterfront, food & more.", city_cta: "EXPLORE KOTA KINABALU",
+      
+      private_title: "YOUR TRIP. YOUR RULES.", private_desc: "Tell us where you want to go — we'll build your Sabah trip.", private_cta: "BUILD MY CUSTOM TOUR",
+      
+      veh_title: "RIGHT-SIZED VEHICLES FOR YOUR GROUP.", veh_sub: "Choose the vehicle class that fits your group and luggage.",
+      veh_sedan_h: "Sedan", veh_sedan_p: "Best for 1–3 guests with light luggage.",
+      veh_mpv_h: "MPV", veh_mpv_p: "Comfortable for families and small groups.",
+      veh_van_h: "Van", veh_van_p: "More seats and luggage space for larger groups.",
+      
+      testi_title: "TRAVELERS WHO LEFT WITH A FOOTPRINT.",
+      testi_1: "Easy planning, punctual pickup and a very relaxed private day.", testi_auth1: "Couple traveller",
+      testi_2: "Good option for our family because the itinerary could be adjusted.", testi_auth2: "Family traveller",
+      testi_3: "Clear communication and a comfortable day trip from Kota Kinabalu.", testi_auth3: "Small group",
+      
+      faq_title: "FAQ",
+      faq_1_q: "How do I book a tour?", faq_1_a: "Choose a tour, send your preferred date and group size, and we will confirm availability before the booking is finalized.",
+      faq_2_q: "Do you provide hotel pickup?", faq_2_a: "Hotel pickup can be arranged for many Kota Kinabalu tours. Exact pickup coverage depends on the package.",
+      faq_3_q: "Are tours private or shared?", faq_3_a: "Both options are available on selected tours. Private tours offer more flexibility for timing and stops.",
+      faq_4_q: "Can I customize my itinerary?", faq_4_a: "Yes. Private tours can be adjusted around your group, time and interests, subject to route, weather and operating constraints.",
+      faq_5_q: "What vehicles are available?", faq_5_a: "Sedan, MPV and van options are available depending on group size and luggage.",
+      faq_6_q: "Can children join?", faq_6_a: "Many tours are family friendly. Tell us the children’s ages so we can recommend the most suitable option.",
+      
+      weather_note: "Travel with flexibility. Outdoor activities depend on weather and safety conditions.",
+      
+      booking_title: "BOOK YOUR TOUR", booking_sub: "Tell us what you need. We'll verify availability and send you a confirmation.",
+      lbl_name: "Name *", lbl_contact: "Phone / WhatsApp / Telegram *", lbl_email: "Email", lbl_tour: "Tour Package / Interest *",
+      lbl_date: "Travel Date", lbl_hotel: "Hotel / Pickup Location", lbl_adults: "Adults", lbl_children: "Children",
+      lbl_type: "Tour Type", lbl_veh: "Preferred Vehicle (For Private)", lbl_req: "Special Requests / Questions",
+      ph_name: "Your name", ph_contact: "Contact number", ph_email: "Email address", ph_hotel: "Hotel name", ph_req: "Any dietary requirements, specific locations, etc.",
+      btn_request: "REQUEST BOOKING", form_note: "This sends a booking request only. Final availability and price are confirmed by KKfootprint Travel.", form_success: "Thanks — your request is ready. We’ll use the details above to continue the booking conversation.",
+      
+      footer_title: "KKfootprint Travel", footer_tag: "Your Local Footprint in Sabah.", footer_loc: "Kota Kinabalu, Sabah, Malaysia",
+      footer_links: "Quick Links", footer_contact: "Contact Us", footer_email: "Email: hello [at] kkfootprint.com", footer_legal: "Legal", footer_copy: "© 2026 KKfootprint Travel",
+      
+      chat_title: "KKfootprint Assistant", chat_pre_msg: "Please provide your details so we can assist you better.", btn_start_chat: "START CHAT", ph_chat_input: "Type a message...",
+      chat_msg_1: "Hi {name}! Thanks for your interest in {tour}. How can I help you plan your trip today?",
+      chat_msg_fallback: "Hi! Thanks for reaching out. How can I assist you with your Sabah plans?",
+      chat_btn_1: "Check Availability", chat_btn_2: "Pricing Info", chat_btn_3: "Itinerary Details",
+      
+      tour_card_dur_fd: "Full day", tour_card_dur_hd: "Half day", tour_card_dur_ev: "Evening", tour_card_dur_4h: "4 hours", tour_card_dur_flex: "Flexible",
+      tour_card_price_from: "FROM", tour_card_price_pax: "/ PERSON", tour_card_desc: "Flexible pickup and itinerary options. Ask us to tailor this trip to your group.",
+      btn_book: "BOOK", btn_ask: "ASK", badge_pop: "Popular",
+      
+      tour_item_1: "Island Hopping", tour_item_2: "Mengalum Island", tour_item_3: "Kundasang Day Trip", tour_item_4: "Mari Mari Cultural Village", tour_item_5: "Kota Belud Firefly", tour_item_6: "City Tour", tour_item_7: "Private Custom Tour"
+    },
+    zh: {
+      logo_kk: "KKfootprint", logo_travel: "旅游",
+      nav_home: "首页", nav_tours: "行程", nav_island: "海岛游", nav_kundasang: "神山公园",
+      nav_culture: "文化村", nav_firefly: "红树林萤火虫", nav_city: "市区游", nav_private: "包车游",
+      nav_faq: "常见问题", nav_contact: "联系我们", nav_book: "立即预订",
+      
+      hero_eyebrow: "欢迎来到沙巴婆罗洲", hero_title: "发现沙巴<br>随心所欲",
+      hero_sub: "与本地中文向导一同探索绝美岛屿、神山、文化及难忘体验，提供灵活的包车服务。",
+      hero_book: "预订行程", hero_explore: "浏览行程",
+      hero_trust1: "本地中文向导", hero_trust2: "酒店接送服务", hero_trust3: "包车与拼车可选", hero_trust4: "行程时间灵活",
+      
+      stat_local_h: "本地", stat_local_p: "沙巴人带路",
+      stat_flex_h: "灵活", stat_flex_p: "包车或拼团",
+      stat_door_h: "接送", stat_door_p: "酒店接送选项",
+      stat_lang_h: "双语", stat_lang_p: "提供中文服务",
+      
+      search_where: "想去哪里？", search_date: "出发日期", search_travelers: "成行人数",
+      search_type: "包车 / 拼团", search_cta: "查询行程", ph_select_date: "选择日期",
+      
+      opt_island: "双岛游/跳岛", opt_mengalum: "环滩岛", opt_kundasang: "神山公园",
+      opt_culture: "马里马里文化村", opt_firefly: "红树林萤火虫", opt_city: "亚庇市区游", opt_custom: "定制包车游",
+      opt_2adult: "2 位成人", opt_1adult: "1 位成人", opt_family: "家庭出游", opt_private: "包车 (专属)", opt_shared: "拼团", opt_any: "皆可 / 请推荐", opt_general: "一般咨询", opt_select_tour: "请选择行程",
+      
+      trust_local: "本地中文向导", trust_localdesc: "与真正了解沙巴的人同行。",
+      trust_pickup: "酒店接送", trust_pickupdesc: "从亚庇酒店便捷出发。",
+      trust_vehicle: "专属车辆", trust_vehicledesc: "提供轿车、休旅车和客货车。",
+      trust_flex: "灵活行程", trust_flexdesc: "根据你的团队定制游玩体验。",
+      
+      kicker_vibe: "选择你的风格", kicker_popular: "热门体验", kicker_offshore: "避世海岛", kicker_culture: "当地文化", kicker_afterdark: "夜间探索", kicker_transport: "交通工具",
+      
+      discover_title: "想要哪种沙巴冒险？",
+      cat_island: "海岛度假", cat_mountain: "高山探险", cat_culture: "原住民文化",
+      cat_nature: "自然生态", cat_city: "城市探索", cat_custom: "包车定制",
+      
+      tours_title: "探索最受欢迎的沙巴行程", tours_sub: "选择经典体验，或让我们为您量身定制。",
+      filter_all: "全部", filter_island: "海岛", filter_mountain: "高山", filter_culture: "文化", filter_nature: "生态", filter_city: "城市", filter_private: "包车",
+      
+      tour_sapi_name: "沙比岛", tour_sapi_desc: "海水清澈，浮潜好去处。",
+      tour_manukan_name: "马奴干岛", tour_manukan_desc: "设施完善，适合亲子游。",
+      tour_mamutik_name: "马穆迪岛", tour_mamutik_desc: "游客较少，宁静的逃离。",
+      
+      island_title: "你的岛屿。你的冒险。", island_sub: "选择沙比岛、马奴干岛或马穆迪岛。可加购丰富水上活动。", island_cta: "选择我的海岛",
+      
+      mengalum_title: "逃往环滩岛 (Mengalum)", mengalum_desc: "远离喧嚣，享受果冻海、洁白沙滩和宁静的隐世海岛度假。",
+      pill_fullday: "一日游", pill_pickup: "含接送", pill_boat: "快艇接驳", mengalum_cta: "预订环滩岛",
+      mengalum_vis_h: "果冻海，慢生活。", mengalum_vis_p: "情侣、家庭和小型私密包团的理想选择。",
+      
+      kundasang_title: "一日从城市穿越到高山。", kundasang_sub: "逃离亚庇市区，探索神山公园 (Kundasang) 的凉爽高山风光。",
+      itin_1: "酒店接载出发", itin_2: "纳巴鲁 (Nabalu) 观景台", itin_3: "神山公园 / ATV 越野体验", itin_4: "享用午餐", itin_5: "德萨 (Desa) 奶牛农场", itin_6: "返回亚庇市区", kundasang_cta: "预订神山行程",
+      
+      culture_title: "走进沙巴文化遗产。", culture_desc: "探索原住民文化、传统长屋、当地习俗与历史传承。", culture_cta: "体验马里马里",
+      culture_vis_h: "马里马里文化村", culture_vis_p: "系统地了解沙巴原住民的传统与生活方式。",
+      
+      firefly_title: "夜晚见证婆罗洲生机。", firefly_desc: "在古打毛律 (Kota Belud) 宁静的红树林中，寻找漫天飞舞的萤火虫和蓝眼泪。", firefly_cta: "预订萤火虫游",
+      firefly_vis_h: "日落 → 游船 → 萤火虫", firefly_vis_p: "傍晚出发，行程结束后返回亚庇市区。",
+      
+      city_title: "探索亚庇市中心。", city_desc: "地标建筑、特色市集、海滨风光与地道美食。", city_cta: "探索亚庇市",
+      
+      private_title: "你的旅行。你的规则。", private_desc: "告诉我们你想去哪里，我们将为您打造专属的沙巴行程。", private_cta: "制定包车路线",
+      
+      veh_title: "为您匹配合适的车型。", veh_sub: "根据同行人数和行李数量选择舒适的座驾。",
+      veh_sedan_h: "轿车", veh_sedan_p: "适合 1–3 人，轻便行李。",
+      veh_mpv_h: "休旅车", veh_mpv_p: "家庭和小型团队的舒适选择。",
+      veh_van_h: "客货车 (Van)", veh_van_p: "提供更多座位和宽敞的行李空间。",
+      
+      testi_title: "留下足迹的旅行者。",
+      testi_1: "行程安排轻松，司机准时，这是一次非常放松的包车一日游。", testi_auth1: "情侣出游",
+      testi_2: "非常适合我们家庭，因为行程可以根据孩子的情况随时调整。", testi_auth2: "亲子家庭",
+      testi_3: "沟通顺畅，车辆舒适，亚庇一日游非常棒！", testi_auth3: "小团体包车",
+      
+      faq_title: "常见问题",
+      faq_1_q: "如何预订行程？", faq_1_a: "选择您感兴趣的行程，提交出发日期和人数，我们会在最终确认前核实空位并与您联系。",
+      faq_2_q: "提供酒店接送吗？", faq_2_a: "大部分亚庇出发的行程均提供酒店接送。具体接送范围视套餐而定。",
+      faq_3_q: "行程是包车还是拼团？", faq_3_a: "两者皆有。包车服务在时间和景点停留上提供更大的灵活性。",
+      faq_4_q: "我可以定制行程吗？", faq_4_a: "可以的。包车行程可以根据您的团队、时间和兴趣进行调整（需考虑路线和天气状况）。",
+      faq_5_q: "提供哪些车型？", faq_5_a: "根据人数和行李，我们提供轿车、休旅车 (MPV) 和客货车 (Van)。",
+      faq_6_q: "儿童可以参加吗？", faq_6_a: "许多行程都适合家庭。请告知我们儿童的年龄，以便我们推荐最合适的选择。",
+      
+      weather_note: "请保持行程的灵活性。户外活动受天气和安全条件影响，可能会有调整。",
+      
+      booking_title: "预订您的行程", booking_sub: "告诉我们您的需求。我们会核实空位并发送确认信息。",
+      lbl_name: "姓名 *", lbl_contact: "电话 / 微信号 / 联络方式 *", lbl_email: "电子邮箱", lbl_tour: "行程 / 兴趣 *",
+      lbl_date: "出发日期", lbl_hotel: "酒店 / 接送地点", lbl_adults: "成人人数", lbl_children: "儿童人数",
+      lbl_type: "出团类型", lbl_veh: "首选车型 (若选择包车)", lbl_req: "特殊要求 / 问题",
+      ph_name: "您的称呼", ph_contact: "联络号码", ph_email: "电邮地址", ph_hotel: "酒店名称", ph_req: "如有饮食要求、特定想去的地方等，请在此注明。",
+      btn_request: "提交预订请求", form_note: "此表单仅发送预订请求。最终的可用性和价格将由 KKfootprint Travel 确认。", form_success: "感谢！我们已收到您的请求。我们将使用上述详情与您继续沟通预订事宜。",
+      
+      footer_title: "KKfootprint 旅游", footer_tag: "你在沙巴的专属向导。", footer_loc: "马来西亚, 沙巴, 亚庇",
+      footer_links: "快速链接", footer_contact: "联系我们", footer_email: "电邮: hello [at] kkfootprint.com", footer_legal: "法律信息", footer_copy: "© 2026 KKfootprint 旅游",
+      
+      chat_title: "KKfootprint 旅游助手", chat_pre_msg: "请提供您的信息，以便我们更好地为您服务。", btn_start_chat: "开始对话", ph_chat_input: "输入消息...",
+      chat_msg_1: "你好 {name}！感谢您对 {tour} 感兴趣。今天我能帮您计划什么行程呢？",
+      chat_msg_fallback: "你好！感谢您的咨询。我能帮您计划沙巴的行程吗？",
+      chat_btn_1: "查询档期", chat_btn_2: "询问价格", chat_btn_3: "行程细节",
+      
+      tour_card_dur_fd: "一日游", tour_card_dur_hd: "半日游", tour_card_dur_ev: "傍晚游", tour_card_dur_4h: "四小时", tour_card_dur_flex: "时间灵活",
+      tour_card_price_from: "起价 马币", tour_card_price_pax: "/ 人", tour_card_desc: "灵活的接送和行程选择。可向我们咨询定制专属您团队的路线。",
+      btn_book: "预订", btn_ask: "询问", badge_pop: "热门",
+      
+      tour_item_1: "双岛游/跳岛", tour_item_2: "环滩岛", tour_item_3: "神山一日游", tour_item_4: "马里马里文化村", tour_item_5: "古打毛律萤火虫", tour_item_6: "亚庇市区游", tour_item_7: "包车定制游"
+    }
+  };
+
+  let currentLang = localStorage.getItem('kk-lang') || (navigator.language.startsWith('zh') ? 'zh' : 'en');
+  let datePickerInstances = [];
+
+  function applyLanguage(lang) {
+    currentLang = lang; localStorage.setItem('kk-lang', lang);
+    const t = translations[lang];
+    
+    // Update text content
+    document.querySelectorAll('[data-translate]').forEach(el => {
+      const key = el.getAttribute('data-translate');
+      if (t[key]) el.innerHTML = t[key];
+    });
+    
+    // Update placeholders
+    document.querySelectorAll('[data-translate-ph]').forEach(el => {
+      const key = el.getAttribute('data-translate-ph');
+      if (t[key]) el.placeholder = t[key];
+    });
+
+    // Update active state of language buttons
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    
+    // Rebuild dynamic content
+    buildDynamicContent(t);
+    
+    // Re-initialize Date Pickers with correct locale
+    initDatePickers(lang);
+    
+    // Update active chat language if open
+    if(chatActive) renderChatQuickButtons(t);
+  }
+
+  function initDatePickers(lang) {
+    datePickerInstances.forEach(fp => fp.destroy());
+    datePickerInstances = [];
+    const config = {
+      minDate: "today",
+      disableMobile: "true"
+    };
+    if (lang === 'zh') {
+      config.locale = "zh";
+      config.dateFormat = "Y年m月d日";
+    } else {
+      config.dateFormat = "d M Y";
+    }
+    datePickerInstances.push(flatpickr("#searchDate", config));
+    datePickerInstances.push(flatpickr("#bf_date", config));
+  }
+
+  function buildDynamicContent(t) {
+    // Categories
+    const categories = [
+      {icon:'🏝️', key:'cat_island'}, {icon:'🌄', key:'cat_mountain'}, {icon:'🏛️', key:'cat_culture'},
+      {icon:'🌿', key:'cat_nature'}, {icon:'🌆', key:'cat_city'}, {icon:'🚐', key:'cat_custom'}
+    ];
+    document.getElementById('categoryGrid').innerHTML = categories.map(c => `<div class="category-card"><div class="card-body">${c.icon}<h3>${t[c.key]}</h3></div></div>`).join('');
+    
+    // Filter Bar
+    const filters = [
+      {k:'ALL', v:t.filter_all}, {k:'ISLAND', v:t.filter_island}, {k:'MOUNTAIN', v:t.filter_mountain},
+      {k:'CULTURE', v:t.filter_culture}, {k:'NATURE', v:t.filter_nature}, {k:'CITY', v:t.filter_city}, {k:'PRIVATE', v:t.filter_private}
+    ];
+    document.getElementById('filterBar').innerHTML = filters.map(f => `<button class="filter-btn ${f.k==='ALL'?'active':''}" data-filter="${f.k}">${f.v}</button>`).join('');
+    
+    // Tours
+    const imageSlots = window.KK_IMAGE_SLOTS || {};
+    const tours = [
+      {name: t.tour_item_1, cat:'ISLAND', price:'150', dur: t.tour_card_dur_fd, type: t.opt_shared, popular:true, img:imageSlots.island},
+      {name: t.tour_item_2, cat:'ISLAND', price:'200', dur: t.tour_card_dur_fd, type: t.opt_private, img:imageSlots.mengalum},
+      {name: t.tour_item_3, cat:'MOUNTAIN', price:'180', dur: t.tour_card_dur_fd, type: t.opt_private, img:imageSlots.kundasang},
+      {name: t.tour_item_4, cat:'CULTURE', price:'120', dur: t.tour_card_dur_hd, type: t.opt_shared, img:imageSlots.culture},
+      {name: t.tour_item_5, cat:'NATURE', price:'160', dur: t.tour_card_dur_ev, type: t.opt_shared, popular:true, img:imageSlots.firefly},
+      {name: t.tour_item_6, cat:'CITY', price:'100', dur: t.tour_card_dur_4h, type: t.opt_private, img:imageSlots.city},
+      {name: t.tour_item_7, cat:'PRIVATE', price:'300', dur: t.tour_card_dur_flex, type: t.opt_private, img:imageSlots.private}
+    ];
+    document.getElementById('tourGrid').innerHTML = tours.map(tr => `
+      <article class="tour-card" data-cat="${tr.cat}">
+        ${tr.popular ? `<span class="badge-popular">${t.badge_pop}</span>` : ''}
+        <div class="tour-media" style="--card-image:url('${tr.img || ''}')" role="img" aria-label="${tr.name}"></div>
+        <div class="card-body">
+          <h3>${tr.name}</h3>
+          <div class="meta"><span class="pill">${tr.dur}</span><span class="pill">${tr.type}</span></div>
+          <div class="price">${t.tour_card_price_from} ${tr.price} ${t.tour_card_price_pax}</div>
+          <p style="font-size:0.9rem; color:var(--muted)">${t.tour_card_desc}</p>
+          <div class="card-actions">
+            <button class="btn-primary book-tour" data-tour="${tr.name}">${t.btn_book}</button>
+            <button class="btn-ghost ask-tour" data-tour="${tr.name}">${t.btn_ask}</button>
+          </div>
+        </div>
+      </article>`).join('');
+
+    // FAQ
+    const faqs = [
+      {q: t.faq_1_q, a: t.faq_1_a}, {q: t.faq_2_q, a: t.faq_2_a}, {q: t.faq_3_q, a: t.faq_3_a},
+      {q: t.faq_4_q, a: t.faq_4_a}, {q: t.faq_5_q, a: t.faq_5_a}, {q: t.faq_6_q, a: t.faq_6_a}
+    ];
+    document.getElementById('faqList').innerHTML = faqs.map(f => `
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">${f.q} <span style="font-size:1.5rem;line-height:0.5">+</span></button>
+        <div class="faq-answer"><p>${f.a}</p></div>
+      </div>`).join('');
+  }
+
+  let chatActive = false;
+  const chatNameInput = document.getElementById('chatName');
+  const chatContactInput = document.getElementById('chatContact');
+  const chatTourInput = document.getElementById('chatTour');
+  const startChatBtn = document.getElementById('startChatBtn');
+  const preChatForm = document.getElementById('preChatForm');
+  const chatInterface = document.getElementById('chatInterface');
+  const chatMessages = document.getElementById('chatMessages');
+
+  // Validate Pre-chat form
+  function validatePreChat() {
+    if(chatNameInput.value.trim() && chatContactInput.value.trim() && chatTourInput.value) {
+      startChatBtn.disabled = false;
+    } else {
+      startChatBtn.disabled = true;
+    }
+  }
+  chatNameInput.addEventListener('input', validatePreChat);
+  chatContactInput.addEventListener('input', validatePreChat);
+  chatTourInput.addEventListener('change', validatePreChat);
+
+  // Store Lead in Firestore (Mock implementation based on artifact storage rules)
+  async function storeLeadData(name, contact, interest) {
+    if (!isFirebaseReady || !auth.currentUser) return;
+    try {
+      // RULE 1: Strict Paths - Using public/data for leads in this mock scenario
+      const leadsRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
+      await addDoc(leadsRef, {
+        name: name,
+        contact: contact,
+        interest: interest,
+        source: 'chatbot',
+        timestamp: serverTimestamp()
+      });
+      console.log("Lead captured to database.");
+    } catch(e) {
+      console.error("Error saving lead:", e);
+    }
+  }
+
+  // Start Chat Process
+  startChatBtn.addEventListener('click', async () => {
+    const name = chatNameInput.value.trim();
+    const contact = chatContactInput.value.trim();
+    const tour = chatTourInput.options[chatTourInput.selectedIndex].text;
+    
+    // 1. Send data to DB
+    await storeLeadData(name, contact, tour);
+    
+    // 2. Switch UI
+    preChatForm.style.display = 'none';
+    chatInterface.classList.add('active');
+    chatActive = true;
+    
+    // 3. Initiate Chat
+    const t = translations[currentLang];
+    renderChatQuickButtons(t);
+    
+    let welcomeMsg = t.chat_msg_1.replace('{name}', name).replace('{tour}', tour);
+    if(tour === t.opt_general) welcomeMsg = t.chat_msg_fallback;
+    
+    setTimeout(() => {
+      appendChat('bot', welcomeMsg);
+    }, 300);
+  });
+
+  function renderChatQuickButtons(t) {
+    const btnContainer = document.getElementById('chatQuickButtons');
+    const btns = [t.chat_btn_1, t.chat_btn_2, t.chat_btn_3];
+    btnContainer.innerHTML = btns.map(b => `<button class="chat-btn">${b}</button>`).join('');
+  }
+
+  function appendChat(sender, msg) { 
+    const div = document.createElement('div'); 
+    div.className = `chat-bubble ${sender}`; 
+    div.textContent = msg; 
+    chatMessages.appendChild(div); 
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Handle Chat Input
+  document.getElementById('chatSend').addEventListener('click', handleChatInput);
+  document.getElementById('chatInput').addEventListener('keypress', e => { if(e.key === 'Enter') handleChatInput(); });
+
+  function handleChatInput() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if(!msg) return;
+    appendChat('user', msg);
+    input.value = '';
+    
+    // Mock bot response
+    setTimeout(() => {
+      appendChat('bot', currentLang === 'zh' ? '好的，我们会尽快安排客服与您跟进详细信息。' : 'Understood. One of our agents will follow up on this detail with you shortly.');
+    }, 800);
+  }
+
+  // Quick button clicks
+  document.getElementById('chatQuickButtons').addEventListener('click', e => {
+    const btn = e.target.closest('.chat-btn'); if(!btn) return;
+    appendChat('user', btn.textContent.trim());
+    setTimeout(() => {
+      appendChat('bot', currentLang === 'zh' ? '好的。稍后客服将提供详细资讯给您。' : 'Sure thing. An agent will provide those details momentarily.');
+    }, 500);
+  });
+
+  // Toggle Chat Window
+  document.getElementById('chatbotToggle').addEventListener('click', () => { 
+    const w = document.getElementById('chatbotWindow'); 
+    w.hidden = !w.hidden; 
+  });
+  document.getElementById('closeChat').addEventListener('click', () => {
+    document.getElementById('chatbotWindow').hidden = true;
+  });
+
+  
+  // Language Switch
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+
+  // Hamburger Menu
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+  document.getElementById('mobileOverlay').addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+  // Sticky Header
+  window.addEventListener('scroll', () => document.getElementById('header').classList.toggle('scrolled', window.scrollY > 30));
+
+  // Reveal Animations
+  const observer = new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting)), {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Tour Filter
+  document.getElementById('filterBar').addEventListener('click', e => {
+    if(e.target.classList.contains('filter-btn')){
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      const f = e.target.dataset.filter;
+      document.querySelectorAll('.tour-card').forEach(card => {
+        card.style.display = (f === 'ALL' || card.dataset.cat === f) ? 'flex' : 'none';
+      });
+    }
+  });
+
+  // FAQ Accordion
+  document.getElementById('faqList').addEventListener('click', e => {
+    const q = e.target.closest('.faq-question'); if(!q) return;
+    const answer = q.nextElementSibling;
+    const isExpanded = q.getAttribute('aria-expanded') === 'true';
+    q.setAttribute('aria-expanded', !isExpanded);
+    q.querySelector('span').textContent = isExpanded ? '+' : '-';
+    answer.style.maxHeight = isExpanded ? null : answer.scrollHeight + 'px';
+  });
+
+  // --- NEW: ACTUAL N8N WEBHOOK SUBMISSION LOGIC ---
+  document.getElementById('bookingForm').addEventListener('submit', e => { 
+    e.preventDefault(); 
+    
+    // 1. Gather all data from the form
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'SENDING...';
+
+    const formData = {
+      name: document.getElementById('bf_name').value,
+      contact: document.getElementById('bf_contact').value,
+      email: document.getElementById('bf_email').value,
+      tour: document.getElementById('bf_tour').value,
+      date: document.getElementById('bf_date').value,
+      hotel: document.getElementById('bf_hotel').value,
+      adults: document.getElementById('bf_adults').value,
+      children: document.getElementById('bf_children').value,
+      type: document.getElementById('bf_type').value,
+      vehicle: document.getElementById('bf_vehicle').value,
+      requests: document.getElementById('bf_requests').value,
+      source: 'Website Booking Form'
+    };
+
+    // 2. Send it to n8n (Replace YOUR_WEBHOOK_URL_HERE with your actual Production URL later)
+    const n8nWebhookURL = 'YOUR_WEBHOOK_URL_HERE'; 
+
+    fetch(n8nWebhookURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      // 3. Show Success Message
+      document.getElementById('bookingSuccess').style.display = 'block'; 
+      document.getElementById('bookingSuccess').scrollIntoView({behavior:'smooth', block:'nearest'}); 
+      document.getElementById('bookingForm').reset();
+    })
+    .catch(error => {
+      console.error('Error sending lead to n8n:', error);
+      alert('There was a slight error sending your request, please reach out via WhatsApp!');
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'REQUEST BOOKING';
+    });
+  });
+
+  // Tour Action Buttons (Book / Ask)
+  function prefillBooking(tourName) {
+    const select = document.getElementById('bf_tour');
+    // Try to find matching option based on translated text
+    Array.from(select.options).forEach(opt => {
+      if(opt.text === tourName) select.value = opt.value || opt.text;
+    });
+    document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+  }
+
+  document.addEventListener('click', e => {
+    const book = e.target.closest('.book-tour');
+    if(book && book.dataset.tour) { 
+      e.preventDefault(); 
+      prefillBooking(book.dataset.tour); 
+    }
+    
+    const ask = e.target.closest('.ask-tour');
+    if(ask && ask.dataset.tour) {
+      document.getElementById('chatbotWindow').hidden = false;
+      // Pre-fill chat form interest
+      Array.from(chatTourInput.options).forEach(opt => {
+        if(opt.text === ask.dataset.tour) chatTourInput.selectedIndex = opt.index;
+      });
+      validatePreChat();
+    }
+  });
+
+  // Initialize
+  applyLanguage(currentLang);
+
+</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v3d52b47920f24c319d37e2661827c42b1787588026925" integrity="sha512-d9sL6GJLXn6fInD1+TVXhTcQOsmxeHfmHAvwGDIxp5TO+uo1fiWW7mHomMj4MLRlCsJDTqXzWLHJFFlPCEIj/A==" data-cf-beacon='{"version":"2024.11.0","token":"7939e04a4baf43c8b86a560f74aac60e"}' crossorigin="anonymous"></script>
+</body>
+</html>
