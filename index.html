@@ -1591,7 +1591,9 @@
   }
 
   // Handle Chat Input
-  chatSendButton.addEventListener('click', handleChatInput);
+  // A click handler receives a MouseEvent; call the message handler without
+  // forwarding it, because the handler accepts an optional text string.
+  chatSendButton.addEventListener('click', () => handleChatInput());
   document.getElementById('chatInput').addEventListener('keypress', e => { if(e.key === 'Enter') handleChatInput(); });
 
   async function handleChatInput(messageOverride = '') {
