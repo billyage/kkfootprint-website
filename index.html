@@ -215,6 +215,10 @@
     .terms-card--wide { grid-column: span 2; }
     @media (max-width: 850px) { .terms-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 620px) { .terms-grid { grid-template-columns: 1fr; } .terms-card--wide { grid-column: auto; } }
+    .rental-addon { max-width: 680px; margin: 0 auto 1.5rem; padding: 1.15rem 1.3rem; display: flex; align-items: center; gap: 0.9rem; text-align: left; background: white; border: 1px solid #e6c68c; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); }
+    .rental-addon-icon { font-size: 1.8rem; line-height: 1; }
+    .rental-addon strong { display: block; color: var(--jungle); margin-bottom: 0.2rem; }
+    .rental-addon p { color: var(--muted); font-size: 0.95rem; margin: 0; }
     
     .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -289,6 +293,7 @@
     .form-note { color: var(--muted); font-size: 0.88rem; margin-top: 1rem; }
     .booking-success { margin-top: 1rem; padding: 1rem 1.2rem; background: #ecf8f1; border: 1px solid #bfe5cc; border-radius: 1rem; color: #24513a; display: none; }
     .guest-age-note { color: var(--muted); font-size: 0.78rem; margin-top: 0.35rem; }
+    .language-service-notice { margin: 0 0 1.4rem; padding: 0.9rem 1rem; border: 1px solid #e6c68c; border-radius: 0.85rem; background: #fff9ed; color: #5c4521; font-size: 0.92rem; line-height: 1.55; }
     .booking-estimate { grid-column: 1 / -1; background: #edf7f4; border: 1px solid #cde4db; border-radius: 1rem; padding: 1rem 1.15rem; }
     .booking-estimate h3 { color: var(--jungle); font-size: 1rem; margin-bottom: 0.55rem; }
     .estimate-lines { display: grid; gap: 0.35rem; color: #526761; font-size: 0.9rem; }
@@ -592,14 +597,14 @@
 <section id="kundasang" style="background: #f8faf9;">
   <div class="container reveal">
     <h2 class="section-title" data-translate="kundasang_title">FROM CITY TO MOUNTAIN IN ONE DAY.</h2>
-      <p class="section-sub" data-translate="kundasang_sub">RM350 per person (minimum 2 guests). A 7:30 AM pickup takes you to Pekan Nabalu, a guided off-road ATV trail, Desa Cattle Dairy Farm and a highland lunch.</p>
+      <p class="section-sub" data-translate="kundasang_sub">RM350 per person (minimum 2 guests). A 7:30 AM pickup takes you to Pekan Nabalu, a guided off-road ATV trail, Desa Cattle Dairy Farm and lunch.</p>
     
     <div class="itinerary">
       <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">07:30</span> <span data-translate="itin_1">Hotel pickup</span></div>
       <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_2">Pekan Nabalu viewpoint</span></div>
       <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_3">Guided off-road ATV trail ride</span></div>
-      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_4">Highland lunch</span></div>
-      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_5">Desa Cattle Dairy Farm</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_4">Desa Cattle Dairy Farm</span></div>
+      <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_5">Lunch</span></div>
       <div class="timeline-item"><span style="font-weight:600;margin-right:1rem;">—</span> <span data-translate="itin_6">Return to Kota Kinabalu</span></div>
     </div>
     <button class="btn-primary book-tour" data-tour="Kundasang Highlights: Scenic Views, ATV & Desa Farm" data-translate="kundasang_cta">BOOK KUNDASANG</button>
@@ -648,6 +653,13 @@
   <div class="container reveal" style="text-align:center;">
     <h2 class="section-title" data-translate="private_title">YOUR TRIP. YOUR RULES.</h2>
     <p class="section-sub" style="margin: 0 auto 2rem;" data-translate="private_desc">Tell us where you want to go — we'll build your Sabah trip.</p>
+    <div class="rental-addon" role="note">
+      <span class="rental-addon-icon" aria-hidden="true">🚐</span>
+      <div>
+        <strong data-translate="rental_car_title">Rental Car with Driver</strong>
+        <p data-translate="rental_car_price">RM450 (10 hours) — Additional hours at RM50/hour</p>
+      </div>
+    </div>
     <button class="btn-primary book-tour" data-tour="Custom Tour" data-translate="private_cta">BUILD MY CUSTOM TOUR</button>
   </div>
 </section>
@@ -744,6 +756,7 @@
   <div class="container reveal">
     <h2 class="section-title" data-translate="booking_title">BOOK YOUR TOUR</h2>
     <p class="section-sub" data-translate="booking_sub" style="margin-bottom:1rem;">Tell us what you need. We'll verify availability and send you a confirmation.</p>
+    <p id="languageServiceNotice" class="language-service-notice" role="note" hidden></p>
     
     <form id="bookingForm">
       <div class="grid-2">
@@ -788,22 +801,6 @@
           <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_children">Children (age 3–10)</label>
           <input type="number" id="bf_children" min="0" max="100" step="1" value="0" inputmode="numeric">
           <p class="guest-age-note" data-translate="children_note">Infants age 0–2 travel free; add them in special requests.</p>
-        </div>
-        <div>
-          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_type">Tour Type</label>
-          <select id="bf_type">
-            <option data-translate="opt_private">Private</option>
-            <option data-translate="opt_shared">Shared</option>
-          </select>
-        </div>
-        <div>
-          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_veh">Preferred Vehicle (For Private)</label>
-          <select id="bf_vehicle">
-            <option value="Any" data-translate="opt_any">Any / Recommend</option>
-            <option data-translate="veh_sedan_h">Sedan</option>
-            <option data-translate="veh_mpv_h">MPV</option>
-            <option data-translate="veh_van_h">Van</option>
-          </select>
         </div>
         <div style="grid-column: 1 / -1;">
           <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_req">Special Requests / Questions</label>
@@ -948,8 +945,8 @@
       pill_fullday: "Full day", pill_pickup: "Guided snorkeling", pill_boat: "Buffet lunch included", mengalum_cta: "BOOK MENGALUM",
       mengalum_vis_h: "Turquoise water. A full day at sea.", mengalum_vis_p: "Guided snorkeling, beach relaxation and buffet lunch are included.",
       
-      kundasang_title: "KUNDASANG HIGHLIGHTS: VIEWS, ATV & DESA FARM.", kundasang_sub: "RM350 per adult / RM280 per child (minimum 2 paying guests). A 7:30 AM pickup takes you to Pekan Nabalu, a guided off-road ATV trail, Desa Cattle Dairy Farm and a highland lunch.",
-      itin_1: "Hotel pickup", itin_2: "Pekan Nabalu viewpoint", itin_3: "Guided off-road ATV trail ride", itin_4: "Highland lunch", itin_5: "Desa Cattle Dairy Farm", itin_6: "Return to Kota Kinabalu", kundasang_cta: "BOOK KUNDASANG",
+      kundasang_title: "KUNDASANG HIGHLIGHTS: VIEWS, ATV & DESA FARM.", kundasang_sub: "RM350 per adult / RM280 per child (minimum 2 paying guests). A 7:30 AM pickup takes you to Pekan Nabalu, a guided off-road ATV trail, Desa Cattle Dairy Farm and lunch.",
+      itin_1: "Hotel pickup", itin_2: "Pekan Nabalu viewpoint", itin_3: "Guided off-road ATV trail ride", itin_4: "Desa Cattle Dairy Farm", itin_5: "Lunch", itin_6: "Return to Kota Kinabalu", kundasang_cta: "BOOK KUNDASANG",
       
       culture_title: "STEP INTO SABAH'S CULTURAL HERITAGE.", culture_desc: "RM260 per person. Choose the 8:40 AM or 12:50 PM session to visit 5 ethnic longhouses, watch a blowpipe demonstration and Magunatip bamboo dance, then enjoy a cultural buffet meal.", culture_cta: "EXPERIENCE MARI-MARI",
       culture_vis_h: "Mari-Mari Cultural Village", culture_vis_p: "Five ethnic longhouses, a blowpipe demonstration, Magunatip bamboo dance and a cultural buffet meal.",
@@ -959,7 +956,7 @@
       
       city_title: "DISCOVER KOTA KINABALU'S LANDMARKS.", city_desc: "RM100 per adult / RM80 per child · 3–4.5 hours. Visit Masjid Bandaraya (Blue Mosque), Menara Tun Mustapha (Yayasan Sabah), and UMS Campus — Pink Mosque, ODEC Beach and the UMS stairs.", city_cta: "BOOK CITY TOUR",
       
-      private_title: "YOUR TRIP. YOUR RULES.", private_desc: "Tell us where you want to go — we'll build your Sabah trip.", private_cta: "BUILD MY CUSTOM TOUR",
+      private_title: "YOUR TRIP. YOUR RULES.", private_desc: "Tell us where you want to go — we'll build your Sabah trip.", rental_car_title: "Rental Car with Driver", rental_car_price: "RM450 (10 hours) — Additional hours at RM50/hour", private_cta: "BUILD MY CUSTOM TOUR",
       
       veh_title: "RIGHT-SIZED VEHICLES FOR YOUR GROUP.", veh_sub: "Choose the vehicle class that fits your group and luggage.",
       veh_sedan_h: "Sedan", veh_sedan_p: "Best for 1–3 guests with light luggage.",
@@ -987,7 +984,7 @@
       terms_cancellation_title: "Cancellations", terms_cancellation_text: "Cancellation is free at least 48 hours before departure. Cancellations within 24 hours incur a 100% charge. For cancellations 24–48 hours before departure, please contact us to confirm the applicable terms.",
       terms_weather_title: "Marine weather and safety", terms_weather_text: "Safety comes first. Marine tours cancelled by official Sabah port or marine advisories are fully refunded or can be rescheduled without penalty.",
       
-      booking_title: "BOOK YOUR TOUR", booking_sub: "Tell us what you need. We'll verify availability and send you a confirmation.",
+      booking_title: "BOOK YOUR TOUR", booking_sub: "Tell us what you need. We'll verify availability and send you a confirmation.", language_service_notice: "",
       lbl_name: "Name *", lbl_contact: "Telegram username *", lbl_email: "Email", lbl_tour: "Tour Package / Interest *",
       lbl_date: "Travel Date", lbl_hotel: "Hotel / Pickup Location", lbl_adults: "Adults", lbl_children: "Children (age 3–10)", children_note: "Infants age 0–2 travel free; add them in special requests.",
       lbl_type: "Tour Type", lbl_veh: "Preferred Vehicle (For Private)", lbl_req: "Special Requests / Questions",
@@ -1006,7 +1003,7 @@
       tour_card_price_from: "RM", tour_card_price_pax: "/ PERSON", tour_card_adult: "Adult", tour_card_child: "Child", tour_card_child_confirmation: "Child price on request", tour_card_min2: "Min. 2 guests", tour_card_incl_island: "Choose 2 islands", tour_card_desc: "",
       tour_card_desc_island: "Choose 2 of Sapi, Manukan and Mamutik. Includes transfers, fees, snorkeling gear, parasailing and seawalking.",
       tour_card_desc_mengalum: "7:40 AM boat transfer, guided snorkeling, beach relaxation and buffet lunch; returns around 3:30 PM.",
-      tour_card_desc_kundasang: "7:30 AM pickup, Pekan Nabalu, guided off-road ATV trail, Desa Farm and highland lunch.",
+      tour_card_desc_kundasang: "7:30 AM pickup, Pekan Nabalu, guided off-road ATV trail, Desa Farm and lunch.",
       tour_card_desc_culture: "8:40 AM or 12:50 PM sessions with 5 ethnic longhouses, cultural activities and buffet meal.",
       tour_card_desc_firefly: "1:45 PM pickup, high tea, wildlife cruise, beach sunset, buffet dinner and firefly cruise.",
       tour_card_desc_city: "Masjid Bandaraya, Menara Tun Mustapha, and UMS Campus: Pink Mosque, ODEC Beach and UMS stairs.",
@@ -1063,8 +1060,8 @@
       pill_fullday: "一日游", pill_pickup: "导览浮潜", pill_boat: "含自助午餐", mengalum_cta: "预订环滩岛",
       mengalum_vis_h: "碧海蓝天，畅享一日。", mengalum_vis_p: "包含导览浮潜、沙滩休闲和自助午餐。",
       
-      kundasang_title: "神山高地全景、越野四轮车与牧场一日游", kundasang_sub: "成人每位350令吉／儿童每位280令吉（至少2位收费旅客）。早上7:30接送，前往纳巴鲁小镇观景台，体验导览越野四轮车，游览德萨奶牛农场，并享用高原午餐。",
-      itin_1: "酒店接送", itin_2: "纳巴鲁小镇观景台", itin_3: "导览越野四轮车路线体验", itin_4: "高原午餐", itin_5: "德萨奶牛农场", itin_6: "返回亚庇", kundasang_cta: "预订神山行程",
+      kundasang_title: "神山高地全景、越野四轮车与牧场一日游", kundasang_sub: "成人每位350令吉／儿童每位280令吉（至少2位收费旅客）。早上7:30接送，前往纳巴鲁小镇观景台，体验导览越野四轮车，游览德萨奶牛农场，并享用午餐。",
+      itin_1: "酒店接送", itin_2: "纳巴鲁小镇观景台", itin_3: "导览越野四轮车路线体验", itin_4: "德萨奶牛农场", itin_5: "午餐", itin_6: "返回亚庇", kundasang_cta: "预订神山行程",
       
       culture_title: "走进沙巴文化遗产。", culture_desc: "每人260令吉。可选早上8:40或下午12:50场次；参观五大民族长屋、观赏吹箭示范及马古纳迪竹竿舞，并享用文化自助餐。", culture_cta: "体验马里马里",
       culture_vis_h: "马里马里文化村", culture_vis_p: "五大民族长屋、吹箭示范、马古纳迪竹竿舞与文化自助餐。",
@@ -1074,7 +1071,7 @@
       
       city_title: "探索亚庇城市地标。", city_desc: "成人每位100令吉／儿童每位80令吉，约3至4.5小时。游览亚庇市立清真寺、沙巴基金大厦及沙巴大学校园：粉红清真寺、校园海滨与大学阶梯。", city_cta: "预订亚庇城市游览",
       
-      private_title: "你的旅行。你的规则。", private_desc: "告诉我们你想去哪里，我们将为您打造专属的沙巴行程。", private_cta: "制定包车路线",
+      private_title: "你的旅行。你的规则。", private_desc: "告诉我们你想去哪里，我们将为您打造专属的沙巴行程。", rental_car_title: "包车带司机服务", rental_car_price: "RM450（10小时）— 超时每小时加收 RM50", private_cta: "制定包车路线",
       
       veh_title: "为您匹配合适的车型。", veh_sub: "根据同行人数和行李数量选择舒适的座驾。",
       veh_sedan_h: "轿车", veh_sedan_p: "适合 1–3 人，轻便行李。",
@@ -1102,7 +1099,7 @@
       terms_cancellation_title: "取消政策", terms_cancellation_text: "出发前至少48小时取消可免费办理；出发前24小时内取消将收取100％费用。出发前24至48小时内取消，请联系我们确认适用条款。",
       terms_weather_title: "海上天气与安全", terms_weather_text: "安全第一。如因沙巴官方港口或海事通告而取消海上行程，可选择全额退款或免手续费改期。",
       
-      booking_title: "预订您的行程", booking_sub: "告诉我们您的需求。我们会核实空位并发送确认信息。",
+      booking_title: "预订您的行程", booking_sub: "告诉我们您的需求。我们会核实空位并发送确认信息。", language_service_notice: "中文服务说明：导游和司机可能会说中文，也可能不会说中文。如果您无法完全理解中文服务，请在预订前告诉我们，以便确认合适安排。",
       lbl_name: "姓名 *", lbl_contact: "Telegram 用户名 *", lbl_email: "电子邮箱", lbl_tour: "行程 / 兴趣 *",
       lbl_date: "出发日期", lbl_hotel: "酒店 / 接送地点", lbl_adults: "成人人数", lbl_children: "儿童人数（3至10岁）", children_note: "0至2岁婴儿免费，请在特殊要求中注明人数。",
       lbl_type: "出团类型", lbl_veh: "首选车型 (若选择包车)", lbl_req: "特殊要求 / 问题",
@@ -1121,7 +1118,7 @@
       tour_card_price_from: "令吉", tour_card_price_pax: "", tour_card_adult: "成人", tour_card_child: "儿童", tour_card_child_confirmation: "儿童价格待确认", tour_card_min2: "至少2人", tour_card_incl_island: "任选两岛", tour_card_desc: "",
       tour_card_desc_island: "从沙比、马奴干、马穆迪任选两岛；包含接送、费用、浮潜装备、拖曳伞及海底漫步。",
       tour_card_desc_mengalum: "早上 7:40 船只接驳，含导览浮潜、沙滩休闲及自助午餐；约下午 3:30 返回。",
-      tour_card_desc_kundasang: "早上7:30接送，纳巴鲁观景台、导览越野四轮车、德萨牧场及高原午餐。",
+      tour_card_desc_kundasang: "早上7:30接送，纳巴鲁观景台、导览越野四轮车、德萨牧场及午餐。",
       tour_card_desc_culture: "早上 8:40 或下午 12:50 场次；五大民族长屋、文化活动及自助餐。",
       tour_card_desc_firefly: "下午 1:45 接送，下午茶、野生动物巡航、海滩日落、自助晚餐及萤火虫夜航。",
       tour_card_desc_city: "游览蓝色清真寺、沙巴基金大厦及沙巴大学：粉红清真寺、校园海滨与大学阶梯。",
@@ -1144,18 +1141,18 @@
     tours_title: "사바 인기 투어를 만나보세요", tours_sub: "원하는 체험을 고르거나, 여행에 맞는 일정을 함께 만들어 보세요.", filter_all: "전체", filter_island: "섬", filter_mountain: "산", filter_culture: "문화", filter_nature: "자연", filter_city: "도시", filter_private: "프라이빗",
     tour_sapi_name: "사피 섬", tour_sapi_desc: "맑은 바다에서 즐기는 스노클링.", tour_manukan_name: "마누칸 섬", tour_manukan_desc: "시설이 잘 갖춰진 가족 여행지.", tour_mamutik_name: "마무틱 섬", tour_mamutik_desc: "한적하게 쉬기 좋은 섬.", island_title: "나만의 섬, 나만의 모험.", island_sub: "성인 RM269 / 어린이 RM245. 사피, 마누칸, 마무틱 섬 가운데 두 곳을 선택하세요. 호텔 왕복 픽업, 보트 이동, 터미널·입장료, 스노클링 장비, 패러세일링과 씨워킹이 포함됩니다.", island_cta: "섬 선택하기",
     mengalum_title: "맹글럼 섬으로 떠나는 하루", mengalum_desc: "성인 RM350 / 어린이 RM280(유료 인원 최소 2명). 오전 7:40 보트로 출발해 가이드 스노클링, 해변 휴식과 뷔페 점심을 즐기며, 오후 3:30경 돌아옵니다.", pill_fullday: "종일", pill_pickup: "가이드 스노클링", pill_boat: "뷔페 점심 포함", mengalum_cta: "맹글럼 섬 예약", mengalum_vis_h: "에메랄드빛 바다에서 보내는 하루.", mengalum_vis_p: "가이드 스노클링, 해변 휴식, 뷔페 점심이 포함됩니다.",
-    kundasang_title: "쿤다상 절경·ATV·데사 낙농장.", kundasang_sub: "성인 RM350 / 어린이 RM280(유료 인원 최소 2명). 오전 7:30 픽업 후 나발루 전망대, 가이드 동반 오프로드 ATV, 데사 낙농장과 고원 점심을 즐깁니다.", itin_1: "호텔 픽업", itin_2: "나발루 전망대", itin_3: "가이드 동반 오프로드 ATV", itin_4: "고원 점심", itin_5: "데사 낙농장", itin_6: "코타키나발루 귀환", kundasang_cta: "쿤다상 예약",
+    kundasang_title: "쿤다상 절경·ATV·데사 낙농장.", kundasang_sub: "성인 RM350 / 어린이 RM280(유료 인원 최소 2명). 오전 7:30 픽업 후 나발루 전망대, 가이드 동반 오프로드 ATV, 데사 낙농장과 점심 식사를 즐깁니다.", itin_1: "호텔 픽업", itin_2: "나발루 전망대", itin_3: "가이드 동반 오프로드 ATV", itin_4: "데사 낙농장", itin_5: "점심 식사", itin_6: "코타키나발루 귀환", kundasang_cta: "쿤다상 예약",
     culture_title: "사바의 문화유산 속으로.", culture_desc: "1인 RM260. 오전 8:40 또는 오후 12:50 세션 중 선택하세요. 다섯 민족의 전통 가옥, 블로우파이프 시연, 마구나티프 대나무 춤을 보고 문화 뷔페를 즐깁니다.", culture_cta: "마리마리 체험", culture_vis_h: "마리마리 문화마을", culture_vis_p: "다섯 민족의 전통 가옥, 블로우파이프 시연, 마구나티프 대나무 춤과 문화 뷔페.",
     firefly_title: "해가 진 뒤 살아나는 보르네오.", firefly_desc: "성인 RM230 / 어린이 RM200(유료 인원 최소 2명). 오후 1:45 픽업 후 애프터눈 티, 야생동물·코주부원숭이를 만나는 강 크루즈, 보르네오 해변 일몰, 선착장 뷔페 저녁과 반딧불이 야간 크루즈를 즐깁니다.", firefly_cta: "반딧불이 투어 예약", firefly_vis_h: "야생동물 → 일몰 → 반딧불이", firefly_vis_p: "애프터눈 티, 두 번의 강 크루즈, 뷔페 저녁과 보르네오 해변 일몰이 포함됩니다.",
-    city_title: "코타키나발루의 명소를 만나보세요.", city_desc: "성인 RM100 / 어린이 RM80 · 약 3~4.5시간. 블루 모스크, 사바 재단 빌딩, 사바대학교 캠퍼스의 핑크 모스크, ODEC 비치와 계단을 방문합니다.", city_cta: "시티 투어 예약", private_title: "나만의 여행, 나만의 방식.", private_desc: "가고 싶은 곳을 알려 주세요. 당신만의 사바 여행을 만들어 드립니다.", private_cta: "맞춤 투어 만들기",
+    city_title: "코타키나발루의 명소를 만나보세요.", city_desc: "성인 RM100 / 어린이 RM80 · 약 3~4.5시간. 블루 모스크, 사바 재단 빌딩, 사바대학교 캠퍼스의 핑크 모스크, ODEC 비치와 계단을 방문합니다.", city_cta: "시티 투어 예약", private_title: "나만의 여행, 나만의 방식.", private_desc: "가고 싶은 곳을 알려 주세요. 당신만의 사바 여행을 만들어 드립니다.", rental_car_title: "기사 포함 차량 렌트", rental_car_price: "RM450 (10시간) — 시간 초과 시 시간당 RM50 추가", private_cta: "맞춤 투어 만들기",
     veh_title: "그룹에 알맞은 차량.", veh_sub: "인원과 짐에 맞는 차량을 선택하세요.", veh_sedan_h: "세단", veh_sedan_p: "짐이 적은 1~3명에게 알맞습니다.", veh_mpv_h: "MPV", veh_mpv_p: "가족과 소규모 그룹에 편안합니다.", veh_van_h: "밴", veh_van_p: "큰 그룹을 위한 넉넉한 좌석과 짐 공간.",
     testi_title: "사바의 추억을 남긴 여행자들.", testi_1: "계획도 쉬웠고, 픽업도 정확했으며 아주 편안한 프라이빗 투어였습니다.", testi_auth1: "커플 여행자", testi_2: "가족 일정에 맞춰 조정할 수 있어서 좋았습니다.", testi_auth2: "가족 여행자", testi_3: "명확한 소통과 편안한 코타키나발루 당일 여행이었습니다.", testi_auth3: "소규모 그룹",
     faq_title: "자주 묻는 질문", faq_1_q: "투어는 어떻게 예약하나요?", faq_1_a: "투어, 희망 날짜와 인원을 보내주시면 최종 예약 전에 가능 여부를 확인해 드립니다.", faq_2_q: "호텔 픽업이 가능한가요?", faq_2_a: "많은 코타키나발루 투어에서 호텔 픽업을 이용할 수 있습니다. 정확한 범위는 패키지에 따라 다릅니다.", faq_3_q: "프라이빗 투어인가요, 조인 투어인가요?", faq_3_a: "일부 투어에서 두 가지 모두 가능합니다. 프라이빗 투어는 시간과 방문지를 더 유연하게 조정할 수 있습니다.", faq_4_q: "일정을 맞춤으로 만들 수 있나요?", faq_4_a: "네. 경로, 날씨와 운영 상황에 따라 그룹의 관심사와 시간에 맞춰 프라이빗 투어를 조정할 수 있습니다.", faq_5_q: "어떤 차량을 이용할 수 있나요?", faq_5_a: "인원과 짐에 따라 세단, MPV, 밴을 이용할 수 있습니다.", faq_6_q: "어린이도 참여할 수 있나요?", faq_6_a: "많은 투어가 가족 여행에 적합합니다. 알맞은 투어를 추천할 수 있도록 어린이의 나이를 알려 주세요.", weather_note: "여유 있게 여행하세요. 야외 활동은 날씨와 안전 상황에 따라 달라질 수 있습니다.",
     terms_kicker: "예약 약관", terms_title: "투어 약관 및 취소 정책", terms_intro: "투어를 확정하기 전에 아래 운영 약관을 확인해 주세요.", terms_payment_title: "50% 예약금", terms_payment_text: "좌석 확정을 위해 50% 예약금이 필요합니다. 잔금은 출발 전에 결제해 주세요.", terms_punctuality_title: "픽업 시간 준수", terms_punctuality_text: "픽업 시간 10분 전까지 호텔 로비에 도착해 주세요. 기사는 최대 10분만 기다릴 수 있습니다.", terms_no_show_title: "노쇼", terms_no_show_text: "사전 연락 없이 차량을 놓치면 노쇼로 처리되며, 투어 요금의 100%가 환불되지 않습니다.", terms_cancellation_title: "취소", terms_cancellation_text: "출발 48시간 전까지는 무료로 취소할 수 있습니다. 출발 24시간 이내 취소 시 100% 비용이 부과됩니다. 출발 24~48시간 전 취소는 적용 약관을 확인하기 위해 문의해 주세요.", terms_weather_title: "해상 날씨 및 안전", terms_weather_text: "안전이 최우선입니다. 사바 항만 또는 해양 당국의 공식 권고로 해상 투어가 취소되면 전액 환불 또는 수수료 없는 일정 변경을 선택할 수 있습니다.",
-    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름 *", lbl_email: "이메일", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "이메일 주소", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
+    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", language_service_notice: "안내: 가이드와 운전기사는 영어로만 안내합니다. 영어를 완전히 이해하기 어려우시면 예약 전에 알려 주세요.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름 *", lbl_email: "이메일", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "이메일 주소", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
     footer_title: "KKfootprint Travel", footer_tag: "사바에서 남기는 당신만의 발자국.", footer_loc: "말레이시아 사바 코타키나발루", footer_links: "바로가기", footer_contact: "문의하기", footer_telegram: "텔레그램", footer_legal: "법적 고지", footer_terms: "이용약관", footer_privacy: "개인정보 처리방침", footer_copy: "© 2026 KKfootprint Travel", footer_rights: "모든 권리 보유.",
     chat_title: "KKfootprint 도우미", chat_pre_msg: "REX와 대화를 시작하려면 정보를 입력해 주세요.", chat_contact_label: "텔레그램 사용자 이름 *", chat_telegram_ph: "@username", chat_email_label: "이메일 주소 *", chat_continue_notice: "계속을 선택하면 KKfootprint가 문의 답변을 위해 이 정보를 사용하는 데 동의하게 됩니다. <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">개인정보 처리방침</a>을 확인하세요.", chat_marketing_choice: "텔레그램 또는 이메일로 가끔 투어 혜택을 받겠습니다. 선택 사항이며 언제든지 수신 거부할 수 있습니다.", chat_lead_error: "지금은 채팅을 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.", chat_message_error: "REX가 지금 답변하지 못했습니다. 다시 시도해 주세요.", btn_start_chat: "계속", ph_chat_input: "메시지를 입력하세요...", chat_msg_1: "{name}님, {tour}에 관심 가져주셔서 감사합니다. 여행 계획을 어떻게 도와드릴까요?", chat_msg_fallback: "안녕하세요! 사바 여행 계획을 어떻게 도와드릴까요?", chat_btn_1: "가능 여부 확인", chat_btn_2: "요금 안내", chat_btn_3: "일정 상세",
-    tour_card_dur_fd: "종일", tour_card_dur_hd: "반일", tour_card_dur_ev: "저녁", tour_card_dur_4h: "약 3~4.5시간", tour_card_dur_flex: "유연함", tour_card_price_from: "RM", tour_card_price_pax: "/ 1인", tour_card_adult: "성인", tour_card_child: "어린이", tour_card_child_confirmation: "어린이 요금 확인 필요", tour_card_min2: "최소 2명", tour_card_incl_island: "섬 2곳 선택", tour_card_desc: "", tour_card_desc_island: "사피, 마누칸, 마무틱 중 두 섬을 선택하세요. 이동, 요금, 스노클링 장비, 패러세일링과 씨워킹이 포함됩니다.", tour_card_desc_mengalum: "오전 7:40 보트 이동, 가이드 스노클링, 해변 휴식과 뷔페 점심 포함. 오후 3:30경 돌아옵니다.", tour_card_desc_kundasang: "오전 7:30 픽업, 나발루 전망대, 가이드 오프로드 ATV, 데사 낙농장과 고원 점심.", tour_card_desc_culture: "오전 8:40 또는 오후 12:50 세션. 다섯 민족의 전통 가옥, 문화 체험과 뷔페.", tour_card_desc_firefly: "오후 1:45 픽업, 애프터눈 티, 야생동물 크루즈, 해변 일몰, 뷔페 저녁과 반딧불이 크루즈.", tour_card_desc_city: "블루 모스크, 사바 재단 빌딩, 사바대학교 캠퍼스의 핑크 모스크, ODEC 비치와 계단.", btn_book: "투어 확인", btn_ask: "문의", btn_telegram: "텔레그램", badge_pop: "인기", tour_card_culture_sessions: "오전 8:40 / 오후 12:50",
+    tour_card_dur_fd: "종일", tour_card_dur_hd: "반일", tour_card_dur_ev: "저녁", tour_card_dur_4h: "약 3~4.5시간", tour_card_dur_flex: "유연함", tour_card_price_from: "RM", tour_card_price_pax: "/ 1인", tour_card_adult: "성인", tour_card_child: "어린이", tour_card_child_confirmation: "어린이 요금 확인 필요", tour_card_min2: "최소 2명", tour_card_incl_island: "섬 2곳 선택", tour_card_desc: "", tour_card_desc_island: "사피, 마누칸, 마무틱 중 두 섬을 선택하세요. 이동, 요금, 스노클링 장비, 패러세일링과 씨워킹이 포함됩니다.", tour_card_desc_mengalum: "오전 7:40 보트 이동, 가이드 스노클링, 해변 휴식과 뷔페 점심 포함. 오후 3:30경 돌아옵니다.", tour_card_desc_kundasang: "오전 7:30 픽업, 나발루 전망대, 가이드 오프로드 ATV, 데사 낙농장과 점심 식사.", tour_card_desc_culture: "오전 8:40 또는 오후 12:50 세션. 다섯 민족의 전통 가옥, 문화 체험과 뷔페.", tour_card_desc_firefly: "오후 1:45 픽업, 애프터눈 티, 야생동물 크루즈, 해변 일몰, 뷔페 저녁과 반딧불이 크루즈.", tour_card_desc_city: "블루 모스크, 사바 재단 빌딩, 사바대학교 캠퍼스의 핑크 모스크, ODEC 비치와 계단.", btn_book: "투어 확인", btn_ask: "문의", btn_telegram: "텔레그램", badge_pop: "인기", tour_card_culture_sessions: "오전 8:40 / 오후 12:50",
     tour_item_1: "사피·마누칸·마무틱 섬 호핑 투어", tour_item_2: "맹글럼 섬 일일 투어", tour_item_3: "쿤다상 절경·ATV·데사 낙농장 일일 투어", tour_item_4: "마리마리 문화마을 체험", tour_item_5: "코타키나발루 맹그로브 반딧불이 투어", tour_item_6: "코타키나발루 시티 투어"
   };
 
@@ -1225,6 +1222,11 @@
       const key = el.getAttribute('data-translate-ph');
       if (t[key]) el.placeholder = t[key];
     });
+
+    const languageServiceNotice = document.getElementById('languageServiceNotice');
+    const languageServiceText = t.language_service_notice || '';
+    languageServiceNotice.hidden = !languageServiceText;
+    languageServiceNotice.textContent = languageServiceText;
 
     // Update active state of language buttons
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -1711,8 +1713,6 @@
       hotel: document.getElementById('bf_hotel').value,
       adults: document.getElementById('bf_adults').value,
       children: document.getElementById('bf_children').value,
-      type: document.getElementById('bf_type').value,
-      vehicle: document.getElementById('bf_vehicle').value,
       requests: document.getElementById('bf_requests').value,
       language: currentLang,
       channel: 'customer_web'

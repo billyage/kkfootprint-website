@@ -1,0 +1,6 @@
+# Copy to worker/.dev.vars for local development only. Never commit real values.
+N8N_WEBHOOK_URL=https://n8n-intake.example.com/webhook/rex-website-lead
+REX_CUSTOMER_HMAC_SECRET=replace-with-a-long-random-secret
+
+# Optional: required only after TURNSTILE_ENABLED is set to true.
+# TURNSTILE_SECRET_KEY=replace-with-your-turnstile-secret

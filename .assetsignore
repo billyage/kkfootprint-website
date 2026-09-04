@@ -1,0 +1,14 @@
+.git/**
+.github/**
+.wrangler/**
+.agents/**
+.codex/**
+worker/**
+.env
+.env.*
+wrangler.jsonc
+.gitignore
+.assetsignore
+tmp/
+tmp/**
+*.pdf

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kkfootprint-website.billyage89.workers.dev/sitemap.xml

@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kkfootprint-rex-leads",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://kkfootprint-website.billyage89.workers.dev,http://localhost:8787",
+    "MAX_PAYLOAD_BYTES": "16384",
+    "TURNSTILE_ENABLED": "false"
+  }
+  // Before deployment, add a route in the Cloudflare dashboard for:
+  // https://kkfootprint-website.billyage89.workers.dev/api/rex/*
+}

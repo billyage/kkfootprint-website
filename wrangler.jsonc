@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kkfootprint-website",
+  "main": "worker/src/index.js",
+  "compatibility_date": "2026-08-31",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://kkfootprint-website.billyage89.workers.dev,http://localhost:8787",
+    "MAX_PAYLOAD_BYTES": "16384",
+    "TURNSTILE_ENABLED": "false"
+  }
+}
