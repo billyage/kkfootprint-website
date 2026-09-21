@@ -141,6 +141,16 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Legacy Google Ads and external link compatibility redirect for Mengalum Island tour.
+    const mengalumMatch = url.pathname.match(/^(?:\/(en|zh-hans|ko))?\/mengalum\/tour\/?$/i);
+    if (mengalumMatch) {
+      const lang = mengalumMatch[1];
+      const targetPath = lang ? `/${lang}/tours/mengalum-island/` : '/tours/mengalum-island/';
+      const targetUrl = new URL(targetPath, 'https://kkfootprint.com');
+      targetUrl.search = url.search;
+      return Response.redirect(targetUrl.toString(), 301);
+    }
+
     // Keep one public address for customers and search engines.
     if (url.hostname === 'www.kkfootprint.com') {
       url.hostname = 'kkfootprint.com';
@@ -160,11 +170,22 @@ export default {
       return applyLandingPageSeo(asset, url, LANDING_PAGE_SEO[url.pathname]);
     }
 
-    if (request.method === 'GET' && !url.pathname.endsWith('/') && TOUR_DETAIL_PATHS.has(`${url.pathname}/`)) {
+    // Canonicalize legacy /en/tours/* requests to canonical /tours/*
+    if (url.pathname === '/en/tours' || url.pathname.startsWith('/en/tours/')) {
+      const targetPath = url.pathname.replace(/^\/en/, '');
+      const normalizedPath = targetPath.endsWith('/') ? targetPath : `${targetPath}/`;
+      const targetUrl = new URL(normalizedPath, 'https://kkfootprint.com');
+      targetUrl.search = url.search;
+      return Response.redirect(targetUrl.toString(), 301);
+    }
+
+    const isGetOrHead = request.method === 'GET' || request.method === 'HEAD';
+
+    if (isGetOrHead && !url.pathname.endsWith('/') && TOUR_DETAIL_PATHS.has(`${url.pathname}/`)) {
       return Response.redirect(new URL(`${url.pathname}/`, url), 301);
     }
 
-    if (request.method === 'GET' && TOUR_DETAIL_PATHS.has(url.pathname)) {
+    if (isGetOrHead && TOUR_DETAIL_PATHS.has(url.pathname)) {
       // Cloudflare Assets canonicalizes /tour.html to /tour with a 307. Fetch
       // the canonical asset name directly so the visitor's detail-page URL is
       // retained and the client can select the matching package from its path.
