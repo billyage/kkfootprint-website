@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Deposit proof | KKfootprint Travel</title>
+  <link rel="icon" href="/favicon.jpg" type="image/jpeg" sizes="any">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18443632160"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18443632160');
+  </script>
+  <meta name="description" content="Securely send your KKfootprint Travel deposit proof after receiving approved payment instructions.">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    :root{--ink:#14352f;--muted:#61736e;--line:#dfe9e5;--orange:#f4a261;--bg:#f8faf9}*{box-sizing:border-box}body{margin:0;font:16px/1.5 Arial,sans-serif;color:#192b27;background:var(--bg)}.wrap{width:min(720px,calc(100% - 32px));margin:auto}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{font-size:1.25rem;font-weight:800;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:.55rem}.brand img{width:42px;height:42px;border-radius:50%;object-fit:contain;background:#fff}.back{color:#526761;text-decoration:none;font-weight:700}.hero{padding:3.75rem 0 2.6rem;background:linear-gradient(135deg,#0b2420,#1d5145);color:white}.eyebrow{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:#ffd5ac}.hero h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:.45rem 0 .7rem}.hero p{max-width:620px;margin:0;color:#dceae5}.card{margin:2rem 0 4rem;padding:clamp(1.2rem,4vw,2rem);background:white;border:1px solid var(--line);border-radius:1rem;box-shadow:0 12px 28px rgba(20,53,47,.08)}.notice{padding:1rem;border-left:4px solid var(--orange);background:#fff8ee;color:#654724;border-radius:.5rem;margin-bottom:1.4rem}.payment-card{display:none;margin:0 0 1.4rem;padding:1.2rem;border:1px solid #b9d8cc;border-radius:.8rem;background:#eff9f5;text-align:center}.payment-card.is-ready{display:block}.payment-card h2{margin:.1rem 0 .35rem;color:var(--ink);font-size:1.3rem}.amount{margin:.7rem 0;font-size:1.9rem;font-weight:800;color:var(--ink)}.qr{display:block;width:min(100%,330px);margin:1rem auto;border-radius:.7rem;box-shadow:0 6px 18px rgba(20,53,47,.14)}.account-note{margin:.8rem 0 0;font-size:.86rem;color:#5c4830}.field{display:block;margin:.95rem 0}.field span{display:block;font-weight:700;font-size:.88rem;margin-bottom:.35rem}input{display:block;width:100%;min-height:46px;padding:.7rem;border:1px solid #cbdcd5;border-radius:.65rem;font:inherit}input[type=file]{padding:.55rem;background:#f8faf9}.help{font-size:.85rem;color:var(--muted);margin:.35rem 0 0}.button{width:100%;min-height:48px;border:0;border-radius:999px;background:var(--orange);color:#182a26;font-weight:800;font:inherit;cursor:pointer;margin-top:.8rem}.button:disabled{opacity:.65;cursor:wait}.result{display:none;margin-top:1rem;padding:1rem;border-radius:.7rem;background:#eaf7ef;color:#22523a}.return-link{display:none;text-align:center;text-decoration:none;padding:.75rem 1rem;line-height:1.5}.support{margin-top:1rem;color:var(--muted);font-size:.9rem;text-align:center}.support a{color:var(--ink);font-weight:700}@media(max-width:480px){.nav{min-height:60px}.back{font-size:.88rem}.payment-card{padding:1rem}.amount{font-size:1.65rem}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav"><a class="brand" href="/en/"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt="">KKfootprint Travel</a><a class="back" id="backLink" href="/en/">← Back to tours</a></header>
+  <main>
+    <section class="hero"><div class="wrap"><div class="eyebrow" id="eyebrow">Secure payment proof</div><h1 id="title">Send your deposit proof</h1><p id="intro">Use this page only after KKfootprint Travel has confirmed availability, given you a booking reference and sent payment instructions.</p></div></section>
+    <section class="wrap"><div class="card"><div class="notice" id="notice">Sending a receipt does not confirm a booking. Our team verifies the payment first, then sends your official booking confirmation.</div><section class="payment-card" id="paymentCard" aria-live="polite"><h2 id="paymentTitle">Approved deposit payment</h2><p id="paymentIntro">Scan this temporary TNG/DuitNow QR only for the exact approved deposit below.</p><div class="amount" id="paymentAmount">RM0.00</div><img class="qr" src="/images/payment/tng-qr-temporary.jpg" alt="Temporary TNG DuitNow QR for KKfootprint Travel deposits"><p class="account-note" id="accountNote">Temporary collection notice: the QR shows CHRISTIAN BAWOL UNDIH, authorised by KKfootprint Travel to receive deposits while the merchant gateway is being prepared.</p></section><form id="receiptForm"><label class="field"><span id="referenceLabel">Booking reference *</span><input id="bookingReference" required autocomplete="off" placeholder="KKF-..."></label><label class="field"><span id="nameLabel">Name *</span><input id="name" required autocomplete="name"></label><label class="field"><span id="emailLabel">Email *</span><input id="email" type="email" required autocomplete="email"></label><label class="field"><span id="receiptLabel">Receipt image or PDF *</span><input id="receipt" type="file" accept="image/jpeg,image/png,application/pdf" required><p class="help" id="fileHelp">JPG, PNG or PDF only. Maximum 15 MB.</p></label><div class="cf-turnstile" data-sitekey="0x4AAAAAAEsprhUOno51AQDQ" data-theme="light"></div><button class="button" id="submit" type="submit">SEND RECEIPT FOR VERIFICATION</button></form><div class="result" id="result" role="status"></div><a class="button return-link" id="returnLink" href="/en/">RETURN TO TOURS</a><p class="support" id="support">Need help? <a href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer">Talk to REX on Telegram</a>.</p></div></section>
+  </main>
+  <script>
+    const lang=['zh','ko'].includes(new URLSearchParams(location.search).get('lang'))?new URLSearchParams(location.search).get('lang'):'en';
+    const copy={en:{back:'← Back to tours',eyebrow:'Secure payment proof',title:'Send your deposit proof',intro:'Use this page only after KKfootprint Travel has confirmed availability, given you a booking reference and sent payment instructions.',notice:'Sending a receipt does not confirm a booking. Our team verifies the payment first, then sends your official booking confirmation.',reference:'Booking reference *',name:'Name *',email:'Email *',receipt:'Receipt image or PDF *',file:'JPG, PNG or PDF only. Maximum 15 MB.',send:'SEND RECEIPT FOR VERIFICATION',success:'Receipt received. We will verify the payment shortly. Your booking is not confirmed until you receive an official confirmation.',support:'Need help? <a href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer">Talk to REX on Telegram</a>.'},zh:{back:'← 返回行程',eyebrow:'安全提交付款凭证',title:'提交订金付款凭证',intro:'请只在 KKfootprint Travel 已确认空位、提供预订编号和付款说明后使用此页面。',notice:'提交收据并不代表预订已确认。团队会先核实付款，再发送正式预订确认。',reference:'预订编号 *',name:'姓名 *',email:'电子邮箱 *',receipt:'收据图片或 PDF *',file:'仅限 JPG、PNG 或 PDF，最大 15 MB。',send:'提交收据供核实',success:'已收到收据。我们会尽快核实付款。在收到正式确认前，预订尚未确认。',support:'需要协助？<a href="https://t.me/kkfootprint_bot?start=lang_zh" target="_blank" rel="noopener noreferrer">在 Telegram 联系 REX</a>。'},ko:{back:'← 투어로 돌아가기',eyebrow:'안전한 결제 증빙',title:'예약금 증빙 보내기',intro:'KKfootprint Travel이 가능 여부를 확인하고 예약 번호와 결제 안내를 보낸 후에만 이 페이지를 이용해 주세요.',notice:'영수증 제출은 예약 확정이 아닙니다. 팀에서 결제를 먼저 확인한 뒤 공식 예약 확인서를 보내드립니다.',reference:'예약 번호 *',name:'이름 *',email:'이메일 *',receipt:'영수증 이미지 또는 PDF *',file:'JPG, PNG 또는 PDF만 가능하며 최대 15MB입니다.',send:'확인을 위해 영수증 보내기',success:'영수증을 받았습니다. 곧 결제를 확인하겠습니다. 공식 확인을 받기 전까지 예약은 확정되지 않습니다.',support:'도움이 필요하신가요? <a href="https://t.me/kkfootprint_bot?start=lang_ko" target="_blank" rel="noopener noreferrer">텔레그램에서 REX에게 문의하세요</a>.'}}[lang];
+    document.documentElement.lang=lang==='zh'?'zh-Hans':lang;document.getElementById('backLink').textContent=copy.back;document.getElementById('backLink').href=lang==='zh'?'/zh-hans/':lang==='ko'?'/ko/':'/en/';document.getElementById('eyebrow').textContent=copy.eyebrow;document.getElementById('title').textContent=copy.title;document.getElementById('intro').textContent=copy.intro;document.getElementById('notice').textContent=copy.notice;document.getElementById('referenceLabel').textContent=copy.reference;document.getElementById('nameLabel').textContent=copy.name;document.getElementById('emailLabel').textContent=copy.email;document.getElementById('receiptLabel').textContent=copy.receipt;document.getElementById('fileHelp').textContent=copy.file;document.getElementById('submit').textContent=copy.send;document.getElementById('support').innerHTML=copy.support;
+    const KKF_TRACKING = {
+      googleAdsId: 'AW-18443632160',
+      conversions: {
+        payment: {
+          enabled: false,
+          label: 'd7krCKno_P8cEKD8zdpE' // 'KKF - Payment Completed' (Disabled: upload is RECEIPT_SUBMITTED, not DEPOSIT_VERIFIED)
+        },
+        telegram: {
+          enabled: true,
+          label: 'DpRECJmF9P8cEKD8zdpE' // 'KKF - Telegram Contact Click'
+        }
+      }
+    };
+    function trackGoogleAdsConversion(actionKey, parameters = {}) {
+      try {
+        const action = KKF_TRACKING?.conversions?.[actionKey];
+        if (!action || !action.enabled || !action.label || typeof action.label !== 'string' || !action.label.trim()) return;
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            send_to: `${KKF_TRACKING.googleAdsId}/${action.label.trim()}`,
+            ...parameters
+          });
+        }
+      } catch (e) {
+        console.warn('Google Ads conversion error:', e);
+      }
+    }
+    const paymentCopy={en:{title:'Approved deposit payment',intro:'Scan this temporary TNG/DuitNow QR only for the exact approved deposit below.',note:'Temporary collection notice: the QR shows CHRISTIAN BAWOL UNDIH, authorised by KKfootprint Travel to receive deposits while the merchant gateway is being prepared.'},zh:{title:'已批准的订金付款',intro:'请只为以下已批准的准确订金金额扫描此临时 TNG/DuitNow 二维码。',note:'临时收款说明：二维码会显示 CHRISTIAN BAWOL UNDIH，此账户已获 KKfootprint Travel 授权，在商户支付网关准备期间代收订金。'},ko:{title:'승인된 예약금 결제',intro:'아래 승인된 정확한 예약금에 한해서만 임시 TNG/DuitNow QR을 스캔해 주세요.',note:'임시 수금 안내: 이 QR에는 CHRISTIAN BAWOL UNDIH 이름이 표시됩니다. KKfootprint Travel의 상인 결제 게이트웨이가 준비되는 동안 예약금을 수금하도록 승인된 계정입니다.'}}[lang];
+    const params=new URLSearchParams(location.search);const reference=params.get('ref');const submit=document.getElementById('submit'),result=document.getElementById('result'),returnLink=document.getElementById('returnLink');const returnLabels={en:'RETURN TO TOURS',zh:'返回行程',ko:'투어로 돌아가기'};const thankYou={en:'Thank you — ',zh:'谢谢您 — ',ko:'감사합니다 — '};returnLink.href=lang==='zh'?'/zh-hans/':lang==='ko'?'/ko/':'/en/';returnLink.textContent=returnLabels[lang];let paymentReady=false;if(reference)document.getElementById('bookingReference').value=reference.toUpperCase();submit.disabled=true;
+    async function loadApprovedPayment(){if(!reference){result.textContent='Please use the secure payment link sent by REX after availability is confirmed.';result.style.display='block';return;}try{const response=await fetch('/api/rex/payment-intent?ref='+encodeURIComponent(reference),{headers:{Accept:'application/json'}});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.message||'Payment is not available for this booking yet.');const approvedAmount=Number(data.depositRequired);if(!Number.isFinite(approvedAmount)||approvedAmount<=0||approvedAmount>=100000)throw new Error('The approved deposit amount is unavailable. Please contact REX.');paymentReady=true;document.getElementById('bookingReference').value=String(data.bookingReference||reference).toUpperCase();document.getElementById('paymentCard').classList.add('is-ready');document.getElementById('paymentTitle').textContent=paymentCopy.title;document.getElementById('paymentIntro').textContent=paymentCopy.intro;document.getElementById('accountNote').textContent=paymentCopy.note;document.getElementById('paymentAmount').textContent='RM'+approvedAmount.toFixed(2);submit.disabled=false;}catch(error){result.textContent=error.message||'Payment is not available for this booking yet.';result.style.display='block';}}
+    loadApprovedPayment();
+    document.getElementById('receiptForm').addEventListener('submit',async event=>{event.preventDefault();if(!paymentReady)return;const form=event.currentTarget;const button=document.getElementById('submit');returnLink.style.display='none';button.disabled=true;button.textContent='…';try{const body=new FormData();body.set('bookingReference',document.getElementById('bookingReference').value);body.set('name',document.getElementById('name').value);body.set('email',document.getElementById('email').value);body.set('receipt',document.getElementById('receipt').files[0]);body.set('turnstileToken',form.querySelector('[name="cf-turnstile-response"]')?.value||'');const response=await fetch('/api/rex/payment-receipts',{method:'POST',body});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.message||'Unable to send receipt.');result.textContent=thankYou[lang]+copy.success;result.style.display='block';returnLink.style.display='block';window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'payment_receipt_submitted',language:lang});trackGoogleAdsConversion('payment');form.reset()}catch(error){result.textContent=error.message||'Unable to send receipt.';result.style.display='block'}finally{button.disabled=false;button.textContent=copy.send}});
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'payment_proof_view',language:lang});
+    document.addEventListener('click', event => {
+      const link = event.target.closest('[data-customer-telegram], a[href*="t.me/"]');
+      if (!link) return;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'telegram_click',
+        link_url: link.href,
+        page: window.location.pathname,
+        language: lang,
+        cta_location: 'payment_support'
+      });
+      trackGoogleAdsConversion('telegram');
+    });
+  </script>
+</body>
+</html>

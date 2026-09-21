@@ -4,11 +4,21 @@
   "main": "src/index.js",
   "compatibility_date": "2026-09-01",
   "workers_dev": true,
+  "r2_buckets": [
+    {
+      "binding": "PAYMENT_RECEIPTS",
+      "bucket_name": "kkfootprint-payment-receipts"
+    },
+    {
+      "binding": "REX_MEDIA_DRAFTS",
+      "bucket_name": "kkfootprint-rex-media-drafts"
+    }
+  ],
   "vars": {
-    "ALLOWED_ORIGINS": "https://kkfootprint-website.billyage89.workers.dev,http://localhost:8787",
+    "ALLOWED_ORIGINS": "https://kkfootprint.com,https://www.kkfootprint.com,https://kkfootprint-website.billyage89.workers.dev,http://localhost:8787",
     "MAX_PAYLOAD_BYTES": "16384",
-    "TURNSTILE_ENABLED": "false"
-  }
+    "TURNSTILE_ENABLED": "true"
+  },
   // Before deployment, add a route in the Cloudflare dashboard for:
   // https://kkfootprint-website.billyage89.workers.dev/api/rex/*
 }
