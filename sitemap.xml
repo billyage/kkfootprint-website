@@ -169,4 +169,25 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://kkfootprint.com/ko/tours/mari-mari-cultural-village/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kkfootprint.com/tours/mari-mari-cultural-village/" />
   </url>
+  <url>
+    <loc>https://kkfootprint.com/tours/private-kota-kinabalu-tour/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kkfootprint.com/zh-hans/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kkfootprint.com/ko/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+  </url>
+  <url>
+    <loc>https://kkfootprint.com/zh-hans/tours/private-kota-kinabalu-tour/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kkfootprint.com/zh-hans/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kkfootprint.com/ko/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+  </url>
+  <url>
+    <loc>https://kkfootprint.com/ko/tours/private-kota-kinabalu-tour/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kkfootprint.com/zh-hans/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://kkfootprint.com/ko/tours/private-kota-kinabalu-tour/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kkfootprint.com/tours/private-kota-kinabalu-tour/" />
+  </url>
 </urlset>

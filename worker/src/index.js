@@ -81,42 +81,75 @@ const TOUR_DETAIL_PATHS = new Set([
   '/tours/mari-mari-cultural-village/',
   '/zh-hans/tours/mari-mari-cultural-village/',
   '/ko/tours/mari-mari-cultural-village/',
+  // Private Tour & Driver Charter
+  '/tours/private-kota-kinabalu-tour/',
+  '/zh-hans/tours/private-kota-kinabalu-tour/',
+  '/ko/tours/private-kota-kinabalu-tour/',
 ]);
 const TOUR_DETAIL_SEO = {
   // City Tour
-  '/tours/city-tour/': { lang: 'en', title: 'Kota Kinabalu City Highlights Tour | Hotel Pickup & Photo Stops - KKfootprint', description: 'Book a relaxed Kota Kinabalu city tour with hotel pickup, city mosque, Sabah Foundation Building and UMS photo stops.', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
-  '/zh-hans/tours/city-tour/': { lang: 'zh-Hans', title: '亚庇市区经典观光半日游 | 酒店接送、水上清真寺与沙巴大学 - KKfootprint', description: '预订沙巴亚庇市区半日游：舒适冷气专车接送、打卡水上清真寺、敦慕斯达法大厦、沙巴大学粉红清真寺与观景点。', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
-  '/ko/tours/city-tour/': { lang: 'ko', title: '코타키나발루 시티 투어 | 호텔 픽업·블루모스크·핑크모스크 - KKfootprint', description: '코타키나발루 핵심 명소를 편안하게 둘러보는 시티 반일 투어: 호텔 픽업, 시티 모스크(블루모스크), 사바 재단 빌딩, UMS 핑크모스크.', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
+  '/tours/city-tour/': { lang: 'en', title: 'Kota Kinabalu City Highlights Tour | Hotel Pickup & Photo Stops - KKfootprint', description: 'Book a relaxed Kota Kinabalu city tour with hotel pickup, city mosque, Sabah Foundation Building and UMS photo stops.', h1Title: 'Kota Kinabalu City Highlights Tour', eyebrow: 'City landmarks & heritage', summary: 'A relaxed half-day introduction to Kota Kinabalu’s landmarks, mosques, university viewpoints and local photo stops in air-conditioned comfort.', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
+  '/zh-hans/tours/city-tour/': { lang: 'zh-Hans', title: '亚庇市区经典观光半日游 | 酒店接送、水上清真寺与沙巴大学 - KKfootprint', description: '预订沙巴亚庇市区半日游：舒适冷气专车接送、打卡水上清真寺、敦慕斯达法大厦、沙巴大学粉红清真寺与观景点。', h1Title: '亚庇市区经典观光半日游', eyebrow: '城市地标与文化巡礼', summary: '舒适冷气专车打卡沙巴大学粉红清真寺、水上清真寺与沙巴基金会大厦，轻松探索亚庇市区精华。', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
+  '/ko/tours/city-tour/': { lang: 'ko', title: '코타키나발루 시티 투어 | 호텔 픽업·블루모스크·핑크모스크 - KKfootprint', description: '코타키나발루 핵심 명소를 편안하게 둘러보는 시티 반일 투어: 호텔 픽업, 시티 모스크(블루모스크), 사바 재단 빌딩, UMS 핑크모스크.', h1Title: '코타키나발루 시티 하이라이트 투어', eyebrow: '도시 명소 & 랜드마크', summary: '시티 블루모스크, 사바 주청사, UMS 핑크모스크 등 코타키나발루의 핵심 포토 스팟을 전용 차량으로 둘러보는 반일 투어.', alternates: { en: '/tours/city-tour/', zh: '/zh-hans/tours/city-tour/', ko: '/ko/tours/city-tour/' } },
 
   // Mengalum Island
-  '/tours/mengalum-island/': { lang: 'en', title: 'Mengalum Island Day Tour from Kota Kinabalu | Hotel Pickup & Snorkelling', description: 'Book a Mengalum Island day trip from Kota Kinabalu with estimated hotel pickup, boat transfer, guided snorkeling, beach time and buffet lunch.', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
-  '/zh-hans/tours/mengalum-island/': { lang: 'zh-Hans', title: '亚庇曼加伦岛一日游 | 酒店接送、浮潜与自助午餐', description: '从亚庇出发前往曼加伦岛的一日游：预计酒店接送、码头登记、浮潜、海滩时间与自助午餐。', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
-  '/ko/tours/mengalum-island/': { lang: 'ko', title: '코타키나발루 멩갈룸 섬 투어 | 호텔 픽업·스노클링·점심', description: '코타키나발루에서 출발하는 멩갈룸 섬 당일 투어: 예상 호텔 픽업, 제티 등록, 스노클링, 해변 휴식과 뷔페 점심이 포함됩니다.', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
+  '/tours/mengalum-island/': { lang: 'en', title: 'Mengalum Island Day Tour from Kota Kinabalu | Hotel Pickup & Snorkelling', description: 'Book a Mengalum Island day trip from Kota Kinabalu with estimated hotel pickup, boat transfer, guided snorkeling, beach time and buffet lunch.', h1Title: 'Mengalum Island Day Tour from Kota Kinabalu', eyebrow: 'Offshore Island Escape', summary: 'A full-day sea escape to Mengalum Island featuring powdery white sands, crystal-clear turquoise waters, guided reef snorkeling and a buffet lunch.', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
+  '/zh-hans/tours/mengalum-island/': { lang: 'zh-Hans', title: '亚庇曼加伦岛一日游 | 酒店接送、浮潜与自助午餐', description: '从亚庇出发前往曼加伦岛的一日游：预计酒店接送、码头登记、浮潜、海滩时间与自助午餐。', h1Title: '亚庇曼加伦岛出海一日游', eyebrow: '绝美纯净海岛', summary: '从亚庇出发前往曼加伦岛的一日游：预计酒店接送、码头登记、浮潜、海滩时间与自助午餐。', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
+  '/ko/tours/mengalum-island/': { lang: 'ko', title: '코타키나발루 멩갈룸 섬 투어 | 호텔 픽업·스노클링·점심', description: '코타키나발루에서 출발하는 멩갈룸 섬 당일 투어: 예상 호텔 픽업, 제티 등록, 스노클링, 해변 휴식과 뷔페 점심이 포함됩니다.', h1Title: '코타키나발루 멩갈룸 섬 데이투어', eyebrow: '프리스틴 아일랜드 투어', summary: '코타키나발루에서 출발하는 멩갈룸 섬 당일 투어: 예상 호텔 픽업, 제티 등록, 스노클링, 해변 휴식과 뷔페 점심이 포함됩니다.', alternates: { en: '/tours/mengalum-island/', zh: '/zh-hans/tours/mengalum-island/', ko: '/ko/tours/mengalum-island/' } },
 
   // Mantanani Island
-  '/tours/mantanani-island/': { lang: 'en', title: 'Mantanani Island Snorkeling Day Tour from Kota Kinabalu | KKfootprint', description: 'Book a full-day Mantanani Island snorkeling trip from Kota Kinabalu: speedboat transfers, two guided boat snorkeling sessions, coral reefs, white sand beach and buffet lunch.', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
-  '/zh-hans/tours/mantanani-island/': { lang: 'zh-Hans', title: '亚庇美人鱼岛出海浮潜一日游 | 绝美果冻海、细软白沙滩与海岛自助午餐 - KKfootprint', description: '亚庇出发美人鱼岛一日游：快艇往返接送、面粉白沙滩、2次出海导览浮潜与热带鱼群互动、海岛自助午餐与惬意海滩时光。', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
-  '/ko/tours/mantanani-island/': { lang: 'ko', title: '코타키나발루 만타나니 섬 스노클링 투어 | 에메랄드빛 바다 & 화이트 비치 - KKfootprint', description: '코타키나발루 만타나니 섬 데이투어: 쾌속선 이동, 에메랄드빛 바다 산호초 2회 보트 스노클링, 하얀 모래사장과 섬 뷔페 점심.', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
+  '/tours/mantanani-island/': { lang: 'en', title: 'Mantanani Island Snorkeling Day Tour from Kota Kinabalu | KKfootprint', description: 'Book a full-day Mantanani Island snorkeling trip from Kota Kinabalu: speedboat transfers, two guided boat snorkeling sessions, coral reefs, white sand beach and buffet lunch.', h1Title: 'Mantanani Island Snorkeling Day Tour', eyebrow: 'Crystal Lagoon & Coral Reefs', summary: 'Escape to Mantanani Island’s crystal turquoise waters and powder-white sand beaches for two open-sea boat snorkeling sessions among vibrant coral reefs, followed by a fresh island buffet lunch and beach relaxation.', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
+  '/zh-hans/tours/mantanani-island/': { lang: 'zh-Hans', title: '亚庇美人鱼岛出海浮潜一日游 | 绝美果冻海、细软白沙滩与海岛自助午餐 - KKfootprint', description: '亚庇出发美人鱼岛一日游：快艇往返接送、面粉白沙滩、2次出海导览浮潜与热带鱼群互动、海岛自助午餐与惬意海滩时光。', h1Title: '亚庇美人鱼岛出海浮潜一日游', eyebrow: '果冻海与珊瑚浮潜', summary: '亚庇出发美人鱼岛一日游：快艇往返接送、面粉白沙滩、2次出海导览浮潜与热带鱼群互动、海岛自助午餐与惬意海滩时光。', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
+  '/ko/tours/mantanani-island/': { lang: 'ko', title: '코타키나발루 만타나니 섬 스노클링 투어 | 에메랄드빛 바다 & 화이트 비치 - KKfootprint', description: '코타키나발루 만타나니 섬 데이투어: 쾌속선 이동, 에메랄드빛 바다 산호초 2회 보트 스노클링, 하얀 모래사장과 섬 뷔페 점심.', h1Title: '코타키나발루 만타나니 섬 스노클링 투어', eyebrow: '에메랄드 바다 & 화이트비치', summary: '코타키나발루 만타나니 섬 데이투어: 쾌속선 이동, 에메랄드빛 바다 산호초 2회 보트 스노클링, 하얀 모래사장과 섬 뷔페 점심.', alternates: { en: '/tours/mantanani-island/', zh: '/zh-hans/tours/mantanani-island/', ko: '/ko/tours/mantanani-island/' } },
 
   // Twin Island Hopping
-  '/tours/twin-island-hopping/': { lang: 'en', title: 'Twin Island Hopping from Kota Kinabalu | KKfootprint Travel', description: 'Choose two islands from Sapi, Manukan and Mamutik for a Kota Kinabalu island-hopping day with snorkeling gear.', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
-  '/zh-hans/tours/twin-island-hopping/': { lang: 'zh-Hans', title: '亚庇双岛跳岛游 | 沙比岛·马努干岛·马穆迪岛任选两岛 - KKfootprint', description: '从沙比岛、马努干岛和马穆迪岛中任选两座岛屿：享受阳光沙滩、浮潜装备与快艇接送，全日海岛休闲。', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
-  '/ko/tours/twin-island-hopping/': { lang: 'ko', title: '코타키나발루 트윈 아일랜드 호핑투어 | 사피·마누칸·마무틱 - KKfootprint', description: '사피, 마누칸, 마무틱 섬 중 2개 섬을 선택하여 즐기는 유연한 호핑투어: 왕복 보트, 스노클링 장비, 해변 휴식 포함.', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
+  '/tours/twin-island-hopping/': { lang: 'en', title: 'Kota Kinabalu Island Hopping — Sapi, Manukan & Mamutik | KKfootprint', description: 'Book Kota Kinabalu island hopping: choose two islands from Sapi, Manukan and Mamutik with speedboat transfers and snorkeling gear.', h1Title: 'Kota Kinabalu Island Hopping — Sapi, Manukan & Mamutik', eyebrow: 'Tunku Abdul Rahman Marine Park', summary: 'Choose two islands from Sapi, Manukan and Mamutik for a flexible, sun-soaked day in Tunku Abdul Rahman Marine Park with hotel transfer, speedboat ride, and snorkeling gear included.', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
+  '/zh-hans/tours/twin-island-hopping/': { lang: 'zh-Hans', title: '亚庇双岛跳岛游 | 沙比岛·马努干岛·马穆迪岛任选两岛 - KKfootprint', description: '从沙比岛、马努干岛和马穆迪岛中任选两座岛屿：享受阳光沙滩、浮潜装备与快艇接送，全日海岛休闲。', h1Title: '亚庇东姑双岛跳岛游（沙比·马努干·马穆迪任选两岛）', eyebrow: '东姑阿都拉曼海洋公园', summary: '沙比岛、马努干岛或马穆迪岛任选两座，含市区酒店接送、往返快艇与浮潜装备。', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
+  '/ko/tours/twin-island-hopping/': { lang: 'ko', title: '코타키나발루 트윈 아일랜드 호핑투어 | 사피·마누칸·마무틱 - KKfootprint', description: '사피, 마누칸, 마무틱 섬 중 2개 섬을 선택하여 즐기는 유연한 호핑투어: 왕복 보트, 스노클링 장비, 해변 휴식 포함.', h1Title: '코타키나발루 아일랜드 호핑투어 (사피·마누칸·마무틱)', eyebrow: '툰쿠 압둘 라만 해양공원', summary: '사피, 마누칸, 마무틱 섬 중 2곳을 선택해 즐기는 알찬 하루: 호텔 픽업, 왕복 보트 및 스노클링 장비 포함.', alternates: { en: '/tours/twin-island-hopping/', zh: '/zh-hans/tours/twin-island-hopping/', ko: '/ko/tours/twin-island-hopping/' } },
 
   // Kundasang ATV & Farm
-  '/tours/kundasang-atv-farm/': { lang: 'en', title: 'Kundasang ATV and Desa Farm Tour from Kota Kinabalu | KKfootprint Travel', description: 'Take a Kundasang day trip from Kota Kinabalu with Pekan Nabalu views, guided ATV, Desa Cattle Dairy Farm and lunch.', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
-  '/zh-hans/tours/kundasang-atv-farm/': { lang: 'zh-Hans', title: '沙巴神山昆达山一日游 | 越野ATV、德萨奶牛牧场与壮丽神山 - KKfootprint', description: '从亚庇出发探索神山昆达山：打卡纳巴鲁观景点、刺激越野ATV体验、参观沙巴“小新西兰”德萨奶牛场并享用午餐。', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
-  '/ko/tours/kundasang-atv-farm/': { lang: 'ko', title: '코타키나발루 쿤다상 ATV & 데사 목장 투어 | 키나발루산 고원 - KKfootprint', description: '키나발루산의 절경을 감상하는 고원 당일 투어: 나발루 전망대, 오프로드 가이드 ATV, 데사 밀크 팜(낙농목장) 및 점심 식사.', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
+  '/tours/kundasang-atv-farm/': { lang: 'en', title: 'Kundasang Day Trip from Kota Kinabalu — ATV & Desa Dairy Farm | KKfootprint', description: 'Take a Kundasang day trip from Kota Kinabalu with Pekan Nabalu views, guided ATV, Desa Cattle Dairy Farm and lunch.', h1Title: 'Kundasang Day Trip from Kota Kinabalu — ATV & Desa Dairy Farm', eyebrow: 'Mount Kinabalu Highland Day Trip', summary: 'A breathtaking mountain journey combining panoramic Mount Kinabalu views, an exciting off-road ATV trail ride, Desa Cattle Dairy Farm, and a local Kundasang lunch.', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
+  '/zh-hans/tours/kundasang-atv-farm/': { lang: 'zh-Hans', title: '沙巴神山昆达山一日游 | 越野ATV、德萨奶牛牧场与壮丽神山 - KKfootprint', description: '从亚庇出发探索神山昆达山：打卡纳巴鲁观景点、刺激越野ATV体验、参观沙巴“小新西兰”德萨奶牛场并享用午餐。', h1Title: '沙巴神山昆达山高地一日游（越野ATV与德萨牧场）', eyebrow: '神山高地一日探险', summary: '亚庇出发神山一日游：打卡纳巴鲁市集、越野ATV山地穿越、德萨奶牛牧场喂小牛与品尝鲜奶。', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
+  '/ko/tours/kundasang-atv-farm/': { lang: 'ko', title: '코타키나발루 쿤다상 ATV & 데사 목장 투어 | 키나발루산 고원 - KKfootprint', description: '키나발루산의 절경을 감상하는 고원 당일 투어: 나발루 전망대, 오프로드 가이드 ATV, 데사 밀크 팜(낙농목장) 및 점심 식사.', h1Title: '코타키나발루 쿤다상 데이투어 (ATV & 데사 젖소 목장)', eyebrow: '키나발루산 고원 투어', summary: '키나발루산의 절경을 감상하는 고원 당일 투어: 나발루 전망대, 오프로드 가이드 ATV, 데사 밀크 팜 및 점심 식사.', alternates: { en: '/tours/kundasang-atv-farm/', zh: '/zh-hans/tours/kundasang-atv-farm/', ko: '/ko/tours/kundasang-atv-farm/' } },
 
   // Firefly Safari
-  '/tours/firefly-safari/': { lang: 'en', title: 'Firefly Safari and River Cruise from Kota Kinabalu | KKfootprint Travel', description: 'Join a Kota Kinabalu firefly safari with wildlife river cruise, Borneo sunset, buffet dinner and night firefly viewing.', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
-  '/zh-hans/tours/firefly-safari/': { lang: 'zh-Hans', title: '沙巴红树林长鼻猴与萤火虫生态之旅 | 婆罗洲日落与丰盛晚餐 - KKfootprint', description: '亚庇经典红树林生态半日游：乘船寻访珍稀长鼻猴、观赏壮丽婆罗洲海滩日落、享用自助晚餐与夜游梦幻萤火虫。', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
-  '/ko/tours/firefly-safari/': { lang: 'ko', title: '코타키나발루 반딧불 투어 & 맹그로브 리버 크루즈 | 일몰과 반딧불이 - KKfootprint', description: '코타키나발루 야생동물 & 반딧불이 투어: 맹그로브 강 크루즈, 코주부 원숭이 관찰, 보르네오 선셋, 뷔페 저녁 식사 및 반딧불이 감상.', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
+  '/tours/firefly-safari/': { lang: 'en', title: 'Firefly Safari and River Cruise from Kota Kinabalu | KKfootprint Travel', description: 'Join a Kota Kinabalu firefly safari with wildlife river cruise, Borneo sunset, buffet dinner and night firefly viewing.', h1Title: 'Firefly Safari & Mangrove River Cruise', eyebrow: 'After-Dark Borneo Wildlife', summary: 'Join a Kota Kinabalu firefly safari with wildlife mangrove river cruise, proboscis monkeys, Borneo beach sunset, buffet dinner and magical night firefly viewing.', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
+  '/zh-hans/tours/firefly-safari/': { lang: 'zh-Hans', title: '沙巴红树林长鼻猴与萤火虫生态之旅 | 婆罗洲日落与丰盛晚餐 - KKfootprint', description: '亚庇经典红树林生态半日游：乘船寻访珍稀长鼻猴、观赏壮丽婆罗洲海滩日落、享用自助晚餐与夜游梦幻萤火虫。', h1Title: '亚庇红树林长鼻猴与梦幻萤火虫之旅', eyebrow: '红树林黄昏与夜游', summary: '乘船探寻长鼻猴、观赏婆罗洲绝美沙滩日落，享用自助晚餐后沉浸于满树繁星般的萤火虫奇景。', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
+  '/ko/tours/firefly-safari/': { lang: 'ko', title: '코타키나발루 반딧불 투어 & 맹그로브 리버 크루즈 | 일몰과 반딧불이 - KKfootprint', description: '코타키나발루 야생동물 & 반딧불이 투어: 맹그로브 강 크루즈, 코주부 원숭이 관찰, 보르네오 선셋, 뷔페 저녁 식사 및 반딧불이 감상.', h1Title: '코타키나발루 반딧불 투어 & 맹그로브 리버 크루즈', eyebrow: '보르네오 나이트 사파리', summary: '맹그로브 강 보트 크루즈, 코주부 원숭이, 환상적인 해변 석양과 뷔페 식사, 그리고 밤하늘을 수놓는 반딧불이.', alternates: { en: '/tours/firefly-safari/', zh: '/zh-hans/tours/firefly-safari/', ko: '/ko/tours/firefly-safari/' } },
 
   // Mari-Mari Cultural Village
-  '/tours/mari-mari-cultural-village/': { lang: 'en', title: 'Mari-Mari Cultural Village Tour from Kota Kinabalu | KKfootprint Travel', description: 'Experience Sabah culture at Mari-Mari Cultural Village with traditional longhouses, demonstrations and a cultural meal.', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
-  '/zh-hans/tours/mari-mari-cultural-village/': { lang: 'zh-Hans', title: '亚庇马里马里文化村一日游 | 沙巴原住民原生态文化体验 - KKfootprint', description: '走进沙巴五大原住民族传统长屋：亲身体验吹箭、传统取火、品尝土著美食与欣赏传统原住民舞蹈表演。', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
-  '/ko/tours/mari-mari-cultural-village/': { lang: 'ko', title: '코타키나발루 마리마리 민속마을 투어 | 사바 전통 문화 체험 - KKfootprint', description: '사바 주 5대 원주민 전통 부족 마을 탐방: 전통 롱하우스 방문, 블로우파이프 사냥 체험, 전통 음식 시식 및 문화 공연 관람.', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
+  '/tours/mari-mari-cultural-village/': { lang: 'en', title: 'Mari-Mari Cultural Village Tour from Kota Kinabalu | KKfootprint Travel', description: 'Experience Sabah culture at Mari-Mari Cultural Village with traditional longhouses, demonstrations and a cultural meal.', h1Title: 'Mari-Mari Cultural Village Tour', eyebrow: 'Sabah Living Heritage', summary: 'Experience Sabah culture at Mari-Mari Cultural Village with traditional longhouses of 5 indigenous tribes, fire-starting and blowpipe demos, and a cultural meal.', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
+  '/zh-hans/tours/mari-mari-cultural-village/': { lang: 'zh-Hans', title: '亚庇马里马里文化村一日游 | 沙巴原住民原生态文化体验 - KKfootprint', description: '走进沙巴五大原住民族传统长屋：亲身体验吹箭、传统取火、品尝土著美食与欣赏传统原住民舞蹈表演。', h1Title: '亚庇马里马里原住民文化村体验游', eyebrow: '沙巴活态文化遗产', summary: '探访沙巴五大原住民族传统长屋、体验吹箭取火、品尝特色原住民点心并观赏传统民族舞蹈。', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
+  '/ko/tours/mari-mari-cultural-village/': { lang: 'ko', title: '코타키나발루 마리마리 민속마을 투어 | 사바 전통 문화 체험 - KKfootprint', description: '사바 주 5대 원주민 전통 부족 마을 탐방: 전통 롱하우스 방문, 블로우파이프 사냥 체험, 전통 음식 시식 및 문화 공연 관람.', h1Title: '코타키나발루 마리마리 민속마을 투어', eyebrow: '사바 전통 부족 문화', summary: '사바 5개 부족의 롱하우스 방문, 전통 블로우파이프 체험, 전통 음식 시식 및 민속 공연 관람.', alternates: { en: '/tours/mari-mari-cultural-village/', zh: '/zh-hans/tours/mari-mari-cultural-village/', ko: '/ko/tours/mari-mari-cultural-village/' } },
+
+  // Private Tour & Driver Charter
+  '/tours/private-kota-kinabalu-tour/': {
+    lang: 'en',
+    title: 'Private Tour & Driver Charter in Kota Kinabalu | KKfootprint Travel',
+    description: 'Book a private car or van with driver in Kota Kinabalu: flexible 10-hour charter, local Sabahan driver-guide, custom itinerary, and hotel pickup.',
+    h1Title: 'Private Tour & Charter Driver in Kota Kinabalu',
+    eyebrow: 'Custom Sabah Charter',
+    summary: 'Explore Kota Kinabalu and Sabah with your dedicated air-conditioned vehicle and local Sabahan driver-guide. Flexible 10-hour charter for custom itineraries, Kundasang, or city exploration.',
+    alternates: { en: '/tours/private-kota-kinabalu-tour/', zh: '/zh-hans/tours/private-kota-kinabalu-tour/', ko: '/ko/tours/private-kota-kinabalu-tour/' }
+  },
+  '/zh-hans/tours/private-kota-kinabalu-tour/': {
+    lang: 'zh-Hans',
+    title: '亚庇包车游与专属司机服务 | 沙巴自由行定制 - KKfootprint',
+    description: '预订沙巴亚庇专属冷气包车与本地向导：10小时灵活定制行程、轿车/MPV/客货车多车型、酒店往返接送。',
+    h1Title: '亚庇私人包车与专属司机服务',
+    eyebrow: '沙巴自由行专属包车',
+    summary: '专属冷气车辆与沙巴当地向导司机，10小时全天灵活包车。随心定制神山高地、市区观光或沙滩美食路线。',
+    alternates: { en: '/tours/private-kota-kinabalu-tour/', zh: '/zh-hans/tours/private-kota-kinabalu-tour/', ko: '/ko/tours/private-kota-kinabalu-tour/' }
+  },
+  '/ko/tours/private-kota-kinabalu-tour/': {
+    lang: 'ko',
+    title: '코타키나발루 프라이빗 단독 차량 투어 & 기사 렌트 | KKfootprint',
+    description: '코타키나발루 전용 차량과 현지 사바 드라이버 가이드: 10시간 자유 일정, 승용차/MPV/밴 맞춤 차량, 호텔 왕복 픽업.',
+    h1Title: '코타키나발루 프라이빗 단독 차량 투어 & 기사 렌트',
+    eyebrow: '맞춤형 사바 단독 투어',
+    summary: '전용 에어컨 차량과 현지 사바인 기사 가이드와 함께 원하는 코스로 자유롭게 여행하세요. 10시간 대절, 쿤다상/시티/선셋 맞춤 투어.',
+    alternates: { en: '/tours/private-kota-kinabalu-tour/', zh: '/zh-hans/tours/private-kota-kinabalu-tour/', ko: '/ko/tours/private-kota-kinabalu-tour/' }
+  },
 };
 const PAYMENT_PAGE_PATHS = new Set(['/payment/', '/payment']);
 const LANDING_PAGE_SEO = {
@@ -352,6 +385,9 @@ function applyTourSeo(response, url, seo) {
   return new HTMLRewriter()
     .on('html', { element(element) { element.setAttribute('lang', seo.lang || 'en'); } })
     .on('title', { element(element) { element.setInnerContent(seo.title); } })
+    .on('#title', { element(element) { if (seo.h1Title) element.setInnerContent(seo.h1Title); } })
+    .on('#eyebrow', { element(element) { if (seo.eyebrow) element.setInnerContent(seo.eyebrow); } })
+    .on('#summary', { element(element) { if (seo.summary) element.setInnerContent(seo.summary); } })
     .on('#tourDescription', { element(element) { element.setAttribute('content', seo.description); } })
     .on('#tourCanonical', { element(element) { element.setAttribute('href', `https://kkfootprint.com${url.pathname}`); } })
     .on('#tourAlternateEn', { element(element) { element.setAttribute('href', `https://kkfootprint.com${alternates.en || url.pathname}`); } })
@@ -1100,10 +1136,15 @@ function normalizeBooking(data, catalog) {
   const adults = normalizeInteger(data.adults, 1, 100, 'adults');
   const children = normalizeInteger(data.children, 0, 100, 'children');
   const pricingSnapshot = createPricingSnapshot(catalog, tourIds, adults, children);
+  const contact = normalizeTelegram(data.contact);
+  const email = normalizeEmail(data.email);
+  if (!contact && !email) {
+    throw new HttpError(400, 'invalid_field', 'Please provide at least one contact method (Email or Telegram).');
+  }
   return {
     name: normalizeRequiredSingleLine(data.name, 160, 'name'),
-    contact: normalizeTelegram(data.contact),
-    email: normalizeRequiredEmail(data.email),
+    contact,
+    email,
     tour: pricingSnapshot.tourName,
     tourId: tourIds.length === 1 ? tourIds[0] : 'combo',
     tourIds,
@@ -1141,7 +1182,7 @@ function normalizeTourIds(value, catalog) {
   if (raw.length === 0) {
     throw new HttpError(400, 'invalid_field', 'Please choose a valid tour package.');
   }
-  if (raw.includes('custom') || (raw.length === 1 && raw[0] === 'custom')) {
+  if (raw.includes('custom') || (raw.length === 1 && raw[0] === 'custom') || raw.includes('private') || (raw.length === 1 && raw[0] === 'private')) {
     return ['custom'];
   }
   const validIds = [];

@@ -218,6 +218,33 @@
       .stats-strip { grid-template-columns: 1fr; }
     }
 
+    /* In-Destination Micro-Banner */
+    .in-destination-banner { margin: 1.5rem 0 0; background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm); padding: 1rem 1.25rem; color: white; }
+    .in-destination-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .in-destination-tag { font-size: 0.78rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; background: var(--sunset); color: #fff; padding: 0.25rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+    .in-destination-text { font-size: 0.92rem; margin: 0; opacity: 0.95; flex: 1; min-width: 240px; }
+    .in-destination-actions { display: flex; gap: 0.6rem; align-items: center; }
+    .in-dest-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 1rem; background: var(--sunset); color: #fff; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-decoration: none; white-space: nowrap; transition: var(--transition); }
+    .in-dest-btn-primary:hover { background: #d94318; }
+    .in-dest-btn-rex { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 0.9rem; background: rgba(255,255,255,0.2); color: #fff; border-radius: 999px; font-weight: 700; font-size: 0.85rem; text-decoration: none; white-space: nowrap; border: 1px solid rgba(255,255,255,0.3); transition: var(--transition); }
+    .in-dest-btn-rex:hover { background: rgba(255,255,255,0.35); }
+
+    /* Quick Choices Top Cards */
+    .quick-choices-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .qc-card { display: flex; flex-direction: column; background: #fff; border: 1.5px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; text-decoration: none; color: inherit; transition: var(--transition); box-shadow: var(--shadow-sm); }
+    .qc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--ocean); }
+    .qc-media { height: 140px; overflow: hidden; position: relative; background: #eaf2ef; }
+    .qc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+    .qc-card:hover .qc-media img { transform: scale(1.05); }
+    .qc-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
+    .qc-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--ocean); margin-bottom: 0.35rem; }
+    .qc-body h3 { font-size: 1.05rem; margin: 0 0 0.35rem; color: var(--charcoal); }
+    .qc-body p { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.75rem; line-height: 1.45; flex: 1; }
+    .qc-rate { font-size: 1.05rem; font-weight: 800; color: var(--jungle); }
+    .qc-rate small { font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+    @media (max-width: 900px) { .quick-choices-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .quick-choices-grid { grid-template-columns: 1fr; } }
+
     section { padding: 5.5rem 0; }
     .section-kicker { color: var(--ocean); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 800; font-size: 0.78rem; margin-bottom: 0.7rem; }
     .section-title { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
@@ -358,9 +385,9 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* The assistant stays above page and mobile-CTA content while the visitor scrolls. */
-    .chatbot-toggle { position: fixed; bottom: max(25px, env(safe-area-inset-bottom)); right: max(25px, env(safe-area-inset-right)); background: var(--jungle); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: var(--shadow-lg); z-index: 1000; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; padding:5px; overflow:hidden; }
-    .chatbot-toggle img { width:100%; height:100%; object-fit:contain; border-radius:50%; background:#fff; }
-    .chatbot-toggle:hover { transform: scale(1.05); }
+    .chatbot-toggle { position: fixed; bottom: max(25px, env(safe-area-inset-bottom)); right: max(25px, env(safe-area-inset-right)); background: var(--jungle); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: var(--shadow-lg); z-index: 1000; transition: transform 0.2s, background 0.2s; display: flex; align-items: center; justify-content: center; padding: 5px; overflow: hidden; }
+    .chatbot-toggle img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; background: #fff; }
+    .chatbot-toggle:hover, .chatbot-toggle:focus-visible { transform: scale(1.05); background: var(--ocean); outline: none; }
     .chatbot-window { position: fixed; bottom: max(95px, calc(70px + env(safe-area-inset-bottom))); right: max(25px, env(safe-area-inset-right)); width: min(380px, 92vw); background: white; border-radius: 1.5rem; box-shadow: var(--shadow-lg); z-index: 1010; display: flex; flex-direction: column; max-height: 75vh; height: 500px; border: 1px solid #ddd; overflow: hidden; transform-origin: bottom right; }
     .chatbot-window[hidden] { display: none; }
     .chatbot-window { animation: pop 0.2s ease-out; }
@@ -396,7 +423,8 @@
     .chat-input-area input { flex: 1; padding: 0.6rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; }
     .chat-input-area button { background: var(--jungle); color: white; border: none; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 
-    .sticky-mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 0.8rem; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 150; gap: 0.8rem; }
+    .sticky-mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 0.8rem; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 150; gap: 0.8rem; transition: transform .25s ease, opacity .25s ease; }
+    .sticky-mobile-cta.hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
     @media (max-width: 700px) {
       body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
       .sticky-mobile-cta { display: flex; padding-bottom: calc(0.8rem + env(safe-area-inset-bottom)); }
@@ -497,12 +525,12 @@
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content reveal">
-      <div class="eyebrow" data-translate="hero_eyebrow">WELCOME TO SABAH, BORNEO</div>
-      <h1 data-translate="hero_title">DISCOVER SABAH<br>YOUR WAY.</h1>
-      <p data-translate="hero_sub">Explore islands, mountains, culture and unforgettable local experiences with a local Sabahan driver and flexible private tours.</p>
+      <div class="eyebrow" data-translate="hero_eyebrow">SABAH, BORNEO LOCAL DAY TOURS</div>
+      <h1 data-translate="hero_title">Kota Kinabalu Tours &amp; Day Trips</h1>
+      <p data-translate="hero_sub">Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup, and instant availability check.</p>
       <div class="hero-cta">
-        <a href="#booking" class="btn-primary" data-translate="hero_book">BOOK YOUR TOUR</a>
-        <a href="#tours" class="btn-secondary" data-translate="hero_explore">EXPLORE TOURS</a>
+        <a href="#booking" class="btn-primary" data-translate="hero_book">CHECK AVAILABILITY</a>
+        <a href="#quickChoices" class="btn-secondary" data-translate="hero_explore">EXPLORE TOURS</a>
       </div>
       <div class="hero-trust">
         <span>✓ <span data-translate="hero_trust1">Local Sabahan Driver/Guide</span></span>
@@ -515,6 +543,17 @@
         <div class="stat"><strong data-translate="stat_flex_h">Flexible</strong><span data-translate="stat_flex_p">Private or shared</span></div>
         <div class="stat"><strong data-translate="stat_door_h">Door-to-door</strong><span data-translate="stat_door_p">Hotel pickup options</span></div>
         <div class="stat"><strong data-translate="stat_lang_h">Bilingual</strong><span data-translate="stat_lang_p">English / 中文</span></div>
+      </div>
+      <!-- In-Destination Micro-Banner -->
+      <div class="in-destination-banner" id="inDestinationBanner">
+        <div class="in-destination-inner">
+          <span class="in-destination-tag">📍 <span data-translate="in_dest_tag">IN KOTA KINABALU NOW?</span></span>
+          <p class="in-destination-text" data-translate="in_dest_text">Planning for today or tomorrow? Check next-day availability or chat directly with REX for rapid confirmation.</p>
+          <div class="in-destination-actions">
+            <a href="#booking" class="in-dest-btn-primary" data-translate="in_dest_check">Check Availability</a>
+            <a href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer" data-customer-telegram class="in-dest-btn-rex">💬 <span data-translate="in_dest_rex">Ask REX</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -565,6 +604,53 @@
       <button class="btn-primary" id="checkTourBtn" data-translate="search_cta">CHECK TOUR</button>
       <div class="search-estimate" id="searchEstimate" aria-live="polite"></div>
       <p class="search-pax-hint" id="searchPaxHint" hidden data-translate="search_min_pax_hint">(Min. 2 guests required for package rates)</p>
+    </div>
+  </div>
+</section>
+
+<!-- High-Intent Quick Choices Section -->
+<section class="quick-choices-section" id="quickChoices" style="padding: 3rem 0; background: #fff; border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="section-kicker" data-translate="qc_kicker">Top Search Choices</div>
+    <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 0.5rem;" data-translate="qc_title">MOST POPULAR DAY TOURS IN KOTA KINABALU</h2>
+    <p class="section-sub" style="margin-bottom: 1.8rem;" data-translate="qc_sub">Instant availability enquiry • Door-to-door hotel pickup • Transparent rates</p>
+    <div class="quick-choices-grid">
+      <a href="/tours/twin-island-hopping/" class="qc-card" id="qcCardIsland">
+        <div class="qc-media"><img src="/images/tours/island-hopping-480.webp" alt="Island Hopping Kota Kinabalu" loading="lazy"></div>
+        <div class="qc-body">
+          <span class="qc-tag" data-translate="qc_tag_island">Popular</span>
+          <h3 data-translate="qc_h_island">Island Hopping</h3>
+          <p data-translate="qc_p_island">Twin island escape (Sapi, Manukan, Mamutik) with snorkeling gear & transfers.</p>
+          <div class="qc-rate">RM269 <small>/ adult</small></div>
+        </div>
+      </a>
+      <a href="/tours/kundasang-atv-farm/" class="qc-card" id="qcCardKundasang">
+        <div class="qc-media"><img src="/images/tours/kundasang-atv-farm-480.webp" alt="Kundasang ATV & Desa Farm" loading="lazy"></div>
+        <div class="qc-body">
+          <span class="qc-tag" data-translate="qc_tag_kundasang">Highlands</span>
+          <h3 data-translate="qc_h_kundasang">Kundasang Day Trip</h3>
+          <p data-translate="qc_p_kundasang">Mount Kinabalu viewpoint, guided off-road ATV trail & Desa Dairy Farm.</p>
+          <div class="qc-rate">RM330 <small>/ adult</small></div>
+        </div>
+      </a>
+      <a href="/tours/private-kota-kinabalu-tour/" class="qc-card" id="qcCardPrivate">
+        <div class="qc-media"><img src="/images/features/mengalum.jpg" alt="Private Tour & Driver Kota Kinabalu" loading="lazy"></div>
+        <div class="qc-body">
+          <span class="qc-tag" data-translate="qc_tag_private">Private</span>
+          <h3 data-translate="qc_h_private">Private Tour & Driver</h3>
+          <p data-translate="qc_p_private">Dedicated air-conditioned vehicle & local Sabahan driver. 10-hour flexible charter.</p>
+          <div class="qc-rate">From RM450 <small>/ vehicle</small></div>
+        </div>
+      </a>
+      <a href="/tours/mengalum-island/" class="qc-card" id="qcCardMengalum">
+        <div class="qc-media"><img src="/images/tours/mengalum-island-480.webp" alt="Mengalum Island Day Tour" loading="lazy"></div>
+        <div class="qc-body">
+          <span class="qc-tag" data-translate="qc_tag_mengalum">Offshore Sea</span>
+          <h3 data-translate="qc_h_mengalum">Mengalum Island</h3>
+          <p data-translate="qc_p_mengalum">Pristine white sandbar, crystal-clear turquoise waters & guided reef snorkeling.</p>
+          <div class="qc-rate">RM350 <small>/ adult</small></div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -850,8 +936,8 @@
           <input type="text" id="bf_contact" pattern="@?[A-Za-z0-9_]{5,32}" autocomplete="off" data-translate-ph="ph_contact" placeholder="@username">
         </div>
         <div>
-          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_email">Email *</label>
-          <input type="email" id="bf_email" required autocomplete="email" data-translate-ph="ph_email" placeholder="Email address">
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_email">Email (or Telegram username) *</label>
+          <input type="email" id="bf_email" autocomplete="email" data-translate-ph="ph_email" placeholder="Email address">
         </div>
         <div>
           <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_date">Travel Date</label>
@@ -934,6 +1020,7 @@
       <strong style="margin-bottom:1rem;display:block;" data-translate="footer_contact">Contact Us</strong>
       <div style="display:flex;flex-direction:column;gap:.5rem;color:rgba(255,255,255,.8);font-size:.9rem;">
         <a href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer" data-customer-telegram data-translate="footer_telegram">Telegram</a>
+        <a href="tel:+60146029003" aria-label="Call 0146029003">☎ 014-602 9003</a>
       </div>
     </div>
     <div>
@@ -947,7 +1034,7 @@
   </div>
 </footer>
 
-<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt="Open KKfootprint chat"></button>
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat" title="Chat with KKfootprint"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt="Open KKfootprint chat"></button>
 <div class="chatbot-window" id="chatbotWindow" hidden>
   <div class="chatbot-header">
     <span class="chatbot-brand"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt=""><span data-translate="chat_title">KKfootprint Assistant</span></span>
@@ -965,9 +1052,9 @@
   </div>
 </div>
 
-<div class="sticky-mobile-cta">
-  <button class="btn-primary" style="flex:1;" onclick="document.getElementById('booking').scrollIntoView()" data-translate="nav_book">BOOK NOW</button>
-  <a class="btn-secondary" style="flex:1;background:var(--jungle);border:none;" href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer" data-customer-telegram>💬 <span data-translate="nav_telegram">Telegram</span></a>
+<div class="sticky-mobile-cta" id="stickyMobileCtaIndex">
+  <button class="btn-primary" id="stickyCheckBtnIndex" style="flex:1.3;" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" data-translate="sticky_check">CHECK AVAILABILITY</button>
+  <a class="btn-secondary" id="stickyRexBtnIndex" style="flex:1;background:var(--jungle);border:none;" href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer" data-customer-telegram>💬 <span data-translate="sticky_rex">ASK REX</span></a>
 </div>
 
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -980,9 +1067,34 @@
       nav_culture: "Culture", nav_firefly: "Firefly", nav_city: "City Tour", nav_private: "Private Tour",
       nav_faq: "FAQ", nav_contact: "Contact", nav_telegram: "Telegram", nav_book: "BOOK NOW",
       
-      hero_eyebrow: "WELCOME TO SABAH, BORNEO", hero_title: "DISCOVER SABAH<br>YOUR WAY.",
-      hero_sub: "Explore islands, mountains, culture and unforgettable local experiences with a local Sabahan driver and flexible private tours.",
-      hero_book: "BOOK YOUR TOUR", hero_explore: "EXPLORE TOURS",
+      hero_eyebrow: "SABAH, BORNEO LOCAL DAY TOURS",
+      hero_title: "Kota Kinabalu Tours &amp; Day Trips",
+      hero_sub: "Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup, and instant availability check.",
+      hero_book: "CHECK AVAILABILITY", hero_explore: "EXPLORE TOURS",
+      sticky_check: "CHECK AVAILABILITY", sticky_rex: "ASK REX",
+      contact_required: "Please provide either an email address or Telegram username so we can reply with your confirmation.",
+
+      in_dest_tag: "IN KOTA KINABALU NOW?",
+      in_dest_text: "Planning for today or tomorrow? Check next-day availability or chat directly with REX for rapid confirmation.",
+      in_dest_check: "Check Availability",
+      in_dest_rex: "Ask REX",
+
+      qc_kicker: "Top Search Choices",
+      qc_title: "MOST POPULAR DAY TOURS IN KOTA KINABALU",
+      qc_sub: "Instant availability enquiry • Door-to-door hotel pickup • Transparent rates",
+      qc_tag_island: "Popular",
+      qc_h_island: "Island Hopping",
+      qc_p_island: "Twin island escape (Sapi, Manukan, Mamutik) with snorkeling gear & transfers.",
+      qc_tag_kundasang: "Highlands",
+      qc_h_kundasang: "Kundasang Day Trip",
+      qc_p_kundasang: "Mount Kinabalu viewpoint, guided off-road ATV trail & Desa Dairy Farm.",
+      qc_tag_private: "Private",
+      qc_h_private: "Private Tour & Driver",
+      qc_p_private: "Dedicated air-conditioned vehicle & local Sabahan driver. 10-hour flexible charter.",
+      qc_tag_mengalum: "Offshore Sea",
+      qc_h_mengalum: "Mengalum Island",
+      qc_p_mengalum: "Pristine white sandbar, crystal-clear turquoise waters & guided reef snorkeling.",
+
       hero_trust1: "Local Sabahan Driver/Guide", hero_trust2: "Hotel Pickup", hero_trust3: "Private & Group Tours", hero_trust4: "Flexible Itinerary",
       
       stat_local_h: "Local", stat_local_p: "Sabahan-led trips",
@@ -1060,7 +1172,7 @@
       terms_weather_title: "Weather and safety", terms_weather_text: "Tour times and activities are estimates and may change for weather, sea conditions, safety advice or operational requirements.",
       
       booking_title: "BOOK YOUR TOUR", booking_sub: "Tell us what you need. We'll verify availability and send you a confirmation.", language_service_notice: "",
-      lbl_name: "Name *", lbl_contact: "Telegram username (optional)", lbl_email: "Email *", lbl_tour: "Tour Package / Interest *",
+      lbl_name: "Name *", lbl_contact: "Telegram username (optional)", lbl_email: "Email (or Telegram username) *", lbl_tour: "Tour Package / Interest *",
       lbl_date: "Travel Date", lbl_hotel: "Hotel / Pickup Location", lbl_adults: "Adults", lbl_children: "Children (age 3–10)", children_note: "Infants age 0–2 travel free; add them in special requests.",
       lbl_type: "Tour Type", lbl_veh: "Preferred Vehicle (For Private)", lbl_req: "Special Requests / Questions",
       ph_name: "Your name", ph_contact: "@username", ph_email: "Email address", ph_hotel: "Hotel name", ph_req: "Any dietary requirements, specific locations, etc.",
@@ -1094,9 +1206,33 @@
       nav_culture: "文化村", nav_firefly: "红树林萤火虫", nav_city: "市区游", nav_private: "包车游",
       nav_faq: "常见问题", nav_contact: "联系我们", nav_telegram: "电报客服", nav_book: "立即预订",
       
-      hero_eyebrow: "欢迎来到沙巴婆罗洲", hero_title: "发现沙巴<br>随心所欲",
-      hero_sub: "与经验丰富的沙巴当地团队探索岛屿、神山、文化及难忘体验；如需中文协助，请在预订前确认安排。",
-      hero_book: "预订行程", hero_explore: "浏览行程",
+      hero_eyebrow: "沙巴亚庇在地一日游与包车服务", hero_title: "亚庇一日游与精选行程",
+      hero_sub: "双岛跳岛游 · 神山高山之旅 · 私人专属包车 · 原生态海岛。在地沙巴司机向导，酒店点对点接送，立即在线查询空位。",
+      hero_book: "查询空位", hero_explore: "探索行程",
+      sticky_check: "查询空位", sticky_rex: "在 Telegram 咨询 REX",
+      contact_required: "请提供电子邮箱或 Telegram 用户名，以便我们联系您确认行程与空位。",
+
+      in_dest_tag: "人已在亚庇？",
+      in_dest_text: "想订今天或明天的行程？快速查询次日空位，或直接联系 REX 即时安排。",
+      in_dest_check: "查询空位",
+      in_dest_rex: "咨询 REX",
+
+      qc_kicker: "热门精选",
+      qc_title: "亚庇最受欢迎的一日游与出海行程",
+      qc_sub: "快速查询空位 · 酒店点对点接送 · 价格透明公道",
+      qc_tag_island: "热门推荐",
+      qc_h_island: "双岛跳岛游",
+      qc_p_island: "东姑公园任选双岛（沙比／马努干／马穆迪），含浮潜用具与接送。",
+      qc_tag_kundasang: "高山风光",
+      qc_h_kundasang: "神山高原一日游",
+      qc_p_kundasang: "神山纳巴鲁观景点、高原越野ATV体验与德萨高山奶牛牧场。",
+      qc_tag_private: "包车自由行",
+      qc_h_private: "私人包车与专属司机",
+      qc_p_private: "专属冷气专车与在地沙巴司机向导，10小时自由定制行程路线。",
+      qc_tag_mengalum: "果冻海",
+      qc_h_mengalum: "环滩岛一日游",
+      qc_p_mengalum: "纯白拖尾沙洲、晶莹透亮果冻海与珊瑚礁小丑鱼导览浮潜。",
+
       hero_trust1: "中文/英语向导", hero_trust2: "酒店接送服务", hero_trust3: "包车与拼车可选", hero_trust4: "行程时间灵活",
       
       stat_local_h: "本地", stat_local_p: "沙巴人带路",
@@ -1174,7 +1310,7 @@
       terms_weather_title: "天气与安全", terms_weather_text: "行程时间和活动均为预计安排，可能因天气、海况、安全建议或运营需要而调整。",
       
       booking_title: "预订您的行程", booking_sub: "告诉我们您的需求。我们会核实空位并发送确认信息。", language_service_notice: "中文服务说明：导游和司机以英语服务为主，中文协助不保证每一团都有。如需中文协助，请在预订前告诉我们，以便先确认安排。",
-      lbl_name: "姓名 *", lbl_contact: "Telegram 用户名（选填）", lbl_email: "电子邮箱 *", lbl_tour: "行程 / 兴趣 *",
+      lbl_name: "姓名 *", lbl_contact: "Telegram 用户名（选填）", lbl_email: "电子邮箱（或 Telegram） *", lbl_tour: "行程 / 兴趣 *",
       lbl_date: "出发日期", lbl_hotel: "酒店 / 接送地点", lbl_adults: "成人人数", lbl_children: "儿童人数（3至10岁）", children_note: "0至2岁婴儿免费，请在特殊要求中注明人数。",
       lbl_type: "出团类型", lbl_veh: "首选车型 (若选择包车)", lbl_req: "特殊要求 / 问题",
       ph_name: "您的称呼", ph_contact: "@username", ph_email: "电邮地址", ph_hotel: "酒店名称", ph_req: "如有饮食要求、特定想去的地方等，请在此注明。",
@@ -1208,7 +1344,32 @@
     ...translations.en,
     logo_kk: "KKfootprint", logo_travel: "여행", lang_en: "영어", lang_zh: "중국어", lang_ko: "한국어",
     nav_home: "홈", nav_tours: "투어", nav_island: "섬 호핑", nav_kundasang: "쿤다상", nav_culture: "문화", nav_firefly: "반딧불이", nav_city: "시티 투어", nav_private: "프라이빗 투어", nav_faq: "자주 묻는 질문", nav_contact: "문의", nav_telegram: "텔레그램", nav_book: "예약하기",
-    hero_eyebrow: "사바 보르네오에 오신 것을 환영합니다", hero_title: "나만의 방식으로<br>사바를 만나보세요.", hero_sub: "현지 사바 운전기사와 함께 섬, 산, 문화와 잊지 못할 로컬 경험을 만나보세요. 유연한 프라이빗 투어도 가능합니다.", hero_book: "투어 예약", hero_explore: "투어 둘러보기", hero_trust1: "현지 사바 가이드", hero_trust2: "호텔 픽업", hero_trust3: "프라이빗·그룹 투어", hero_trust4: "유연한 일정",
+    hero_eyebrow: "사바 보르네오 현지 당일 투어", hero_title: "코타키나발루 투어 &amp; 데이 트립", hero_sub: "섬 투어 호핑 · 쿤다상 고원 · 단독 프라이빗 투어 · 사바 인기 여행. 현지 사바 드라이버 가이드, 호텔 픽업, 실시간 예약 가능 여부 확인.", hero_book: "가능 여부 확인", hero_explore: "투어 둘러보기",
+    sticky_check: "가능 여부 확인", sticky_rex: "REX에게 문의",
+    contact_required: "예약 가능 여부와 확인 안내를 받을 수 있도록 이메일 주소 또는 텔레그램 사용자 이름을 입력해 주세요.",
+
+    in_dest_tag: "지금 코타키나발루에 계신가요?",
+    in_dest_text: "오늘이나 내일 투어가 필요하신가요? 내일 가능한 일정을 확인하거나 REX와 실시간으로 상담해 보세요.",
+    in_dest_check: "가능 여부 확인",
+    in_dest_rex: "REX 문의",
+
+    qc_kicker: "인기 검색 투어",
+    qc_title: "코타키나발루 베스트 인기 당일 투어",
+    qc_sub: "실시간 가능 여부 문의 • 호텔 도어투도어 픽업 • 투명한 정찰제 요금",
+    qc_tag_island: "인기",
+    qc_h_island: "섬 호핑 투어",
+    qc_p_island: "사피·마누칸·마무틱 중 2개 섬 선택, 스노클링 장비 및 이동 포함.",
+    qc_tag_kundasang: "고원 힐링",
+    qc_h_kundasang: "쿤다상 당일 투어",
+    qc_p_kundasang: "키나발루산 전망대, 가이드 동반 오프로드 ATV 및 데사 낙농목장.",
+    qc_tag_private: "단독 투어",
+    qc_h_private: "단독 차량 투어 & 전담 기사",
+    qc_p_private: "전용 에어컨 차량과 현지 사바 드라이버 가이드. 10시간 맞춤 자유 일정.",
+    qc_tag_mengalum: "에메랄드빛 바다",
+    qc_h_mengalum: "맹글럼 섬 투어",
+    qc_p_mengalum: "새하얀 모래사장과 에메랄드빛 바다, 산호초 가이드 스노클링.",
+
+    hero_trust1: "현지 사바 가이드", hero_trust2: "호텔 픽업", hero_trust3: "프라이빗·그룹 투어", hero_trust4: "유연한 일정",
     stat_local_h: "현지", stat_local_p: "사바 현지인 진행", stat_flex_h: "유연함", stat_flex_p: "프라이빗 또는 조인", stat_door_h: "문 앞에서", stat_door_p: "호텔 픽업 옵션", stat_lang_h: "언어 안내", stat_lang_p: "가이드·드라이버는 영어로 안내",
     search_where: "어디로 떠나고 싶으신가요?", search_date: "여행 날짜", search_travelers: "인원", search_guest_default: "성인 2명, 어린이 0명", search_adults: "성인", search_adults_note: "만 11세 이상", search_children: "어린이", search_children_note: "만 3~10세 · 만 0~2세 유아 무료", search_estimate_title: "예상 패키지 총액", search_estimate_choose: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", search_estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", search_estimate_guests: "유료 인원", search_estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", search_estimate_total: "예상 총액", search_type: "프라이빗 / 조인", search_cta: "투어 확인", search_min_pax_hint: "(패키지 요금은 최소 2명부터 적용됩니다)", ph_select_date: "날짜 선택",
     opt_island: "사피·마누칸·마무틱 섬 호핑 투어", opt_mengalum: "맹글럼 섬 일일 투어", opt_mantanani: "만타나니 섬 스노클링 일일 투어", opt_kundasang: "쿤다상 절경·ATV·데사 낙농장 일일 투어", opt_culture: "마리마리 문화마을 체험", opt_firefly: "코타키나발루 맹그로브 반딧불이 투어", opt_city: "코타키나발루 시티 투어", opt_custom: "맞춤 프라이빗 투어", opt_2adult: "성인 2명", opt_1adult: "성인 1명", opt_family: "가족", opt_private: "프라이빗", opt_shared: "조인", opt_any: "추천 받기", opt_general: "일반 문의", opt_select_tour: "투어 선택",
@@ -1225,7 +1386,7 @@
     gallery_kicker: "사바의 순간", gallery_title: "사바에서의 진짜 여행 순간.", gallery_intro: "허락을 받고 공유하는 실제 여행 사진입니다. 예약별 이용 가능 여부, 날씨 및 최종 일정은 별도로 확인해 드립니다.", gallery_1: "코타키나발루 여행의 순간", gallery_2: "시티 투어: 블루 모스크", gallery_3: "코타키나발루 워터프런트", gallery_4: "시티 투어: 핑크 모스크", gallery_5: "코타키나발루에 오신 것을 환영합니다", gallery_6: "시티 투어: 사바 재단 빌딩", gallery_7: "코타키나발루 나들이", gallery_8: "시티 투어의 순간",
     faq_title: "자주 묻는 질문", faq_1_q: "투어는 어떻게 예약하나요?", faq_1_a: "투어, 희망 날짜와 인원을 보내주시면 최종 예약 전에 가능 여부를 확인해 드립니다.", faq_2_q: "호텔 픽업이 가능한가요?", faq_2_a: "많은 코타키나발루 투어에서 호텔 픽업을 이용할 수 있습니다. 정확한 범위는 패키지에 따라 다릅니다.", faq_3_q: "프라이빗 투어인가요, 조인 투어인가요?", faq_3_a: "일부 투어에서 두 가지 모두 가능합니다. 프라이빗 투어는 시간과 방문지를 더 유연하게 조정할 수 있습니다.", faq_4_q: "일정을 맞춤으로 만들 수 있나요?", faq_4_a: "네. 경로, 날씨와 운영 상황에 따라 그룹의 관심사와 시간에 맞춰 프라이빗 투어를 조정할 수 있습니다.", faq_5_q: "어떤 차량을 이용할 수 있나요?", faq_5_a: "인원과 짐에 따라 세단, MPV, 밴을 이용할 수 있습니다.", faq_6_q: "어린이도 참여할 수 있나요?", faq_6_a: "많은 투어가 가족 여행에 적합합니다. 알맞은 투어를 추천할 수 있도록 어린이의 나이를 알려 주세요.", weather_note: "여유 있게 여행하세요. 야외 활동은 날씨와 안전 상황에 따라 달라질 수 있습니다.",
     terms_kicker: "예약 안내", terms_title: "예약 안내", terms_intro: "투어를 확정하기 전에 아래 실용적인 예약 정보를 확인해 주세요.", terms_payment_title: "선결제 금액", terms_payment_text: "가능 여부, 최종 일정 및 필요한 선결제 금액을 확인한 뒤에만 결제를 요청합니다. 멩갈룸 섬은 확정된 운영 방식에 따라 선결제 금액을 계산하며, 잔금은 픽업 시 결제합니다.", terms_punctuality_title: "픽업 시간 준수", terms_punctuality_text: "픽업 시간 10분 전까지 호텔 로비에 도착해 주세요. 기사는 최대 10분만 기다릴 수 있습니다.", terms_weather_title: "날씨 및 안전", terms_weather_text: "일정 시간과 활동은 예상 기준이며 날씨, 해상 상태, 안전 안내 또는 운영 상황에 따라 변경될 수 있습니다.",
-    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", language_service_notice: "안내: 가이드와 운전기사는 영어로만 안내합니다. 영어를 완전히 이해하기 어려우시면 예약 전에 알려 주세요.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름 *", lbl_email: "이메일", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "이메일 주소", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", receipt_title: "예약금을 이미 결제하셨나요?", receipt_intro: "KKfootprint Travel에서 예약 번호와 결제 안내를 받은 후 결제 영수증을 업로드해 주세요. 직원 확인 후에만 결제가 확정됩니다.", receipt_ref_label: "예약 번호 *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "이름 *", receipt_email_label: "이메일 *", receipt_file_label: "영수증 이미지 또는 PDF *", receipt_submit: "영수증 업로드", receipt_success: "영수증을 받았습니다. 결제를 확인한 뒤 예약을 확정해 드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
+    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", language_service_notice: "안내: 가이드와 운전기사는 영어로만 안내합니다. 영어를 완전히 이해하기 어려우시면 예약 전에 알려 주세요.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름 (선택)", lbl_email: "이메일 (또는 텔레그램) *", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "이메일 주소", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", receipt_title: "예약금을 이미 결제하셨나요?", receipt_intro: "KKfootprint Travel에서 예약 번호와 결제 안내를 받은 후 결제 영수증을 업로드해 주세요. 직원 확인 후에만 결제가 확정됩니다.", receipt_ref_label: "예약 번호 *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "이름 *", receipt_email_label: "이메일 *", receipt_file_label: "영수증 이미지 또는 PDF *", receipt_submit: "영수증 업로드", receipt_success: "영수증을 받았습니다. 결제를 확인한 뒤 예약을 확정해 드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
     lbl_multi_tour_hint: "2개 이상의 투어를 조합해 보세요:", opt_combo: "✨ 다중 투어 콤보 (아래에서 선택됨)", btn_clear_tours: "선택 해제", estimate_combo_title: "다중 투어 콤보 예상 총액", estimate_combo_note: "선택하신 모든 투어의 구체적인 출발 날짜와 픽업 일정을 조율해 드립니다.",
     footer_title: "KKfootprint Travel", footer_tag: "사바에서 남기는 당신만의 발자국.", footer_loc: "말레이시아 사바 코타키나발루", footer_links: "바로가기", footer_contact: "문의하기", footer_telegram: "텔레그램", footer_legal: "법적 고지", footer_terms: "이용약관", footer_privacy: "개인정보 처리방침", footer_copy: "© 2026 KKfootprint Travel", footer_rights: "모든 권리 보유.",
     chat_title: "KKfootprint 도우미", chat_pre_msg: "REX와 대화를 시작하려면 정보를 입력해 주세요.", chat_contact_label: "텔레그램 사용자 이름 *", chat_telegram_ph: "@username", chat_email_label: "이메일 주소 *", chat_continue_notice: "계속을 선택하면 KKfootprint가 문의 답변을 위해 이 정보를 사용하는 데 동의하게 됩니다. <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">개인정보 처리방침</a>을 확인하세요.", chat_marketing_choice: "텔레그램 또는 이메일로 가끔 투어 혜택을 받겠습니다. 선택 사항이며 언제든지 수신 거부할 수 있습니다.", chat_lead_error: "지금은 채팅을 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.", chat_message_error: "REX가 지금 답변하지 못했습니다. 다시 시도해 주세요.", btn_start_chat: "계속", ph_chat_input: "메시지를 입력하세요...", chat_msg_1: "{name}님, {tour}에 관심 가져주셔서 감사합니다. 여행 계획을 어떻게 도와드릴까요?", chat_msg_fallback: "안녕하세요! 사바 여행 계획을 어떻게 도와드릴까요?", chat_btn_1: "가능 여부 확인", chat_btn_2: "요금 안내", chat_btn_3: "일정 상세",
@@ -1234,8 +1395,6 @@
     tour_item_1: "사피·마누칸·마무틱 섬 호핑 투어", tour_item_2: "맹글럼 섬 일일 투어", tour_item_3: "쿤다상 절경·ATV·데사 낙농장 일일 투어", tour_item_4: "마리마리 문화마을 체험", tour_item_5: "코타키나발루 맹그로브 반딧불이 투어", tour_item_6: "코타키나발루 시티 투어", tour_item_7: "만타나니 섬 스노클링 일일 투어"
   };
 
-  translations.ko.lbl_contact = "텔레그램 사용자 이름 (선택)";
-  translations.ko.lbl_email = "이메일 *";
   const languagePathMap = { '/en': 'en', '/zh-hans': 'zh', '/ko': 'ko' };
   const pathLanguage = Object.entries(languagePathMap).find(([path]) => location.pathname === path || location.pathname.startsWith(`${path}/`))?.[1];
   let currentLang = pathLanguage || localStorage.getItem('kk-lang') || (navigator.language.startsWith('zh') ? 'zh' : navigator.language.startsWith('ko') ? 'ko' : 'en');
@@ -1644,6 +1803,17 @@
         <button class="faq-question" aria-expanded="false">${f.q} <span style="font-size:1.5rem;line-height:0.5">+</span></button>
         <div class="faq-answer"><p>${f.a}</p></div>
       </div>`).join('');
+
+    // Quick Choices language-aware links
+    const langPrefix = currentLang === 'en' ? '' : `/${currentLang === 'zh' ? 'zh-hans' : currentLang}`;
+    const qcIsland = document.getElementById('qcCardIsland');
+    if (qcIsland) qcIsland.href = `${langPrefix}/tours/twin-island-hopping/`;
+    const qcKundasang = document.getElementById('qcCardKundasang');
+    if (qcKundasang) qcKundasang.href = `${langPrefix}/tours/kundasang-atv-farm/`;
+    const qcPrivate = document.getElementById('qcCardPrivate');
+    if (qcPrivate) qcPrivate.href = `${langPrefix}/tours/private-kota-kinabalu-tour/`;
+    const qcMengalum = document.getElementById('qcCardMengalum');
+    if (qcMengalum) qcMengalum.href = `${langPrefix}/tours/mengalum-island/`;
   }
 
   let chatActive = false;
@@ -2182,10 +2352,20 @@
       tourValue = selectedKeys[0];
     }
 
+    const contactVal = document.getElementById('bf_contact').value.trim();
+    const emailVal = document.getElementById('bf_email').value.trim();
+
+    if (!contactVal && !emailVal) {
+      alert(translations[currentLang]?.contact_required || 'Please provide either an email address or Telegram username so we can reply with your confirmation.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalButtonText;
+      return;
+    }
+
     const formData = {
-      name: document.getElementById('bf_name').value,
-      contact: document.getElementById('bf_contact').value,
-      email: document.getElementById('bf_email').value,
+      name: document.getElementById('bf_name').value.trim(),
+      contact: contactVal,
+      email: emailVal,
       tour: tourValue,
       date: document.getElementById('bf_date').value,
       hotel: document.getElementById('bf_hotel').value,
@@ -2377,6 +2557,22 @@
     const distance = event.changedTouches[0].screenX - galleryTouchStartX;
     if (Math.abs(distance) >= 35) showGalleryPage(galleryIndex + (distance < 0 ? 1 : -1));
   }, { passive:true });
+
+  // Sticky Mobile CTA visibility controller
+  const stickyCtaIndex = document.getElementById('stickyMobileCtaIndex');
+  const bookingSection = document.getElementById('booking');
+  if (stickyCtaIndex && bookingSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyCtaIndex.classList.add('hidden');
+        } else {
+          stickyCtaIndex.classList.remove('hidden');
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(bookingSection);
+  }
 
   // Initialize
   applyLanguage(currentLang);
