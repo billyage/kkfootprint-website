@@ -527,7 +527,7 @@
     <div class="hero-content reveal">
       <div class="eyebrow" data-translate="hero_eyebrow">SABAH, BORNEO LOCAL DAY TOURS</div>
       <h1 data-translate="hero_title">Kota Kinabalu Tours &amp; Day Trips</h1>
-      <p data-translate="hero_sub">Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup, and instant availability check.</p>
+      <p data-translate="hero_sub">Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup. We'll confirm availability for your dates.</p>
       <div class="hero-cta">
         <a href="#booking" class="btn-primary" data-translate="hero_book">CHECK AVAILABILITY</a>
         <a href="#quickChoices" class="btn-secondary" data-translate="hero_explore">EXPLORE TOURS</a>
@@ -548,7 +548,7 @@
       <div class="in-destination-banner" id="inDestinationBanner">
         <div class="in-destination-inner">
           <span class="in-destination-tag">📍 <span data-translate="in_dest_tag">IN KOTA KINABALU NOW?</span></span>
-          <p class="in-destination-text" data-translate="in_dest_text">Planning for today or tomorrow? Check next-day availability or chat directly with REX for rapid confirmation.</p>
+          <p class="in-destination-text" data-translate="in_dest_text">Planning for today or tomorrow? Check next-day availability or chat directly with REX to check your schedule.</p>
           <div class="in-destination-actions">
             <a href="#booking" class="in-dest-btn-primary" data-translate="in_dest_check">Check Availability</a>
             <a href="https://t.me/kkfootprint_bot?start=lang_en" target="_blank" rel="noopener noreferrer" data-customer-telegram class="in-dest-btn-rex">💬 <span data-translate="in_dest_rex">Ask REX</span></a>
@@ -613,7 +613,7 @@
   <div class="container">
     <div class="section-kicker" data-translate="qc_kicker">Top Search Choices</div>
     <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 0.5rem;" data-translate="qc_title">MOST POPULAR DAY TOURS IN KOTA KINABALU</h2>
-    <p class="section-sub" style="margin-bottom: 1.8rem;" data-translate="qc_sub">Instant availability enquiry • Door-to-door hotel pickup • Transparent rates</p>
+    <p class="section-sub" style="margin-bottom: 1.8rem;" data-translate="qc_sub">Check availability with REX • Door-to-door hotel pickup • Transparent rates</p>
     <div class="quick-choices-grid">
       <a href="/tours/twin-island-hopping/" class="qc-card" id="qcCardIsland">
         <div class="qc-media"><img src="/images/tours/island-hopping-480.webp" alt="Island Hopping Kota Kinabalu" loading="lazy"></div>
@@ -932,17 +932,18 @@
           <input type="text" id="bf_name" required data-translate-ph="ph_name" placeholder="Your name">
         </div>
         <div>
-          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_contact">Telegram username (optional)</label>
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_contact">Telegram username</label>
           <input type="text" id="bf_contact" pattern="@?[A-Za-z0-9_]{5,32}" autocomplete="off" data-translate-ph="ph_contact" placeholder="@username">
         </div>
         <div>
-          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_email">Email (or Telegram username) *</label>
-          <input type="email" id="bf_email" autocomplete="email" data-translate-ph="ph_email" placeholder="Email address">
+          <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_email">Email address</label>
+          <input type="email" id="bf_email" autocomplete="email" data-translate-ph="ph_email" placeholder="name@example.com">
         </div>
         <div>
           <label style="font-size:0.8rem;font-weight:600;display:block;margin-bottom:0.3rem" data-translate="lbl_date">Travel Date</label>
           <input type="text" id="bf_date" class="flatpickr-input" data-translate-ph="ph_select_date" placeholder="Select Date">
         </div>
+        <div class="contact-hint" style="grid-column: 1 / -1; font-size: 0.78rem; color: var(--ocean); margin-top: -0.3rem; margin-bottom: 0.2rem; font-weight: 500;" data-translate="contact_hint">* Provide at least one contact method (Email OR Telegram username) so we can confirm availability.</div>
         <div style="grid-column: 1 / -1;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;flex-wrap:wrap;gap:0.3rem;">
             <label style="font-size:0.8rem;font-weight:600;" data-translate="lbl_tour">Tour Package *</label>
@@ -1069,19 +1070,20 @@
       
       hero_eyebrow: "SABAH, BORNEO LOCAL DAY TOURS",
       hero_title: "Kota Kinabalu Tours &amp; Day Trips",
-      hero_sub: "Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup, and instant availability check.",
+      hero_sub: "Island Hopping • Kundasang • Private Tours • Sabah Experiences. Local Sabahan driver-guides, hotel pickup. We'll confirm availability for your dates.",
       hero_book: "CHECK AVAILABILITY", hero_explore: "EXPLORE TOURS",
       sticky_check: "CHECK AVAILABILITY", sticky_rex: "ASK REX",
       contact_required: "Please provide either an email address or Telegram username so we can reply with your confirmation.",
+      contact_hint: "* Provide at least one contact method: Email OR Telegram username",
 
       in_dest_tag: "IN KOTA KINABALU NOW?",
-      in_dest_text: "Planning for today or tomorrow? Check next-day availability or chat directly with REX for rapid confirmation.",
+      in_dest_text: "Planning for today or tomorrow? Check next-day availability or chat directly with REX to check your schedule.",
       in_dest_check: "Check Availability",
       in_dest_rex: "Ask REX",
 
       qc_kicker: "Top Search Choices",
       qc_title: "MOST POPULAR DAY TOURS IN KOTA KINABALU",
-      qc_sub: "Instant availability enquiry • Door-to-door hotel pickup • Transparent rates",
+      qc_sub: "Check availability with REX • Door-to-door hotel pickup • Transparent rates",
       qc_tag_island: "Popular",
       qc_h_island: "Island Hopping",
       qc_p_island: "Twin island escape (Sapi, Manukan, Mamutik) with snorkeling gear & transfers.",
@@ -1172,10 +1174,10 @@
       terms_weather_title: "Weather and safety", terms_weather_text: "Tour times and activities are estimates and may change for weather, sea conditions, safety advice or operational requirements.",
       
       booking_title: "BOOK YOUR TOUR", booking_sub: "Tell us what you need. We'll verify availability and send you a confirmation.", language_service_notice: "",
-      lbl_name: "Name *", lbl_contact: "Telegram username (optional)", lbl_email: "Email (or Telegram username) *", lbl_tour: "Tour Package / Interest *",
+      lbl_name: "Name *", lbl_contact: "Telegram username", lbl_email: "Email address", lbl_tour: "Tour Package / Interest *",
       lbl_date: "Travel Date", lbl_hotel: "Hotel / Pickup Location", lbl_adults: "Adults", lbl_children: "Children (age 3–10)", children_note: "Infants age 0–2 travel free; add them in special requests.",
       lbl_type: "Tour Type", lbl_veh: "Preferred Vehicle (For Private)", lbl_req: "Special Requests / Questions",
-      ph_name: "Your name", ph_contact: "@username", ph_email: "Email address", ph_hotel: "Hotel name", ph_req: "Any dietary requirements, specific locations, etc.",
+      ph_name: "Your name", ph_contact: "@username", ph_email: "name@example.com", ph_hotel: "Hotel name", ph_req: "Any dietary requirements, specific locations, etc.",
       btn_request: "REQUEST BOOKING", form_note: "This sends a booking request only. Final availability and price are confirmed by KKfootprint Travel.", form_success: "Thanks — your request is ready. We’ll use the details above to continue the booking conversation.", receipt_title: "Already paid your deposit?", receipt_intro: "Upload your payment receipt after you receive a booking reference and payment instructions from KKfootprint Travel. Payment is confirmed only after staff verification.", receipt_ref_label: "Booking reference *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "Name *", receipt_email_label: "Email *", receipt_file_label: "Receipt image or PDF *", receipt_submit: "UPLOAD RECEIPT", receipt_success: "Receipt received. We will verify it and confirm your booking shortly.", estimate_title: "Estimated package total", estimate_choose_tour: "Select a priced tour package to see your estimate.", estimate_minimum: "Package rates require a minimum of 2 paying guests.", estimate_adult_rate: "Adult rate", estimate_child_rate: "Child rate", estimate_child_confirmation: "Child price requires staff confirmation for this tour.", estimate_infant_note: "Infants age 0–2 travel free; add them in Special Requests.", estimate_paying_guests: "Paying guests", estimate_subtotal: "Subtotal", estimate_total: "Estimated total", estimate_per_person: "per paying guest",
       lbl_multi_tour_hint: "Combine 2+ tours for a custom package:", opt_combo: "✨ Multi-Tour Combo (Selected Below)", btn_clear_tours: "Clear selection", estimate_combo_title: "Multi-Tour Combo Estimate", estimate_combo_note: "Our team will coordinate the pickup times and daily schedule for all selected tours.",
       
@@ -1207,19 +1209,20 @@
       nav_faq: "常见问题", nav_contact: "联系我们", nav_telegram: "电报客服", nav_book: "立即预订",
       
       hero_eyebrow: "沙巴亚庇在地一日游与包车服务", hero_title: "亚庇一日游与精选行程",
-      hero_sub: "双岛跳岛游 · 神山高山之旅 · 私人专属包车 · 原生态海岛。在地沙巴司机向导，酒店点对点接送，立即在线查询空位。",
+      hero_sub: "双岛跳岛游 · 神山高山之旅 · 私人专属包车 · 原生态海岛。在地沙巴司机向导，酒店点对点接送。提交后我们将为您核实空位。",
       hero_book: "查询空位", hero_explore: "探索行程",
       sticky_check: "查询空位", sticky_rex: "在 Telegram 咨询 REX",
       contact_required: "请提供电子邮箱或 Telegram 用户名，以便我们联系您确认行程与空位。",
+      contact_hint: "* 请至少提供一种联系方式：电子邮箱或 Telegram 用户名",
 
       in_dest_tag: "人已在亚庇？",
-      in_dest_text: "想订今天或明天的行程？快速查询次日空位，或直接联系 REX 即时安排。",
+      in_dest_text: "想订今天或明天的行程？查询次日空位，或直接在 Telegram 与 REX 咨询安排。",
       in_dest_check: "查询空位",
       in_dest_rex: "咨询 REX",
 
       qc_kicker: "热门精选",
       qc_title: "亚庇最受欢迎的一日游与出海行程",
-      qc_sub: "快速查询空位 · 酒店点对点接送 · 价格透明公道",
+      qc_sub: "查询行程空位 · 酒店点对点接送 · 价格透明公道",
       qc_tag_island: "热门推荐",
       qc_h_island: "双岛跳岛游",
       qc_p_island: "东姑公园任选双岛（沙比／马努干／马穆迪），含浮潜用具与接送。",
@@ -1310,10 +1313,10 @@
       terms_weather_title: "天气与安全", terms_weather_text: "行程时间和活动均为预计安排，可能因天气、海况、安全建议或运营需要而调整。",
       
       booking_title: "预订您的行程", booking_sub: "告诉我们您的需求。我们会核实空位并发送确认信息。", language_service_notice: "中文服务说明：导游和司机以英语服务为主，中文协助不保证每一团都有。如需中文协助，请在预订前告诉我们，以便先确认安排。",
-      lbl_name: "姓名 *", lbl_contact: "Telegram 用户名（选填）", lbl_email: "电子邮箱（或 Telegram） *", lbl_tour: "行程 / 兴趣 *",
+      lbl_name: "姓名 *", lbl_contact: "Telegram 用户名", lbl_email: "电子邮箱", lbl_tour: "行程 / 兴趣 *",
       lbl_date: "出发日期", lbl_hotel: "酒店 / 接送地点", lbl_adults: "成人人数", lbl_children: "儿童人数（3至10岁）", children_note: "0至2岁婴儿免费，请在特殊要求中注明人数。",
       lbl_type: "出团类型", lbl_veh: "首选车型 (若选择包车)", lbl_req: "特殊要求 / 问题",
-      ph_name: "您的称呼", ph_contact: "@username", ph_email: "电邮地址", ph_hotel: "酒店名称", ph_req: "如有饮食要求、特定想去的地方等，请在此注明。",
+      ph_name: "您的称呼", ph_contact: "@username", ph_email: "name@example.com", ph_hotel: "酒店名称", ph_req: "如有饮食要求、特定想去的地方等，请在此注明。",
       btn_request: "提交预订请求", form_note: "此表单仅发送预订请求。最终的可用性和价格将由本地团队确认。", form_success: "感谢！我们已收到您的请求。我们将使用上述详情与您继续沟通预订事宜。", receipt_title: "已支付订金？", receipt_intro: "收到 KKfootprint Travel 提供的预订编号和付款说明后，请上传付款收据。付款须经工作人员核实后才会确认。", receipt_ref_label: "预订编号 *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "姓名 *", receipt_email_label: "电子邮箱 *", receipt_file_label: "收据图片或 PDF *", receipt_submit: "上传收据", receipt_success: "已收到收据。我们会核实付款并尽快确认您的预订。", estimate_title: "套餐预估总价", estimate_choose_tour: "请选择有标价的行程套餐以查看预估价格。", estimate_minimum: "套餐价格至少需要2位收费旅客。", estimate_adult_rate: "成人单价", estimate_child_rate: "儿童单价", estimate_child_confirmation: "此行程的儿童价格需由客服确认。", estimate_infant_note: "0至2岁婴儿免费，请在特殊要求中注明人数。", estimate_paying_guests: "收费人数", estimate_subtotal: "小计", estimate_total: "预估总价", estimate_per_person: "每位收费旅客",
       lbl_multi_tour_hint: "自由组合2个或更多行程：", opt_combo: "✨ 自选多日组合行程（在下方已选）", btn_clear_tours: "清空已选", estimate_combo_title: "多行程组合预估总价", estimate_combo_note: "我们的团队将与您协调并确认所有已选行程的每日具体出团日期与接送安排。",
       
@@ -1344,18 +1347,19 @@
     ...translations.en,
     logo_kk: "KKfootprint", logo_travel: "여행", lang_en: "영어", lang_zh: "중국어", lang_ko: "한국어",
     nav_home: "홈", nav_tours: "투어", nav_island: "섬 호핑", nav_kundasang: "쿤다상", nav_culture: "문화", nav_firefly: "반딧불이", nav_city: "시티 투어", nav_private: "프라이빗 투어", nav_faq: "자주 묻는 질문", nav_contact: "문의", nav_telegram: "텔레그램", nav_book: "예약하기",
-    hero_eyebrow: "사바 보르네오 현지 당일 투어", hero_title: "코타키나발루 투어 &amp; 데이 트립", hero_sub: "섬 투어 호핑 · 쿤다상 고원 · 단독 프라이빗 투어 · 사바 인기 여행. 현지 사바 드라이버 가이드, 호텔 픽업, 실시간 예약 가능 여부 확인.", hero_book: "가능 여부 확인", hero_explore: "투어 둘러보기",
+    hero_eyebrow: "사바 보르네오 현지 당일 투어", hero_title: "코타키나발루 투어 &amp; 데이 트립", hero_sub: "섬 투어 호핑 · 쿤다상 고원 · 단독 프라이빗 투어 · 사바 인기 여행. 현지 사바 드라이버 가이드, 호텔 픽업. 가능 여부를 확인해 드립니다.", hero_book: "가능 여부 확인", hero_explore: "투어 둘러보기",
     sticky_check: "가능 여부 확인", sticky_rex: "REX에게 문의",
     contact_required: "예약 가능 여부와 확인 안내를 받을 수 있도록 이메일 주소 또는 텔레그램 사용자 이름을 입력해 주세요.",
+    contact_hint: "* 연락 가능한 수단을 최소 하나 입력해 주세요: 이메일 또는 텔레그램",
 
     in_dest_tag: "지금 코타키나발루에 계신가요?",
-    in_dest_text: "오늘이나 내일 투어가 필요하신가요? 내일 가능한 일정을 확인하거나 REX와 실시간으로 상담해 보세요.",
+    in_dest_text: "오늘이나 내일 투어가 필요하신가요? 내일 가능한 일정을 확인하거나 REX에게 문의해 일정을 확인해 보세요.",
     in_dest_check: "가능 여부 확인",
     in_dest_rex: "REX 문의",
 
     qc_kicker: "인기 검색 투어",
     qc_title: "코타키나발루 베스트 인기 당일 투어",
-    qc_sub: "실시간 가능 여부 문의 • 호텔 도어투도어 픽업 • 투명한 정찰제 요금",
+    qc_sub: "투어 가능 여부 문의 • 호텔 도어투도어 픽업 • 투명한 정찰제 요금",
     qc_tag_island: "인기",
     qc_h_island: "섬 호핑 투어",
     qc_p_island: "사피·마누칸·마무틱 중 2개 섬 선택, 스노클링 장비 및 이동 포함.",
@@ -1386,7 +1390,7 @@
     gallery_kicker: "사바의 순간", gallery_title: "사바에서의 진짜 여행 순간.", gallery_intro: "허락을 받고 공유하는 실제 여행 사진입니다. 예약별 이용 가능 여부, 날씨 및 최종 일정은 별도로 확인해 드립니다.", gallery_1: "코타키나발루 여행의 순간", gallery_2: "시티 투어: 블루 모스크", gallery_3: "코타키나발루 워터프런트", gallery_4: "시티 투어: 핑크 모스크", gallery_5: "코타키나발루에 오신 것을 환영합니다", gallery_6: "시티 투어: 사바 재단 빌딩", gallery_7: "코타키나발루 나들이", gallery_8: "시티 투어의 순간",
     faq_title: "자주 묻는 질문", faq_1_q: "투어는 어떻게 예약하나요?", faq_1_a: "투어, 희망 날짜와 인원을 보내주시면 최종 예약 전에 가능 여부를 확인해 드립니다.", faq_2_q: "호텔 픽업이 가능한가요?", faq_2_a: "많은 코타키나발루 투어에서 호텔 픽업을 이용할 수 있습니다. 정확한 범위는 패키지에 따라 다릅니다.", faq_3_q: "프라이빗 투어인가요, 조인 투어인가요?", faq_3_a: "일부 투어에서 두 가지 모두 가능합니다. 프라이빗 투어는 시간과 방문지를 더 유연하게 조정할 수 있습니다.", faq_4_q: "일정을 맞춤으로 만들 수 있나요?", faq_4_a: "네. 경로, 날씨와 운영 상황에 따라 그룹의 관심사와 시간에 맞춰 프라이빗 투어를 조정할 수 있습니다.", faq_5_q: "어떤 차량을 이용할 수 있나요?", faq_5_a: "인원과 짐에 따라 세단, MPV, 밴을 이용할 수 있습니다.", faq_6_q: "어린이도 참여할 수 있나요?", faq_6_a: "많은 투어가 가족 여행에 적합합니다. 알맞은 투어를 추천할 수 있도록 어린이의 나이를 알려 주세요.", weather_note: "여유 있게 여행하세요. 야외 활동은 날씨와 안전 상황에 따라 달라질 수 있습니다.",
     terms_kicker: "예약 안내", terms_title: "예약 안내", terms_intro: "투어를 확정하기 전에 아래 실용적인 예약 정보를 확인해 주세요.", terms_payment_title: "선결제 금액", terms_payment_text: "가능 여부, 최종 일정 및 필요한 선결제 금액을 확인한 뒤에만 결제를 요청합니다. 멩갈룸 섬은 확정된 운영 방식에 따라 선결제 금액을 계산하며, 잔금은 픽업 시 결제합니다.", terms_punctuality_title: "픽업 시간 준수", terms_punctuality_text: "픽업 시간 10분 전까지 호텔 로비에 도착해 주세요. 기사는 최대 10분만 기다릴 수 있습니다.", terms_weather_title: "날씨 및 안전", terms_weather_text: "일정 시간과 활동은 예상 기준이며 날씨, 해상 상태, 안전 안내 또는 운영 상황에 따라 변경될 수 있습니다.",
-    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", language_service_notice: "안내: 가이드와 운전기사는 영어로만 안내합니다. 영어를 완전히 이해하기 어려우시면 예약 전에 알려 주세요.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름 (선택)", lbl_email: "이메일 (또는 텔레그램) *", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "이메일 주소", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", receipt_title: "예약금을 이미 결제하셨나요?", receipt_intro: "KKfootprint Travel에서 예약 번호와 결제 안내를 받은 후 결제 영수증을 업로드해 주세요. 직원 확인 후에만 결제가 확정됩니다.", receipt_ref_label: "예약 번호 *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "이름 *", receipt_email_label: "이메일 *", receipt_file_label: "영수증 이미지 또는 PDF *", receipt_submit: "영수증 업로드", receipt_success: "영수증을 받았습니다. 결제를 확인한 뒤 예약을 확정해 드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
+    booking_title: "투어 예약", booking_sub: "원하시는 내용을 알려 주세요. 가능 여부를 확인하고 안내해 드립니다.", language_service_notice: "안내: 가이드와 운전기사는 영어로만 안내합니다. 영어를 완전히 이해하기 어려우시면 예약 전에 알려 주세요.", lbl_name: "이름 *", lbl_contact: "텔레그램 사용자 이름", lbl_email: "이메일 주소", lbl_tour: "관심 투어 / 패키지 *", lbl_date: "여행 날짜", lbl_hotel: "호텔 / 픽업 장소", lbl_adults: "성인", lbl_children: "어린이(만 3~10세)", children_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", lbl_type: "투어 유형", lbl_veh: "선호 차량(프라이빗)", lbl_req: "특별 요청 / 문의", ph_name: "이름", ph_contact: "@username", ph_email: "name@example.com", ph_hotel: "호텔 이름", ph_req: "식단 요청, 희망 장소 등을 적어 주세요.", btn_request: "예약 요청 보내기", form_note: "이 양식은 예약 요청만 전송합니다. 최종 가능 여부와 요금은 KKfootprint Travel에서 확인해 드립니다.", form_success: "감사합니다. 요청이 접수되었습니다. 위 내용을 바탕으로 예약을 도와드리겠습니다.", receipt_title: "예약금을 이미 결제하셨나요?", receipt_intro: "KKfootprint Travel에서 예약 번호와 결제 안내를 받은 후 결제 영수증을 업로드해 주세요. 직원 확인 후에만 결제가 확정됩니다.", receipt_ref_label: "예약 번호 *", receipt_ref_placeholder: "KKF-...", receipt_name_label: "이름 *", receipt_email_label: "이메일 *", receipt_file_label: "영수증 이미지 또는 PDF *", receipt_submit: "영수증 업로드", receipt_success: "영수증을 받았습니다. 결제를 확인한 뒤 예약을 확정해 드리겠습니다.", estimate_title: "예상 패키지 총액", estimate_choose_tour: "요금이 있는 투어를 선택하면 예상 금액을 확인할 수 있습니다.", estimate_minimum: "패키지 요금은 유료 인원 2명부터 적용됩니다.", estimate_adult_rate: "성인 요금", estimate_child_rate: "어린이 요금", estimate_child_confirmation: "이 투어의 어린이 요금은 직원 확인이 필요합니다.", estimate_infant_note: "만 0~2세 유아는 무료입니다. 특별 요청란에 인원을 적어 주세요.", estimate_paying_guests: "유료 인원", estimate_subtotal: "소계", estimate_total: "예상 총액", estimate_per_person: "유료 인원 1인당",
     lbl_multi_tour_hint: "2개 이상의 투어를 조합해 보세요:", opt_combo: "✨ 다중 투어 콤보 (아래에서 선택됨)", btn_clear_tours: "선택 해제", estimate_combo_title: "다중 투어 콤보 예상 총액", estimate_combo_note: "선택하신 모든 투어의 구체적인 출발 날짜와 픽업 일정을 조율해 드립니다.",
     footer_title: "KKfootprint Travel", footer_tag: "사바에서 남기는 당신만의 발자국.", footer_loc: "말레이시아 사바 코타키나발루", footer_links: "바로가기", footer_contact: "문의하기", footer_telegram: "텔레그램", footer_legal: "법적 고지", footer_terms: "이용약관", footer_privacy: "개인정보 처리방침", footer_copy: "© 2026 KKfootprint Travel", footer_rights: "모든 권리 보유.",
     chat_title: "KKfootprint 도우미", chat_pre_msg: "REX와 대화를 시작하려면 정보를 입력해 주세요.", chat_contact_label: "텔레그램 사용자 이름 *", chat_telegram_ph: "@username", chat_email_label: "이메일 주소 *", chat_continue_notice: "계속을 선택하면 KKfootprint가 문의 답변을 위해 이 정보를 사용하는 데 동의하게 됩니다. <a href=\"/privacy\" target=\"_blank\" rel=\"noopener\">개인정보 처리방침</a>을 확인하세요.", chat_marketing_choice: "텔레그램 또는 이메일로 가끔 투어 혜택을 받겠습니다. 선택 사항이며 언제든지 수신 거부할 수 있습니다.", chat_lead_error: "지금은 채팅을 시작할 수 없습니다. 잠시 후 다시 시도해 주세요.", chat_message_error: "REX가 지금 답변하지 못했습니다. 다시 시도해 주세요.", btn_start_chat: "계속", ph_chat_input: "메시지를 입력하세요...", chat_msg_1: "{name}님, {tour}에 관심 가져주셔서 감사합니다. 여행 계획을 어떻게 도와드릴까요?", chat_msg_fallback: "안녕하세요! 사바 여행 계획을 어떻게 도와드릴까요?", chat_btn_1: "가능 여부 확인", chat_btn_2: "요금 안내", chat_btn_3: "일정 상세",

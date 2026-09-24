@@ -199,7 +199,7 @@ export default {
     }
 
     if (['/en/', '/zh-hans/', '/ko/'].includes(url.pathname)) {
-      const asset = await env.ASSETS.fetch(new Request(new URL('/', url), request));
+      const asset = await env.ASSETS.fetch(new Request(new URL('/', url)));
       return applyLandingPageSeo(asset, url, LANDING_PAGE_SEO[url.pathname]);
     }
 
@@ -382,7 +382,7 @@ export default {
 function applyTourSeo(response, url, seo) {
   if (!seo || !response.ok || !response.headers.get('content-type')?.includes('text/html')) return response;
   const alternates = seo.alternates || {};
-  return new HTMLRewriter()
+  const transformed = new HTMLRewriter()
     .on('html', { element(element) { element.setAttribute('lang', seo.lang || 'en'); } })
     .on('title', { element(element) { element.setInnerContent(seo.title); } })
     .on('#title', { element(element) { if (seo.h1Title) element.setInnerContent(seo.h1Title); } })
@@ -395,14 +395,29 @@ function applyTourSeo(response, url, seo) {
     .on('#tourAlternateKo', { element(element) { element.setAttribute('href', `https://kkfootprint.com${alternates.ko || url.pathname}`); } })
     .on('#tourAlternateDefault', { element(element) { element.setAttribute('href', `https://kkfootprint.com${alternates.en || url.pathname}`); } })
     .transform(response);
+
+  const newHeaders = new Headers(transformed.headers);
+  newHeaders.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  newHeaders.set('CDN-Cache-Control', 'no-store');
+  return new Response(transformed.body, {
+    status: transformed.status,
+    statusText: transformed.statusText,
+    headers: newHeaders,
+  });
 }
 
 function applyLandingPageSeo(response, url, seo) {
   if (!seo || !response.ok || !response.headers.get('content-type')?.includes('text/html')) return response;
   const canonical = `https://kkfootprint.com${url.pathname}`;
-  return new HTMLRewriter()
+  const heroTitles = {
+    '/en/': 'Kota Kinabalu Tours &amp; Day Trips',
+    '/zh-hans/': '亚庇一日游与精选行程',
+    '/ko/': '코타키나발루 투어 &amp; 데이 트립'
+  };
+  const transformed = new HTMLRewriter()
     .on('html', { element(element) { element.setAttribute('lang', seo.lang); } })
     .on('title', { element(element) { element.setInnerContent(seo.title); } })
+    .on('.hero h1', { element(element) { element.setInnerContent(heroTitles[url.pathname] || 'Kota Kinabalu Tours &amp; Day Trips'); } })
     .on('meta[name="description"]', { element(element) { element.setAttribute('content', seo.description); } })
     .on('#canonicalUrl', { element(element) { element.setAttribute('href', canonical); } })
     .on('#ogTitle', { element(element) { element.setAttribute('content', seo.title); } })
@@ -411,6 +426,15 @@ function applyLandingPageSeo(response, url, seo) {
     .on('#twitterTitle', { element(element) { element.setAttribute('content', seo.title); } })
     .on('#twitterDescription', { element(element) { element.setAttribute('content', seo.description); } })
     .transform(response);
+
+  const newHeaders = new Headers(transformed.headers);
+  newHeaders.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  newHeaders.set('CDN-Cache-Control', 'no-store');
+  return new Response(transformed.body, {
+    status: transformed.status,
+    statusText: transformed.statusText,
+    headers: newHeaders,
+  });
 }
 
 async function handleChatStart(request, env) {
