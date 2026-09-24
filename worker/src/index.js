@@ -410,14 +410,14 @@ function applyLandingPageSeo(response, url, seo) {
   if (!seo || !response.ok || !response.headers.get('content-type')?.includes('text/html')) return response;
   const canonical = `https://kkfootprint.com${url.pathname}`;
   const heroTitles = {
-    '/en/': 'Kota Kinabalu Tours &amp; Day Trips',
+    '/en/': 'Kota Kinabalu Tours & Day Trips',
     '/zh-hans/': '亚庇一日游与精选行程',
-    '/ko/': '코타키나발루 투어 &amp; 데이 트립'
+    '/ko/': '코타키나발루 투어 & 데이 트립'
   };
   const transformed = new HTMLRewriter()
     .on('html', { element(element) { element.setAttribute('lang', seo.lang); } })
     .on('title', { element(element) { element.setInnerContent(seo.title); } })
-    .on('.hero h1', { element(element) { element.setInnerContent(heroTitles[url.pathname] || 'Kota Kinabalu Tours &amp; Day Trips'); } })
+    .on('.hero h1', { element(element) { element.setInnerContent(heroTitles[url.pathname] || 'Kota Kinabalu Tours & Day Trips'); } })
     .on('meta[name="description"]', { element(element) { element.setAttribute('content', seo.description); } })
     .on('#canonicalUrl', { element(element) { element.setAttribute('href', canonical); } })
     .on('#ogTitle', { element(element) { element.setAttribute('content', seo.title); } })
