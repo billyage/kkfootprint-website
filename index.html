@@ -385,9 +385,14 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* The assistant stays above page and mobile-CTA content while the visitor scrolls. */
-    .chatbot-toggle { position: fixed; bottom: max(25px, env(safe-area-inset-bottom)); right: max(25px, env(safe-area-inset-right)); background: var(--jungle); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: var(--shadow-lg); z-index: 1000; transition: transform 0.2s, background 0.2s; display: flex; align-items: center; justify-content: center; padding: 5px; overflow: hidden; }
-    .chatbot-toggle img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; background: #fff; }
-    .chatbot-toggle:hover, .chatbot-toggle:focus-visible { transform: scale(1.05); background: var(--ocean); outline: none; }
+    .chatbot-toggle { position: fixed; bottom: max(25px, env(safe-area-inset-bottom)); right: max(25px, env(safe-area-inset-right)); background: var(--jungle); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; box-shadow: 0 8px 24px rgba(27,67,50,0.35); z-index: 1000; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), background 0.2s ease, box-shadow 0.2s ease; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; }
+    .chatbot-toggle:hover, .chatbot-toggle:focus-visible { transform: scale(1.08); background: var(--ocean); box-shadow: 0 10px 28px rgba(0,112,224,0.4); }
+    .chatbot-toggle .chat-icon-chat { display: block; width: 30px; height: 30px; }
+    .chatbot-toggle .chat-icon-dot { fill: var(--jungle); transition: fill 0.2s ease; }
+    .chatbot-toggle:hover .chat-icon-dot, .chatbot-toggle:focus-visible .chat-icon-dot { fill: var(--ocean); }
+    .chatbot-toggle .chat-icon-close { display: none; width: 24px; height: 24px; }
+    .chatbot-toggle.is-open .chat-icon-chat { display: none; }
+    .chatbot-toggle.is-open .chat-icon-close { display: block; }
     .chatbot-window { position: fixed; bottom: max(95px, calc(70px + env(safe-area-inset-bottom))); right: max(25px, env(safe-area-inset-right)); width: min(380px, 92vw); background: white; border-radius: 1.5rem; box-shadow: var(--shadow-lg); z-index: 1010; display: flex; flex-direction: column; max-height: 75vh; height: 500px; border: 1px solid #ddd; overflow: hidden; transform-origin: bottom right; }
     .chatbot-window[hidden] { display: none; }
     .chatbot-window { animation: pop 0.2s ease-out; }
@@ -429,6 +434,8 @@
       body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
       .sticky-mobile-cta { display: flex; padding-bottom: calc(0.8rem + env(safe-area-inset-bottom)); }
       .chatbot-toggle { bottom: max(80px, calc(64px + env(safe-area-inset-bottom))); right: max(16px, env(safe-area-inset-right)); width: 54px; height: 54px; }
+      .chatbot-toggle .chat-icon-chat { width: 26px; height: 26px; }
+      .chatbot-toggle .chat-icon-close { width: 22px; height: 22px; }
       .chatbot-window { bottom: max(140px, calc(124px + env(safe-area-inset-bottom))); right: max(16px, env(safe-area-inset-right)); }
     }
 
@@ -1035,7 +1042,18 @@
   </div>
 </footer>
 
-<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat" title="Chat with KKfootprint"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt="Open KKfootprint chat"></button>
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chat" aria-expanded="false" title="Chat with KKfootprint">
+  <svg class="chat-icon-chat" viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
+    <path d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.5 4.8 3.8 6.2-.2 1.3-.9 2.9-2.1 4 2.6 0 5-1.1 6.4-2.2.6.1 1.3.1 1.9.1 5.5 0 10-3.6 10-8.1S17.5 3 12 3z" fill="#ffffff"/>
+    <circle cx="8" cy="11" r="1.3" class="chat-icon-dot"/>
+    <circle cx="12" cy="11" r="1.3" class="chat-icon-dot"/>
+    <circle cx="16" cy="11" r="1.3" class="chat-icon-dot"/>
+  </svg>
+  <svg class="chat-icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+</button>
 <div class="chatbot-window" id="chatbotWindow" hidden>
   <div class="chatbot-header">
     <span class="chatbot-brand"><img src="/images/brand/kkfootprint-footprint-logo.jpg" alt=""><span data-translate="chat_title">KKfootprint Assistant</span></span>
@@ -1869,8 +1887,14 @@
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
-    const withLinks = escaped.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#0070e0;text-decoration:underline;font-weight:600;word-break:break-all;">$1 ↗</a>');
-    div.innerHTML = withLinks;
+    const withMedia = escaped.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
+      const isImg = /(?:kkfootprint\.com\/images\/|\.(?:webp|jpg|jpeg|png)(?:\?[^\s<]*)?$)/i.test(url);
+      if (isImg) {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="display:block;margin:0.55rem 0;border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.15);"><img src="${url}" alt="Tour preview" style="width:100%;height:auto;max-height:190px;object-fit:cover;display:block;border-radius:10px;" loading="lazy"></a>`;
+      }
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color:#0070e0;text-decoration:underline;font-weight:600;word-break:break-all;">${url} ↗</a>`;
+    });
+    div.innerHTML = withMedia;
     chatMessages.appendChild(div);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
@@ -2100,13 +2124,20 @@
   });
 
   // Toggle Chat Window
-  document.getElementById('chatbotToggle').addEventListener('click', () => { 
-    const w = document.getElementById('chatbotWindow'); 
-    w.hidden = !w.hidden; 
-    if (!w.hidden) beginAnonymousChat();
+  const chatToggleBtn = document.getElementById('chatbotToggle');
+  const chatWin = document.getElementById('chatbotWindow');
+  function setChatOpen(open) {
+    chatWin.hidden = !open;
+    chatToggleBtn?.classList.toggle('is-open', open);
+    chatToggleBtn?.setAttribute('aria-expanded', String(open));
+    chatToggleBtn?.setAttribute('aria-label', open ? 'Close chat' : 'Open chat');
+    if (open) beginAnonymousChat();
+  }
+  chatToggleBtn?.addEventListener('click', () => { 
+    setChatOpen(chatWin.hidden);
   });
-  document.getElementById('closeChat').addEventListener('click', () => {
-    document.getElementById('chatbotWindow').hidden = true;
+  document.getElementById('closeChat')?.addEventListener('click', () => {
+    setChatOpen(false);
   });
 
   // Returning visitors on the same browser continue their prior conversation
@@ -2135,8 +2166,7 @@
           ? `${reference ? `예약 번호 ${reference}` : '방금 제출한 예약 요청'}${tour ? ` (${tour})` : ''}에 대해 계속 상담하고 싶습니다.`
           : `I would like to continue with ${reference ? `booking request ${reference}` : 'my booking request'}${tour ? ` for ${tour}` : ''}.`;
     setTimeout(() => {
-      document.getElementById('chatbotWindow').hidden = false;
-      beginAnonymousChat();
+      setChatOpen(true);
       handleChatInput(message);
       document.getElementById('chatInput').focus();
     }, 0);

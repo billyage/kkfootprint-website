@@ -57,7 +57,7 @@ Assert-True ($landing -match 'rel="icon" href="/favicon\.jpg"') 'Landing page de
 Assert-True ($landing -match 'kkfootprint-footprint-logo\.jpg') 'Landing header displays the supplied footprint logo'
 Assert-True ($landing -match 'booking-summary-brand') 'Booking confirmation summary displays the official logo'
 Assert-True ($landing -match 'chatbot-brand') 'REX chat header displays the official logo'
-Assert-True ($landing -match 'chatbot-toggle.*kkfootprint-footprint-logo\.jpg') 'REX chat bubble displays the official logo'
+Assert-True ($landing -match 'chatbot-toggle.*chat-icon') 'REX chat bubble displays normal chat icon'
 Assert-True ($landing -match 'Hotel pickup by car is at 6:55 AM') 'Landing page states the authoritative Mengalum hotel pickup time'
 Assert-True ($landing -match 'boat departs at 7:40 AM') 'Landing page states the authoritative Mengalum boat departure time'
 Assert-True ($landing -match 'Chinese support on request') 'English landing page does not promise guaranteed Chinese-speaking service'
